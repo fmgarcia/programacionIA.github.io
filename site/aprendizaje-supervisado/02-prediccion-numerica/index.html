@@ -1,0 +1,1212 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/02-prediccion-numerica/">
+      
+      
+        <link rel="prev" href="../01-machine-learning/">
+      
+      
+        <link rel="next" href="../03-prediccion-categorica/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>2. Predicción Numérica - Programación en Inteligencia Artificial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-2-regresion-lineal-para-la-inteligencia-artificial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-header__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación en Inteligencia Artificial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Predicción Numérica
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-nav__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Programación en Inteligencia Artificial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje Supervisado
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2. Predicción Numérica
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Predicción Numérica
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#que-es-la-regresion-lineal" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué es la Regresión Lineal?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicaciones-de-la-regresion-lineal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicaciones de la Regresión Lineal
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aplicaciones de la Regresión Lineal">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#que-tecnica-es-mas-apropiada" class="md-nav__link">
+    <span class="md-ellipsis">
+      ¿Qué técnica es más apropiada?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#limitaciones-de-la-regresion-lineal" class="md-nav__link">
+    <span class="md-ellipsis">
+      Limitaciones de la Regresión Lineal
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ridge-regression-y-lasso-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ridge Regression y Lasso Regression
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ridge Regression y Lasso Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ridge-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ridge Regression
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ridge Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-de-ridge-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas de Ridge Regression
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lasso-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lasso Regression
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lasso Regression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ventajas-de-lasso-regression" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ventajas de Lasso Regression
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparacion-entre-regresion-lineal-ridge-y-lasso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comparación entre Regresión Lineal, Ridge y Lasso
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusiones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conclusiones
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ejemplos-adicionales-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos Adicionales de Uso
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-prediccion-categorica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Predicción Categórica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-arboles-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Árboles de Decisión
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-naive-bayes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Naive Bayes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-knn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Algoritmo KNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-svm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Algoritmo SVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-ensamblado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Ensamblado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje No Supervisado
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje No Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Procesamiento de Lenguaje Natural
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Procesamiento de Lenguaje Natural
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="unidad-2-regresion-lineal-para-la-inteligencia-artificial">🤖 Unidad 2. Regresión Lineal para la Inteligencia Artificial</h1>
+<p>La regresión lineal es uno de los modelos más simples y fundamentales en el campo de la inteligencia artificial y el aprendizaje automático. A pesar de su simplicidad, proporciona una base sólida para entender cómo los algoritmos de regresión pueden ser usados para hacer predicciones. En este artículo exploraremos cómo funciona la regresión lineal, sus aplicaciones, y la compararemos con otros modelos de regresión como Ridge y Lasso.</p>
+<h2 id="que-es-la-regresion-lineal">¿Qué es la Regresión Lineal?</h2>
+<p>La <strong>regresión lineal</strong> es un método estadístico que intenta modelar la relación entre una variable dependiente y una o más variables independientes mediante una línea recta. La ecuación que representa una regresión lineal simple tiene la siguiente forma:</p>
+<div class="arithmatex">\[
+y = b_0 + b_1X + \epsilon
+\]</div>
+<ul>
+<li><strong>y</strong>: Variable dependiente (la que se intenta predecir).</li>
+<li><strong>X</strong>: Variable independiente (el predictor).</li>
+<li><strong>b_0</strong>: Intercepto, valor de <strong>y</strong> cuando <strong>X</strong> es cero.</li>
+<li><strong>b_1</strong>: Coeficiente que representa la pendiente de la línea.</li>
+<li><strong><span class="arithmatex">\(\epsilon\)</span></strong>: Error o ruido, la diferencia entre la predicción y el valor real.</li>
+</ul>
+<p>La regresión lineal se utiliza principalmente para problemas de predicción numérica, como el precio de una vivienda, el rendimiento de una acción o cualquier otra situación en la que exista una relación lineal entre las variables.</p>
+<h2 id="aplicaciones-de-la-regresion-lineal">Aplicaciones de la Regresión Lineal</h2>
+<p>La regresión lineal es ampliamente utilizada en una variedad de aplicaciones, como:</p>
+<ul>
+<li>
+<p><strong>Economía</strong>: Predicción de precios de bienes y servicios. Por ejemplo, podemos usar la regresión lineal para modelar la relación entre la inflación y el precio de los alimentos. En este caso, la regresión lineal simple puede ser suficiente si se trata de una relación clara y directa. <a href="https://github.com/scikit-learn/scikit-learn/blob/main/examples/linear_model/plot_ols.py">Ejemplo en Python</a></p>
+</li>
+<li>
+<p><strong>Finanzas</strong>: Estimación del rendimiento de acciones o bonos. La regresión lineal puede ayudar a estimar cómo factores como las tasas de interés y el crecimiento económico afectan los precios de las acciones. Si existen muchas variables correlacionadas, <strong>Ridge Regression</strong> sería una mejor opción para estabilizar el modelo y evitar el sobreajuste. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html">Ejemplo en Python</a></p>
+</li>
+<li>
+<p><strong>Salud</strong>: Modelado de la relación entre la dosis de un medicamento y la respuesta del paciente. En este ámbito, se podría usar la regresión lineal para entender cómo varía la presión sanguínea en respuesta a diferentes dosis de un medicamento. Si existen múltiples factores (como edad, peso, y otras condiciones de salud), <strong>Lasso Regression</strong> podría ayudar a identificar cuáles son las características más relevantes. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_model_selection.html">Ejemplo en Python</a></p>
+</li>
+<li>
+<p><strong>Marketing</strong>: Determinación de la relación entre el gasto publicitario y las ventas. La regresión lineal se utiliza para estimar el impacto de diferentes estrategias publicitarias en las ventas. Si existen muchas campañas publicitarias y se necesita identificar cuáles son las más efectivas, <strong>Lasso Regression</strong> podría ayudar a eliminar las menos significativas y reducir la complejidad del modelo. </p>
+</li>
+<li>
+<p><strong>Educación</strong>: Predicción de calificaciones de estudiantes en función de variables como el tiempo de estudio y la asistencia. Si el objetivo es identificar los factores que tienen mayor influencia en el rendimiento académico, <strong>Lasso Regression</strong> sería útil para seleccionar solo las características más relevantes, como participación en clase, tiempo de estudio, o participación en actividades extracurriculares. </p>
+</li>
+<li>
+<p><strong>Inmobiliaria</strong>: Predicción del valor de una propiedad con base en características como la ubicación, el tamaño y el número de habitaciones. En este contexto, <strong>Ridge Regression</strong> puede ser útil para manejar la multicolinealidad, ya que características como la ubicación y el tamaño de una propiedad suelen estar correlacionadas. Ridge ayuda a estabilizar los coeficientes y mejorar la capacidad predictiva del modelo. </p>
+</li>
+<li>
+<p><strong>Agricultura</strong>: Estimación del rendimiento de cultivos en función de factores como el clima, la cantidad de fertilizante y el tipo de suelo. <strong>Ridge Regression</strong> es adecuada cuando hay múltiples factores que pueden estar correlacionados, como la temperatura y la precipitación. Esto ayuda a manejar mejor la multicolinealidad y a mejorar la generalización del modelo. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html">Ejemplo en Python</a></p>
+</li>
+</ul>
+<h3 id="que-tecnica-es-mas-apropiada">¿Qué técnica es más apropiada?</h3>
+<ul>
+<li><strong>Economía y Finanzas</strong>: En estos campos, la <strong>regresión lineal</strong> puede ser útil cuando se trata de problemas simples, como la predicción de precios basada en una o dos características. Sin embargo, si hay muchas variables que están altamente correlacionadas, <strong>Ridge Regression</strong> sería más apropiada para evitar el sobreajuste. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html">Ejemplo en Python</a></li>
+<li><strong>Salud</strong>: Para el modelado de la relación entre la dosis de un medicamento y la respuesta del paciente, <strong>Lasso Regression</strong> sería adecuada si hay muchas características potenciales, ya que podría simplificar el modelo eliminando características irrelevantes. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_model_selection.html">Ejemplo en Python</a></li>
+<li><strong>Marketing</strong>: Si hay muchas variables de marketing, como diferentes tipos de publicidad, <strong>Lasso Regression</strong> puede ayudar a identificar cuáles de ellas son las más importantes, eliminando las menos significativas. </li>
+<li><strong>Inmobiliaria</strong>: En el caso de la predicción de precios de propiedades, <strong>Ridge Regression</strong> puede ser útil para manejar la multicolinealidad, ya que a menudo las características como ubicación, tamaño y tipo de propiedad están correlacionadas. </li>
+<li><strong>Educación</strong>: Si queremos predecir las calificaciones de los estudiantes y hay muchas características (como el historial académico, asistencia, participación en clase, etc.), <strong>Lasso</strong> sería útil para identificar las variables más relevantes y eliminar las menos importantes. </li>
+<li><strong>Agricultura</strong>: Para la estimación del rendimiento de cultivos, <strong>Ridge Regression</strong> sería adecuada si existen múltiples factores correlacionados, ya que permite manejar mejor la multicolinealidad. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html">Ejemplo en Python</a></li>
+</ul>
+<h2 id="limitaciones-de-la-regresion-lineal">Limitaciones de la Regresión Lineal</h2>
+<p>Aunque la regresión lineal es fácil de entender y usar, presenta algunas limitaciones importantes que deben tenerse en cuenta al aplicar este modelo:</p>
+<ul>
+<li>
+<p><strong>Supone una relación lineal</strong>: La regresión lineal solo puede modelar relaciones lineales entre las variables. Si la relación es no lineal, el modelo tendrá un rendimiento pobre. Esto implica que, si los datos muestran una relación más compleja (por ejemplo, cuadrática o exponencial), la regresión lineal no podrá capturar dicha complejidad, resultando en predicciones inexactas. En estos casos, sería mejor utilizar modelos que puedan capturar la no linealidad, como la regresión polinómica o técnicas más avanzadas como redes neuronales.</p>
+</li>
+<li>
+<p><strong>Sensibilidad a los outliers</strong>: La presencia de valores atípicos puede afectar significativamente el ajuste de la línea, ya que la regresión lineal minimiza la suma de los errores al cuadrado. Los outliers, al tener errores más grandes, influyen desproporcionadamente en la línea de ajuste, lo cual puede distorsionar el modelo. Para mitigar este problema, se pueden utilizar técnicas como la detección y eliminación de outliers, o emplear métodos de regresión robusta que minimicen el impacto de estos valores extremos.</p>
+</li>
+<li>
+<p><strong>Multicolinealidad</strong>: Cuando las variables independientes están altamente correlacionadas, el modelo puede producir resultados inestables. La multicolinealidad genera problemas en la estimación de los coeficientes, haciendo que sean muy sensibles a pequeñas variaciones en los datos y, por lo tanto, menos interpretables. Esto puede llevar a una disminución en la precisión de las predicciones y a problemas en la generalización del modelo. En estos casos, se recomienda usar técnicas de regularización, como <strong>Ridge Regression</strong>, que penaliza los coeficientes grandes y ayuda a reducir los efectos de la multicolinealidad, estabilizando el modelo.</p>
+</li>
+</ul>
+<h2 id="ridge-regression-y-lasso-regression">Ridge Regression y Lasso Regression</h2>
+<p>Para superar algunas de las limitaciones de la regresión lineal estándar, se han desarrollado técnicas de regularización como <strong>Ridge</strong> y <strong>Lasso</strong>. Ambas técnicas son versiones modificadas de la regresión lineal que incluyen un término de penalización para mejorar el rendimiento y evitar el sobreajuste.</p>
+<h3 id="ridge-regression">Ridge Regression</h3>
+<p><strong>Ridge Regression</strong>, también conocida como <strong>regresión de cresta</strong>, añade un término de regularización L2 a la función de pérdida. Esto significa que el modelo penaliza los coeficientes grandes, haciendo que los valores de los parámetros sean más pequeños y estables. La ecuación para Ridge es:</p>
+<div class="arithmatex">\[
+J(  heta) = \sum (y_i - \hat{y_i})^2 + \lambda \sum     heta_j^2
+\]</div>
+<ul>
+<li><strong>\lambda</strong>: Parámetro de regularización que controla la cantidad de penalización.</li>
+<li>**    <span class="arithmatex">\(heta_j\)</span>**: Coeficientes del modelo.</li>
+</ul>
+<p>El término de penalización ayuda a reducir la complejidad del modelo, lo cual resulta útil especialmente cuando existen múltiples variables independientes correlacionadas (multicolinealidad).</p>
+<h4 id="ventajas-de-ridge-regression">Ventajas de Ridge Regression</h4>
+<ul>
+<li><strong>Reducción del sobreajuste</strong>: Ridge ayuda a reducir el riesgo de sobreajuste al penalizar los coeficientes grandes.</li>
+<li><strong>Mejora la estabilidad</strong>: Especialmente en presencia de multicolinealidad, el modelo Ridge tiende a ser más estable.</li>
+</ul>
+<h3 id="lasso-regression">Lasso Regression</h3>
+<p><strong>Lasso Regression</strong> añade un término de regularización L1 a la función de pérdida. Este término tiene la capacidad de hacer que algunos coeficientes sean exactamente cero, eliminando efectivamente ciertas características del modelo. La ecuación de Lasso es:</p>
+<div class="arithmatex">\[
+J(  heta) = \sum (y_i - \hat{y_i})^2 + \lambda \sum |   heta_j|
+\]</div>
+<ul>
+<li><strong><span class="arithmatex">\(\lambda\)</span></strong>: Parámetro de regularización que controla la penalización.</li>
+</ul>
+<p>Lasso es útil no solo para reducir el sobreajuste, sino también para la <strong>selección de características</strong>, ya que elimina automáticamente aquellas que no son útiles para la predicción.</p>
+<h4 id="ventajas-de-lasso-regression">Ventajas de Lasso Regression</h4>
+<ul>
+<li><strong>Selección de características</strong>: Lasso simplifica el modelo seleccionando solo las características más relevantes.</li>
+<li><strong>Reducción del sobreajuste</strong>: Similar a Ridge, Lasso ayuda a evitar el sobreajuste del modelo.</li>
+</ul>
+<h2 id="comparacion-entre-regresion-lineal-ridge-y-lasso">Comparación entre Regresión Lineal, Ridge y Lasso</h2>
+<table>
+<thead>
+<tr>
+<th>Característica</th>
+<th>Regresión Lineal</th>
+<th>Ridge Regression</th>
+<th>Lasso Regression</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Regularización</strong></td>
+<td>No</td>
+<td>L2</td>
+<td>L1</td>
+</tr>
+<tr>
+<td><strong>Penalización</strong></td>
+<td>Ninguna</td>
+<td>Penaliza coeficientes grandes</td>
+<td>Algunos coeficientes se hacen cero</td>
+</tr>
+<tr>
+<td><strong>Sobreajuste</strong></td>
+<td>Alta posibilidad</td>
+<td>Baja</td>
+<td>Baja</td>
+</tr>
+<tr>
+<td><strong>Multicolinealidad</strong></td>
+<td>Problemas con multicolinealidad</td>
+<td>Mejor manejo</td>
+<td>Mejor manejo</td>
+</tr>
+<tr>
+<td><strong>Selección de características</strong></td>
+<td>No</td>
+<td>No</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Regresión Lineal</strong>: Ideal para problemas simples y cuando existe una relación lineal clara entre las variables. Sin embargo, es propensa al sobreajuste si no se maneja adecuadamente.</li>
+<li><strong>Ridge Regression</strong>: Útil cuando existe multicolinealidad, ya que la regularización L2 ayuda a estabilizar el modelo. No elimina características, pero hace que los coeficientes sean más pequeños.</li>
+<li><strong>Lasso Regression</strong>: Útil para la selección de características, ya que fuerza algunos coeficientes a ser exactamente cero. Esto resulta en un modelo más sencillo y fácil de interpretar.</li>
+</ul>
+<h2 id="conclusiones">Conclusiones</h2>
+<p>La regresión lineal es una excelente herramienta para comenzar a entender los modelos de regresión. Sin embargo, cuando nos enfrentamos a datos más complejos, con múltiples características y posibles problemas de sobreajuste, <strong>Ridge</strong> y <strong>Lasso</strong> se presentan como mejores alternativas. Estos modelos ayudan a mejorar la capacidad de generalización del modelo y a reducir la complejidad, haciendo que la predicción sea más precisa y confiable.</p>
+<p>La elección entre la regresión lineal, Ridge y Lasso dependerá de la naturaleza de los datos y los objetivos del análisis. Si se desea simplicidad y no hay riesgo de multicolinealidad, la regresión lineal puede ser suficiente. Si el modelo tiende a sobreajustarse o hay muchas características correlacionadas, Ridge y Lasso son opciones a considerar, siendo Lasso ideal si se desea simplificar el modelo eliminando características irrelevantes.</p>
+<h2 id="ejemplos-adicionales-de-uso">Ejemplos Adicionales de Uso</h2>
+<ul>
+<li><strong>Predicción de Ventas Minoristas</strong>: En un negocio minorista donde existen múltiples características que afectan las ventas (promociones, temporadas, clima, ubicación), <strong>Ridge Regression</strong> sería útil para manejar la posible multicolinealidad entre estas características. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html">Ejemplo en Python</a></li>
+<li><strong>Modelado de la Demanda Energética</strong>: En la predicción del consumo de energía eléctrica, que depende de variables como temperatura, hora del día, y tipo de día (laboral o festivo), <strong>Ridge</strong> podría ayudar a manejar la complejidad y multicolinealidad. </li>
+<li><strong>Análisis de Sentimientos</strong>: Al predecir la polaridad de una opinión (positiva o negativa) en base a muchas palabras o frases, <strong>Lasso Regression</strong> sería ideal para seleccionar las palabras más relevantes y reducir la dimensionalidad. </li>
+<li><strong>Predicción de Costos de Seguros Médicos</strong>: Para estimar los costos de seguros médicos en función de características como edad, estado de salud, hábitos de vida y ubicación geográfica, <strong>Lasso</strong> podría ayudar a eliminar características redundantes, haciendo el modelo más interpretable. </li>
+<li><strong>Optimización de Cadenas de Suministro</strong>: Para predecir el tiempo de entrega de productos considerando múltiples variables (tráfico, distancia, clima, inventario), <strong>Ridge Regression</strong> puede ser útil para manejar la correlación entre factores como tráfico y distancia. </li>
+<li><strong>Reconocimiento de Actividad Humana</strong>: En la clasificación de actividades humanas usando sensores portátiles (como acelerómetros y giroscopios), <strong>Lasso</strong> podría ayudar a identificar cuáles de las señales del sensor son más importantes para diferenciar entre actividades como caminar, correr o estar de pie. <a href="https://scikit-learn.org/stable/auto_examples/linear_model/plot_sparse_recovery.html">Ejemplo en Python</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-machine-learning/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Machine Learning">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Machine Learning
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-prediccion-categorica/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Predicción Categórica">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Predicción Categórica
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Francisco García
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/fmgarcia27/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@fmgarcia" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

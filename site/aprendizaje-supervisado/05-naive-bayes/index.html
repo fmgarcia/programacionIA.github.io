@@ -1,0 +1,1188 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/05-naive-bayes/">
+      
+      
+        <link rel="prev" href="../04-arboles-decision/">
+      
+      
+        <link rel="next" href="../06-knn/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>5. Naive Bayes - Programación en Inteligencia Artificial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-5-algoritmo-de-bayes-y-naive-bayes-en-inteligencia-artificial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-header__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación en Inteligencia Artificial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. Naive Bayes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-nav__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Programación en Inteligencia Artificial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje Supervisado
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-prediccion-numerica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Predicción Numérica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-prediccion-categorica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Predicción Categórica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-arboles-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Árboles de Decisión
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    5. Naive Bayes
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Naive Bayes
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-teorema-de-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Teorema de Bayes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Naive Bayes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-tipos-de-clasificadores-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Tipos de Clasificadores Naive Bayes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ejemplo-completo-de-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Ejemplo Completo de Naive Bayes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-calcular-las-probabilidades-previas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 1: Calcular las Probabilidades Previas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-calcular-la-probabilidad-de-cada-palabra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 2: Calcular la Probabilidad de Cada Palabra
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-clasificar-el-nuevo-correo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 3: Clasificar el Nuevo Correo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 4: Decisión
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 4: Decisión">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5-aplicaciones-reales-de-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Aplicaciones Reales de Naive Bayes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-ventajas-y-limitaciones-de-naive-bayes" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Ventajas y Limitaciones de Naive Bayes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-knn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Algoritmo KNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-svm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Algoritmo SVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-ensamblado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Ensamblado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje No Supervisado
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje No Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Procesamiento de Lenguaje Natural
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Procesamiento de Lenguaje Natural
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="unidad-5-algoritmo-de-bayes-y-naive-bayes-en-inteligencia-artificial">🤖 Unidad 5. Algoritmo de Bayes y Naive Bayes en Inteligencia Artificial</h1>
+<p>El algoritmo de <strong>Bayes</strong>, también conocido como <strong>Teorema de Bayes</strong>, es un enfoque probabilístico utilizado para la clasificación y el análisis en inteligencia artificial y aprendizaje automático. Este algoritmo se basa en la probabilidad condicional, lo cual permite actualizar la probabilidad de un evento en función de nueva evidencia.</p>
+<p>El algoritmo <strong>Naive Bayes</strong> simplifica el Teorema de Bayes haciendo una suposición fundamental: que todas las características (o atributos) son independientes entre sí. Esta simplificación permite construir modelos de clasificación rápidos y eficientes, especialmente útiles en aplicaciones de clasificación de texto, como la clasificación de correos electrónicos o el análisis de sentimientos.</p>
+<p>A continuación, veremos en detalle cómo se deriva el modelo Naive Bayes a partir del Teorema de Bayes y cómo funciona, junto con ejemplos y las fórmulas matemáticas correspondientes.</p>
+<h4 id="1-teorema-de-bayes">1. <strong>Teorema de Bayes</strong></h4>
+<p>El <strong>Teorema de Bayes</strong> describe la probabilidad de que ocurra un evento <span class="arithmatex">\( A \)</span> dado que ya ha ocurrido otro evento <span class="arithmatex">\( B \)</span>. La fórmula se expresa de la siguiente manera:</p>
+<div class="arithmatex">\[
+P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}
+\]</div>
+<p>Donde:
+- <span class="arithmatex">\( P(A|B) \)</span>: Probabilidad de que ocurra el evento <span class="arithmatex">\( A \)</span> dado que <span class="arithmatex">\( B \)</span> ha ocurrido (probabilidad posterior).
+- <span class="arithmatex">\( P(B|A) \)</span>: Probabilidad de que ocurra el evento <span class="arithmatex">\( B \)</span> dado que <span class="arithmatex">\( A \)</span> ha ocurrido (verosimilitud).
+- <span class="arithmatex">\( P(A) \)</span>: Probabilidad a priori del evento <span class="arithmatex">\( A \)</span>.
+- <span class="arithmatex">\( P(B) \)</span>: Probabilidad del evento <span class="arithmatex">\( B \)</span>.</p>
+<p>El Teorema de Bayes permite actualizar la probabilidad a priori de un evento a partir de nueva información (evidencia).</p>
+<h4 id="2-naive-bayes">2. <strong>Naive Bayes</strong></h4>
+<p>El clasificador <strong>Naive Bayes</strong> se deriva del Teorema de Bayes con la suposición de independencia entre características. En lugar de considerar todas las relaciones posibles entre los atributos, se asume que cada característica es independiente de las demás, dado el resultado. Esto simplifica el cálculo de la probabilidad conjunta.</p>
+<p>La probabilidad de que un ejemplo 
+$$ 
+ x = (x_1, x_2, \dots, x_n)
+$$ 
+pertenezca a una clase <span class="arithmatex">\( C_k \)</span> se puede calcular como:</p>
+<div class="arithmatex">\[
+P(C_k | x) = \frac{P(C_k) \prod_{i=1}^n P(x_i | C_k)}{P(x)}
+\]</div>
+<p>Dado que <span class="arithmatex">\( P(x) \)</span> es constante para todas las clases, podemos simplificar la fórmula a:</p>
+<div class="arithmatex">\[
+P(C_k | x) \propto P(C_k) \prod_{i=1}^n P(x_i | C_k)
+\]</div>
+<p>Donde:
+- P(C_k | x): Probabilidad posterior de que el ejemplo pertenezca a la clase C_k .
+- P(C_k): Probabilidad a priori de la clase C_k.
+- P(x_i | C_k): Probabilidad condicional de la característica x_i dada la clase C_k.</p>
+<p>El clasificador Naive Bayes elige la clase que maximiza esta probabilidad posterior.</p>
+<h4 id="3-tipos-de-clasificadores-naive-bayes">3. <strong>Tipos de Clasificadores Naive Bayes</strong></h4>
+<p>Existen diferentes tipos de clasificadores Naive Bayes, dependiendo del tipo de datos y de cómo se calcula la probabilidad condicional:</p>
+<ul>
+<li><strong>Naive Bayes Gaussiano</strong>: Se utiliza cuando las características tienen una distribución continua que se puede aproximar a una distribución normal (gaussiana).</li>
+<li><strong>Naive Bayes Multinomial</strong>: Es adecuado para datos discretos, como el conteo de palabras en un documento. Es ampliamente utilizado en clasificación de texto.</li>
+<li><strong>Naive Bayes Bernoulli</strong>: Se utiliza para características binarias. Es útil cuando cada característica es booleana (por ejemplo, si una palabra aparece o no en un documento).</li>
+</ul>
+<h4 id="4-ejemplo-completo-de-naive-bayes">4. <strong>Ejemplo Completo de Naive Bayes</strong></h4>
+<p>Vamos a clasificar correos electrónicos como <strong>"spam"</strong> o <strong>"no spam"</strong> usando el algoritmo de Naive Bayes. Para este ejemplo, supongamos que tenemos los siguientes datos de entrenamiento, con algunas palabras clave y la clase correspondiente ("spam" o "no spam"):</p>
+<table>
+<thead>
+<tr>
+<th>Correo ID</th>
+<th>Contenido</th>
+<th>Clase</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Oferta barata, gana dinero</td>
+<td>Spam</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Proyecto pendiente de trabajo</td>
+<td>No Spam</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Oferta especial gratis</td>
+<td>Spam</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Reunión de equipo mañana</td>
+<td>No Spam</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Gana premios y dinero ahora</td>
+<td>Spam</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Informe mensual adjunto</td>
+<td>No Spam</td>
+</tr>
+</tbody>
+</table>
+<p>Vamos a suponer que queremos clasificar un nuevo correo con el contenido: <strong>"Oferta gratis y premios"</strong>. Para esto, usaremos el clasificador de Naive Bayes, asumiendo que todas las palabras son independientes (el supuesto "naive").</p>
+<h3 id="paso-1-calcular-las-probabilidades-previas">Paso 1: Calcular las Probabilidades Previas</h3>
+<p>Primero calculamos la probabilidad previa de cada clase.</p>
+<ul>
+<li><strong>Probabilidad de Spam</strong> (π(spam)):</li>
+</ul>
+<p>$$
+  P(Spam) = \frac{N_{Spam}}{N_{Total}} = \frac{3}{6} = 0.5
+  $$</p>
+<ul>
+<li><strong>Probabilidad de No Spam</strong> (π(no_spam)):</li>
+</ul>
+<p>$$
+  P(No\,Spam) = \frac{N_{No\,Spam}}{N_{Total}} = \frac{3}{6} = 0.5
+  $$</p>
+<h3 id="paso-2-calcular-la-probabilidad-de-cada-palabra">Paso 2: Calcular la Probabilidad de Cada Palabra</h3>
+<p>Ahora, necesitamos calcular la probabilidad de cada palabra en el contexto de cada clase (es decir, "spam" y "no spam"). Las palabras únicas en nuestro conjunto de entrenamiento son:</p>
+<ul>
+<li>"oferta", "barata", "gana", "dinero", "proyecto", "pendiente", "trabajo", "especial", "gratis", "reunión", "equipo", "mañana", "premios", "ahora", "informe", "mensual", "adjunto".</li>
+</ul>
+<p>Vamos a usar suavizado de Laplace (adicionando 1 a cada recuento) para evitar probabilidades de cero.</p>
+<p>Por ejemplo, calculamos la probabilidad de cada palabra para <strong>spam</strong>:</p>
+<ul>
+<li><strong>P(oferta | Spam)</strong>:</li>
+</ul>
+<p>La palabra "oferta" aparece en 2 de los 3 correos spam.</p>
+<p>$$
+  P(oferta \mid Spam) = \frac{2 + 1}{N_{Spam} + V} = \frac{2 + 1}{3 + 17} = \frac{3}{20} = 0.15
+  $$</p>
+<ul>
+<li><strong>P(gratis | Spam)</strong> y <strong>P(premios | Spam)</strong> también se calculan de manera similar.</li>
+</ul>
+<p>Donde:
+- <span class="arithmatex">\(N_{Spam}\)</span> : Número de correos spam.
+- V : Número de palabras únicas en el vocabulario.</p>
+<h3 id="paso-3-clasificar-el-nuevo-correo">Paso 3: Clasificar el Nuevo Correo</h3>
+<p>El nuevo correo es: <strong>"Oferta gratis y premios"</strong>. Queremos calcular la probabilidad de que sea spam o no spam.</p>
+<p>Para calcular esto, usamos la fórmula de Naive Bayes:</p>
+<div class="arithmatex">\[
+P(Clase \mid X) \propto P(X \mid Clase) \cdot P(Clase)
+\]</div>
+<p>Primero calculamos la probabilidad de que el correo sea <strong>spam</strong>:</p>
+<div class="arithmatex">\[
+P(Spam \mid X) \propto P(oferta \mid Spam) \cdot P(gratis \mid Spam) \cdot P(premios \mid Spam) \cdot P(Spam)
+\]</div>
+<p>Sustituimos los valores y multiplicamos:</p>
+<div class="arithmatex">\[
+P(Spam \mid X) \propto 0.15 \times 0.15 \times 0.1 \times 0.5
+\]</div>
+<p>Hacemos el mismo cálculo para <strong>No Spam</strong> y comparamos ambas probabilidades.</p>
+<h3 id="paso-4-decision">Paso 4: Decisión</h3>
+<p>Finalmente, elegimos la clase que tiene la probabilidad mayor. Si $ P(Spam \mid X) $ es mayor que $ P(No\,Spam \mid X) $, clasificamos el correo como <strong>spam</strong>; de lo contrario, como <strong>no spam</strong>.</p>
+<h4 id="5-aplicaciones-reales-de-naive-bayes">5. <strong>Aplicaciones Reales de Naive Bayes</strong></h4>
+<p>Debido a su eficiencia y capacidad para manejar grandes volúmenes de datos, Naive Bayes se utiliza en una amplia variedad de aplicaciones del mundo real:</p>
+<ul>
+<li><strong>Filtrado de Spam:</strong> Es el uso más clásico. Servicios como Gmail o Outlook utilizan variantes de Naive Bayes para clasificar correos entrantes como deseados o no deseados basándose en la frecuencia de ciertas palabras.<ul>
+<li><a href="https://github.com/topics/spam-filter">Ejemplo de implementación de filtro Spam</a></li>
+</ul>
+</li>
+<li><strong>Análisis de Sentimientos:</strong> Determinar si una opinión en redes sociales (Twitter, reseñas de productos) es positiva, negativa o neutral. Es muy usado en marketing para monitorear la reputación de marca.<ul>
+<li><a href="https://github.com/topics/sentiment-analysis">Análisis de sentimientos en Twitter</a></li>
+</ul>
+</li>
+<li><strong>Clasificación de Documentos:</strong> Organizar noticias en categorías (Deportes, Política, Tecnología) o clasificar documentos legales y médicos.</li>
+<li><strong>Sistemas de Recomendación:</strong> Filtrado colaborativo para predecir si a un usuario le gustará un recurso dado.</li>
+</ul>
+<h4 id="6-ventajas-y-limitaciones-de-naive-bayes">6. <strong>Ventajas y Limitaciones de Naive Bayes</strong></h4>
+<ul>
+<li><strong>Ventajas</strong>:</li>
+<li><strong>Simplicidad y rapidez</strong>: Naive Bayes es simple de implementar y muy rápido para entrenar y hacer predicciones, incluso con grandes volúmenes de datos.</li>
+<li><strong>Escalabilidad</strong>: Funciona bien con datos de alta dimensionalidad, como texto.</li>
+<li>
+<p><strong>Robustez frente al ruido</strong>: A pesar de la suposición de independencia, suele funcionar sorprendentemente bien en muchos problemas reales.</p>
+</li>
+<li>
+<p><strong>Limitaciones</strong>:</p>
+</li>
+<li><strong>Suposición de independencia</strong>: La suposición de independencia rara vez se cumple en problemas reales. Esto puede llevar a predicciones menos precisas cuando las características están altamente correlacionadas.</li>
+<li><strong>Problemas con datos cero</strong>: Si una característica no se presenta en los datos de entrenamiento, la probabilidad condicional se convierte en cero, lo que hace que la probabilidad posterior también sea cero. Esto se suele solucionar con la suavización de Laplace.</li>
+</ul>
+<p>El clasificador <strong>Naive Bayes</strong> sigue siendo una herramienta poderosa para muchas aplicaciones de inteligencia artificial y aprendizaje automático, especialmente en la clasificación de texto y otros problemas donde la independencia de las características no afecta significativamente el rendimiento del modelo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../04-arboles-decision/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Árboles de Decisión">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                4. Árboles de Decisión
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../06-knn/" class="md-footer__link md-footer__link--next" aria-label="Next: 6. Algoritmo KNN">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                6. Algoritmo KNN
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Francisco García
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/fmgarcia27/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@fmgarcia" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

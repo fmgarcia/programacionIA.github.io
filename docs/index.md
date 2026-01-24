@@ -1,79 +1,51 @@
-# Aprendizaje Supervisado en Inteligencia Artificial
+# 🤖 Programación en Inteligencia Artificial
 
 ¡Bienvenido! 🎉  
-En este documento encontrarás una introducción a los **conceptos básicos del aprendizaje supervisado**, una de las ramas fundamentales de la **Inteligencia Artificial (IA)** y del **Machine Learning (ML)**.
+Este sitio web recopila documentación y recursos sobre diferentes áreas de la **Inteligencia Artificial (IA)** y el **Machine Learning (ML)**.
 
 ---
 
-## 📘 ¿Qué es el Aprendizaje Supervisado?
+## 📚 Contenidos
 
-El **aprendizaje supervisado** es un tipo de aprendizaje automático en el que un modelo se entrena utilizando un conjunto de datos **etiquetados**.  
-Esto significa que cada ejemplo del conjunto de entrenamiento incluye tanto la **entrada (X)** como la **salida deseada (Y)**.
+Explora las diferentes secciones disponibles:
 
-El objetivo del modelo es **aprender la relación entre las entradas y las salidas** para poder predecir correctamente la salida de nuevos datos nunca vistos.
+### 🎯 [Aprendizaje Supervisado](aprendizaje-supervisado/index.md)
+Aprende sobre algoritmos que utilizan datos etiquetados para realizar predicciones. Incluye técnicas de clasificación y regresión como:
+- Machine Learning para análisis de datos
+- Árboles de decisión
+- Naive Bayes
+- K-Nearest Neighbors (KNN)
+- Support Vector Machines (SVM)
+- Algoritmos de ensamblado
 
----
+### 🔍 [Aprendizaje No Supervisado](aprendizaje-no-supervisado/index.md)
+Descubre técnicas para encontrar patrones en datos no etiquetados:
+- Clustering (K-Means, DBSCAN, Jerárquico)
+- Reducción de dimensionalidad (PCA, t-SNE)
+- Análisis de asociación
 
-## 🧠 Tipos de Problemas Supervisados
+### 💬 [Procesamiento de Lenguaje Natural](procesamiento-lenguaje-natural/index.md)
+Explora cómo las máquinas comprenden y generan lenguaje humano:
+- Tokenización y preprocesamiento de texto
+- Modelos de lenguaje
+- Análisis de sentimientos
+- Transformers y atención
 
-1. **Clasificación:**  
-   El modelo aprende a asignar una etiqueta o categoría a cada ejemplo.  
-   📍 *Ejemplo:* Clasificar correos como "spam" o "no spam".
-
-2. **Regresión:**  
-   El modelo aprende a predecir un valor numérico continuo.  
-   📍 *Ejemplo:* Predecir el precio de una vivienda según sus características.
-
----
-
-## ⚙️ Flujo de Trabajo del Aprendizaje Supervisado
-
-1. **Recolección de datos:** Se obtiene un conjunto de datos con ejemplos representativos del problema.
-2. **Preprocesamiento:** Limpieza, normalización y división del conjunto de datos (entrenamiento y prueba).
-3. **Selección del modelo:** Elegir el algoritmo más adecuado (por ejemplo, SVM, Árboles de decisión, Redes neuronales, etc.).
-4. **Entrenamiento:** El modelo aprende a partir de los datos etiquetados.
-5. **Evaluación:** Se mide el rendimiento utilizando métricas como *precisión*, *recall* o *error cuadrático medio*.
-6. **Predicción:** Se aplican los conocimientos adquiridos a nuevos datos.
-
----
-
-## 🔍 Ejemplos de Algoritmos Comunes
-
-- **Regresión lineal**
-- **K-Nearest Neighbors (KNN)**
-- **Árboles de decisión**
-- **Random Forest**
-- **Máquinas de Vectores de Soporte (SVM)**
-- **Redes neuronales artificiales**
+### 🧠 [Deep Learning](deep-learning/index.md)
+Profundiza en redes neuronales y arquitecturas avanzadas:
+- Redes neuronales artificiales
+- Redes convolucionales (CNN)
+- Redes recurrentes (RNN, LSTM)
+- Arquitecturas modernas
 
 ---
 
-## 📊 Evaluación del Modelo
+## 🎓 Sobre este sitio
 
-Para medir la calidad del modelo se utilizan métricas que dependen del tipo de problema:
-
-| Tipo de problema | Métricas comunes |
-|------------------|------------------|
-| Clasificación | Exactitud, Precisión, Recall, F1-score |
-| Regresión | Error absoluto medio (MAE), Error cuadrático medio (MSE), R² |
+Este recurso está diseñado como material de apoyo para el aprendizaje de técnicas de Inteligencia Artificial y Machine Learning, con ejemplos prácticos en Python.
 
 ---
 
-## 💡 Consejos Prácticos
-
-- Siempre **divide tus datos** en entrenamiento y prueba (por ejemplo, 80% / 20%).
-- **Evita el sobreajuste (overfitting):** si el modelo aprende demasiado bien los datos de entrenamiento, fallará en los nuevos.
-- Usa **validación cruzada** para estimar el rendimiento real del modelo.
-
----
-
-## 🧩 Conclusión
-
-El aprendizaje supervisado es la base de muchas aplicaciones modernas de IA, desde sistemas de recomendación hasta diagnóstico médico.  
-Dominar sus fundamentos te permitirá avanzar hacia técnicas más complejas y poderosas.
-
----
-
-📅 **Fecha de creación:** 26/10/2025  
+📅 **Última actualización:** Enero 2026  
 ✍️ **Autor:** Fran García
 

@@ -1,0 +1,1538 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/01-machine-learning/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../02-prediccion-numerica/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>1. Machine Learning - Programación en Inteligencia Artificial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-1-machine-learning-basado-en-el-analisis-de-datos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-header__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación en Inteligencia Artificial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Machine Learning
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-nav__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Programación en Inteligencia Artificial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje Supervisado
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    1. Machine Learning
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Machine Learning
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-que-es-el-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. ¿Qué es el Machine Learning?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.1. ¿Qué es el Machine Learning?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definiciones-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definiciones Clave
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ml-y-otros-campos" class="md-nav__link">
+    <span class="md-ellipsis">
+      ML y Otros Campos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tipos-de-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tipos de Machine Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flujo-de-trabajo-del-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Flujo de Trabajo del Machine Learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametros-vs-hiperparametros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parámetros vs. Hiperparámetros
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-biblioteca-python-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. Biblioteca Python scikit-learn
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2. Biblioteca Python scikit-learn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mecanismo-de-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mecanismo de scikit-learn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estimator-classifier-y-regressor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estimator, Classifier y Regressor
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sintaxis-basica-de-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sintaxis Básica de scikit-learn
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-practico-estandarizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo Práctico: Estandarización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modulos-principales-de-scikit-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Módulos Principales de scikit-learn
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-preparacion-y-division-del-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3. Preparación y División del Dataset
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3. Preparación y División del Dataset">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overfitting-sobreajuste-y-generalizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overfitting (Sobreajuste) y Generalización
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-validation-validacion-cruzada" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cross-Validation (Validación Cruzada)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-preprocesamiento-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4. Preprocesamiento de Datos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4. Preprocesamiento de Datos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#manejo-de-valores-faltantes-missing-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manejo de Valores Faltantes (Missing Values)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manejo-de-datos-categoricos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manejo de Datos Categóricos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#division-de-datos-estratificada-stratify" class="md-nav__link">
+    <span class="md-ellipsis">
+      División de Datos Estratificada (Stratify)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#topicos-avanzados-tradeoff-de-sesgo-varianza-y-regularizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tópicos Avanzados: Tradeoff de Sesgo-Varianza y Regularización
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-practica-solucion-de-problemas-con-scikit-learn-ej-iris" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.5. Práctica: Solución de Problemas con scikit-learn (Ej. Iris)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.5. Práctica: Solución de Problemas con scikit-learn (Ej. Iris)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-entendimiento-del-problema-y-datos-eda" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Entendimiento del Problema y Datos (EDA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-division-y-preparacion-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. División y Preparación de Datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-seleccion-y-evaluacion-del-modelo" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Selección y Evaluación del Modelo
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-metricas-de-evaluacion-clasificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Métricas de Evaluación (Clasificación)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-prediccion-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Predicción Final
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-prediccion-numerica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Predicción Numérica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-prediccion-categorica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Predicción Categórica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-arboles-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Árboles de Decisión
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-naive-bayes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Naive Bayes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-knn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Algoritmo KNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-svm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Algoritmo SVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-ensamblado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Ensamblado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje No Supervisado
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje No Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Procesamiento de Lenguaje Natural
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Procesamiento de Lenguaje Natural
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introducción
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="unidad-1-machine-learning-basado-en-el-analisis-de-datos">🤖 Unidad 1. Machine Learning Basado en el Análisis de Datos</h1>
+<p>Esta unidad introduce los conceptos fundamentales del Machine Learning (ML), su flujo de trabajo, las herramientas clave de la biblioteca <code>scikit-learn</code> del lenguaje Python, y las metodologías esenciales para la preparación, división y preprocesamiento de datos.</p>
+<hr />
+<h3 id="11-que-es-el-machine-learning">1.1. ¿Qué es el Machine Learning?</h3>
+<p>El Machine Learning (ML) se define como un campo de estudio que utiliza modelos estadísticos para aprender de los datos. Un aspecto clave es que modelos relativamente simples pueden realizar predicciones complejas.</p>
+<h4 id="definiciones-clave">Definiciones Clave</h4>
+<ul>
+<li><strong>Definición temprana (Samuel, 1959):</strong> "Programar computadoras para que aprendan de la experiencia debería eliminar la necesidad de gran parte de este esfuerzo de programación detallado".</li>
+<li><strong>Definición moderna (Mitchell, 1997):</strong> "Se dice que un programa de computadora aprende de la <strong>experiencia E</strong> con respecto a alguna clase de <strong>tareas T</strong> y una medida de <strong>rendimiento P</strong>, si su rendimiento en las tareas T, medido por P, mejora con la experiencia E".</li>
+<li><strong>Definición matemática (Ej. Regresión Lineal):</strong> Un modelo matemático que intenta encontrar la relación óptima entre variables. Por ejemplo, predecir ventas (Target, <span class="arithmatex">\(y\)</span>) basándose en gastos de publicidad (Feature, <span class="arithmatex">\(x\)</span>). El modelo <span class="arithmatex">\(y = wx + b\)</span> aprende los <strong>parámetros</strong> <span class="arithmatex">\(w\)</span> (peso) y <span class="arithmatex">\(b\)</span> iterando desde valores arbitrarios (<span class="arithmatex">\(f_1\)</span>) hasta un valor óptimo (<span class="arithmatex">\(f_3\)</span>) que minimiza el error.</li>
+</ul>
+<h4 id="ml-y-otros-campos">ML y Otros Campos</h4>
+<p>El Machine Learning está profundamente interconectado con otros campos:
+* Es un subcampo de la <strong>Inteligencia Artificial</strong>.
+* <strong>Deep Learning</strong> es un subcampo del Machine Learning.
+* Se solapa significativamente con <strong>Estadística</strong>, <strong>Minería de Datos</strong> y <strong>Reconocimiento de Patrones</strong>.</p>
+<h4 id="tipos-de-machine-learning">Tipos de Machine Learning</h4>
+<p>Según el método de supervisión, el ML se divide en:
+1.  <strong>Supervisado:</strong> Se proporciona un patrón objetivo (datos etiquetados). El capítulo se centra en este tipo, que incluye algoritmos como Regresión Lineal, Regresión Logística, Árboles de Decisión, KNN, SVM y Redes Neuronales.
+2.  <strong>No Supervisado:</strong> El patrón objetivo debe ser descubierto (datos no etiquetados). Incluye Clustering, PCA y Análisis de Asociación.
+3.  <strong>Refuerzo:</strong> Se aprende mediante la optimización de políticas (recompensas y castigos).</p>
+<h4 id="flujo-de-trabajo-del-machine-learning">Flujo de Trabajo del Machine Learning</h4>
+<p>El proceso general para construir un modelo de ML es:
+1.  <strong>Definición del Problema:</strong> Comprender el objetivo de negocio.
+2.  <strong>Preparación de Datos:</strong> Recolección de datos brutos (Raw Data) y preprocesamiento.
+3.  <strong>Machine Learning (Modelado):</strong> Se divide la data en conjuntos de <strong>Train</strong> (Entrenamiento), <strong>Validate</strong> (Validación) y <strong>Test</strong> (Prueba).
+4.  <strong>Entrenamiento y Evaluación:</strong> Esta fase incluye <strong>Ingeniería de características</strong> (Feature engineering), <strong>Modelado y optimización</strong> (entrenar el modelo con los datos), y <strong>Evaluación de rendimiento</strong> (Performance metrics).
+5.  <strong>Aplicación:</strong> Aplicar el modelo en la vida real.</p>
+<h4 id="parametros-vs-hiperparametros">Parámetros vs. Hiperparámetros</h4>
+<ul>
+<li><strong>Parámetros:</strong> Se aprenden <em>desde los datos</em> durante el entrenamiento. Contienen el patrón de los datos (ej. <span class="arithmatex">\(w\)</span> y <span class="arithmatex">\(b\)</span> en regresión lineal, pesos de una red neuronal).</li>
+<li><strong>Hiperparámetros:</strong> Se configuran <em>manualmente</em> por el practicante <em>antes</em> del entrenamiento. Se "afinan" (tunan) para optimizar el rendimiento (ej. el valor <span class="arithmatex">\(k\)</span> en KNN, la tasa de aprendizaje, la profundidad máxima de un árbol).</li>
+</ul>
+<hr />
+<h3 id="12-biblioteca-python-scikit-learn">1.2. Biblioteca Python scikit-learn</h3>
+<p><code>scikit-learn</code> es la biblioteca de ML más representativa de Python.</p>
+<h4 id="caracteristicas">Características</h4>
+<ul>
+<li>Proporciona una interfaz de biblioteca integrada y unificada.</li>
+<li>Incluye una amplia variedad de algoritmos de ML, funciones de preprocesamiento y selección de modelos.</li>
+<li>Es simple, eficiente y está construida sobre <strong>NumPy, SciPy y matplotlib</strong>.</li>
+<li>Es de código abierto y puede usarse comercialmente.</li>
+<li><strong>No soporta GPU</strong>.</li>
+</ul>
+<h4 id="mecanismo-de-scikit-learn">Mecanismo de <code>scikit-learn</code></h4>
+<p>El flujo de trabajo de la API de <code>scikit-learn</code> es intuitivo y sigue tres pasos:
+1.  <strong>Instance:</strong> Crear una instancia del objeto del modelo (Estimator).
+2.  <strong>Fit:</strong> Entrenar el modelo con los datos.
+3.  <strong>Predict / transform:</strong> Usar el modelo entrenado para hacer predicciones o transformar datos.</p>
+<h4 id="estimator-classifier-y-regressor">Estimator, Classifier y Regressor</h4>
+<ul>
+<li><strong><code>Estimator</code>:</strong> El objeto base. Aprende de los datos usando el método <code>.fit()</code> y puede hacer predicciones usando <code>.predict()</code>.</li>
+<li><strong><code>Classifier</code>:</strong> Un estimador para tareas de clasificación (ej. <code>DecisionTreeClassifier</code>, <code>KNeighborsClassifier</code>).</li>
+<li><strong><code>Regressor</code>:</strong> Un estimador para tareas de regresión (predicción numérica) (ej. <code>LinearRegression</code>, <code>KNeighborsRegressor</code>).</li>
+</ul>
+<h4 id="sintaxis-basica-de-scikit-learn">Sintaxis Básica de <code>scikit-learn</code></h4>
+<ul>
+<li><strong>Importar un estimador:</strong>
+    <code>from sklearn.linear_model import LinearRegression</code></li>
+<li><strong>Importar un preprocesador:</strong>
+    <code>from sklearn.preprocessing import StandardScaler</code></li>
+<li><strong>Importar división de datos:</strong>
+    <code>from sklearn.model_selection import train_test_split</code></li>
+<li>
+<p><strong>Importar métricas:</strong>
+    <code>from sklearn import metrics</code></p>
+</li>
+<li>
+<p><strong>Instanciar (con hiperparámetros):</strong>
+    <code>myModel = KNeighborsClassifier(n_neighbors=10)</code></p>
+</li>
+<li><strong>Dividir los datos (Hold-out):</strong>
+    <code>X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3)</code></li>
+<li><strong>Entrenar el modelo (Supervisado):</strong>
+    <code>myModel.fit(X_train, Y_train)</code></li>
+<li><strong>Hacer predicciones:</strong>
+    <code>Y_pred = myModel.predict(X_test)</code></li>
+<li><strong>Evaluar el rendimiento:</strong>
+    <code>metrics.accuracy_score(Y_test, Y_pred)</code></li>
+<li><strong>Afinar hiperparámetros (con Cross-Validation):</strong>
+    <code>myGridCV = GridSearchCV(estimator, parameter_grid, cv=5)</code></li>
+</ul>
+<h4 id="ejemplo-practico-estandarizacion">Ejemplo Práctico: Estandarización</h4>
+<p>El preprocesamiento, como la <strong>estandarización</strong>, es crucial para mejorar el rendimiento. La estandarización (o <em>z-transformation</em>) convierte los datos para que sigan una distribución normal estándar, usando la fórmula <span class="arithmatex">\(z = \frac{x - m}{\sigma}\)</span> (donde <span class="arithmatex">\(m\)</span> es la media y <span class="arithmatex">\(\sigma\)</span> la desviación estándar).</p>
+<p>En <code>scikit-learn</code>, se usa <code>StandardScaler</code>:
+1.  <strong>Importar:</strong> <code>from sklearn.preprocessing import StandardScaler</code>
+2.  <strong>Instanciar:</strong> <code>scaler = StandardScaler()</code>
+3.  <strong>Ajustar (Fit):</strong> Se aprende la media (<span class="arithmatex">\(m\)</span>) y la desviación (<span class="arithmatex">\(\sigma\)</span>) <strong>solo de los datos de entrenamiento</strong>:
+    <code>scaler.fit(X_train)</code>
+4.  <strong>Transformar:</strong> Se aplica la transformación a los datos de entrenamiento y prueba:
+    <code>X_train = scaler.transform(X_train)</code>
+    <code>X_test = scaler.transform(X_test)</code>
+5.  <strong><code>fit_transform</code>:</strong> Se pueden combinar los pasos 3 y 4 (solo para <code>X_train</code>):
+    <code>X_train = scaler.fit_transform(X_train)</code></p>
+<p>Antes de la estandarización, las columnas pueden tener rangos de valores muy diferentes. Después, todos los valores están centrados alrededor de 0, lo que ayuda a muchos algoritmos a converger mejor.</p>
+<h4 id="modulos-principales-de-scikit-learn">Módulos Principales de <code>scikit-learn</code></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Módulo</th>
+<th style="text-align: left;">Función Principal</th>
+<th style="text-align: left;">Ejemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>sklearn.datasets</code></td>
+<td style="text-align: left;">Cargar datasets de ejemplo.</td>
+<td style="text-align: left;"><code>load_iris()</code>, <code>load_breast_cancer()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.preprocessing</code></td>
+<td style="text-align: left;">Preprocesamiento de datos (escalado, codificación).</td>
+<td style="text-align: left;"><code>StandardScaler</code>, <code>LabelEncoder</code>, <code>OneHotEncoder</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.model_selection</code></td>
+<td style="text-align: left;">División de datos, validación y afinado de hiperparámetros.</td>
+<td style="text-align: left;"><code>train_test_split</code>, <code>GridSearchCV</code>, <code>KFold</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.metrics</code></td>
+<td style="text-align: left;">Evaluación de rendimiento del modelo.</td>
+<td style="text-align: left;"><code>accuracy_score</code>, <code>precision_score</code>, <code>recall_score</code>, <code>roc_auc_score</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.linear_model</code></td>
+<td style="text-align: left;">Algoritmos lineales.</td>
+<td style="text-align: left;"><code>LinearRegression</code>, <code>LogisticRegression</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.tree</code></td>
+<td style="text-align: left;">Algoritmos de Árboles de Decisión.</td>
+<td style="text-align: left;"><code>DecisionTreeClassifier</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.neighbors</code></td>
+<td style="text-align: left;">Algoritmos de vecinos cercanos.</td>
+<td style="text-align: left;"><code>KNeighborsClassifier</code> (K-NN)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.svm</code></td>
+<td style="text-align: left;">Support Vector Machine (Máquinas de Vectores de Soporte).</td>
+<td style="text-align: left;"><code>SVC</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.ensemble</code></td>
+<td style="text-align: left;">Algoritmos de Ensamblado (Ensemble).</td>
+<td style="text-align: left;"><code>RandomForestClassifier</code>, <code>AdaBoostClassifier</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.cluster</code></td>
+<td style="text-align: left;">Algoritmos de clustering (No supervisado).</td>
+<td style="text-align: left;"><code>KMeans</code>, <code>DBSCAN</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>sklearn.pipeline</code></td>
+<td style="text-align: left;">Herramienta para encadenar pasos de preprocesamiento y modelado.</td>
+<td style="text-align: left;"><code>Pipeline</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="13-preparacion-y-division-del-dataset">1.3. Preparación y División del Dataset</h3>
+<p>La división de datos es fundamental para evaluar un modelo de ML. El conjunto de datos general se divide en un conjunto de <strong>entrenamiento</strong> y uno de <strong>evaluación (prueba)</strong>.</p>
+<h4 id="overfitting-sobreajuste-y-generalizacion">Overfitting (Sobreajuste) y Generalización</h4>
+<ul>
+<li><strong>Generalización:</strong> Es la capacidad del modelo para predecir con precisión datos nuevos que no ha visto antes.</li>
+<li><strong>Overfitting:</strong> Ocurre cuando un modelo se ajusta <em>demasiado</em> a los datos de entrenamiento, aprendiendo incluso el ruido.</li>
+<li><strong>Underfitting (Subajuste):</strong> Ocurre cuando un modelo es <em>demasiado simple</em> (baja capacidad) y no puede capturar el patrón subyacente de los datos.</li>
+</ul>
+<blockquote>
+<p><strong>El Dilema:</strong> A medida que aumenta la complejidad (flexibilidad) del modelo:
+* El error en el <strong>conjunto de entrenamiento</strong> (Training set) siempre disminuye.
+* El error en el <strong>conjunto de prueba</strong> (Test set) disminuye al principio, pero luego comienza a <em>aumentar</em>. El punto donde el error de prueba empieza a subir es donde comienza el overfitting.</p>
+</blockquote>
+<p>El conjunto de prueba es <strong>esencial</strong> para detectar el overfitting y seleccionar un modelo que generalice bien.</p>
+<h4 id="cross-validation-validacion-cruzada">Cross-Validation (Validación Cruzada)</h4>
+<p>El conjunto de prueba (Test set) debe usarse <strong>¡solo una vez!</strong> al final, para la evaluación final.</p>
+<p>Para evaluar el modelo <em>durante</em> el entrenamiento (por ejemplo, para afinar hiperparámetros), necesitamos una forma de simular un "conjunto de prueba" sin tocar el real. Para esto, dividimos el <strong>conjunto de entrenamiento</strong> (Training Data) en dos partes más pequeñas: un nuevo conjunto de <code>Train</code> y un conjunto de <code>Cross Validate</code> (Validación).</p>
+<p><strong>Método: k-Fold Cross-Validation</strong>
+Es el método más común:
+1.  Se subdivide el conjunto de entrenamiento (original) en <em>k</em> partes iguales (folds). (Usualmente k=10).
+2.  Se itera <em>k</em> veces (rondas).
+3.  En cada ronda, se usa 1 fold como conjunto de <strong>validación</strong> y los <em>k-1</em> folds restantes como conjunto de <strong>entrenamiento</strong>.
+4.  Se calcula la métrica de rendimiento (ej. accuracy) en cada ronda.
+5.  El rendimiento final del modelo es el <strong>promedio</strong> de las métricas de las <em>k</em> rondas.</p>
+<p><strong>Método: Leave One Out (LOO)</strong>
+Es un caso extremo de k-Fold donde <span class="arithmatex">\(k\)</span> es igual al número total de muestras. Se entrena con todos los datos menos uno, y se valida con ese único dato. Es computacionalmente muy costoso.</p>
+<hr />
+<h3 id="14-preprocesamiento-de-datos">1.4. Preprocesamiento de Datos</h3>
+<p>Preparar los datos es vital para un buen modelo. Esto incluye la limpieza (manejo de valores atípicos y faltantes) y la transformación (escalado y codificación).</p>
+<h4 id="manejo-de-valores-faltantes-missing-values">Manejo de Valores Faltantes (Missing Values)</h4>
+<p>Los valores faltantes (identificados en Python como <code>np.nan</code> o <code>NaN</code>) deben ser tratados.</p>
+<p><strong>1. Identificación:</strong>
+Se pueden contar usando <code>df.isnull().sum()</code>.</p>
+<p><strong>2. Eliminación (con Pandas <code>dropna()</code>):</strong>
+* <code>df.dropna()</code>: Elimina cualquier <strong>fila</strong> que contenga al menos un <code>NaN</code> (eje por defecto 0).
+* <code>df.dropna(axis=1)</code>: Elimina cualquier <strong>columna</strong> que contenga un <code>NaN</code>.
+* <code>df.dropna(how='all')</code>: Elimina filas/columnas donde <strong>todos</strong> los valores son <code>NaN</code>.
+* <code>df.dropna(thresh=N)</code>: Mantiene las filas que tienen al menos <code>N</code> valores no-<code>NaN</code>.
+* <code>df.dropna(subset=['col_name'])</code>: Elimina filas que tienen <code>NaN</code> específicamente en la columna 'col_name'.</p>
+<p><strong>3. Imputación (Relleno):</strong>
+Se usa cuando eliminar datos resultaría en una pérdida significativa de información.
+* <strong>Métodos simples:</strong> Rellenar con un valor (ej. 'unknown'), la media, la mediana o el valor más frecuente (moda) de la columna.
+* <strong>Con <code>scikit-learn</code> (<code>SimpleImputer</code>):</strong> Es el método preferido.
+    * <code>from sklearn.impute import SimpleImputer</code>
+    * <code>impt = SimpleImputer(strategy='mean')</code> (Estrategias: 'mean', 'median', 'most_frequent').
+    * <code>impt.fit(X_train)</code>: Aprende la media (o mediana/moda) del set de entrenamiento.
+    * <code>X_train_imputed = impt.transform(X_train)</code>: Aplica la imputación.
+    * <code>X_test_imputed = impt.transform(X_test)</code>: Aplica la <em>misma</em> imputación (con la media de train) al set de prueba.</p>
+<h4 id="manejo-de-datos-categoricos">Manejo de Datos Categóricos</h4>
+<p>Los algoritmos de ML requieren entradas numéricas. Los datos categóricos deben ser convertidos.</p>
+<p><strong>1. Datos Ordinales (con orden):</strong>
+Ej. Tallas: 'M' &lt; 'L' &lt; 'XL'.
+Se deben mapear a enteros que respeten ese orden.
+* <code>size_mapping = {'M': 1, 'L': 2, 'XL': 3}</code>
+* <code>df['size'] = df['size'].map(size_mapping)</code></p>
+<p><strong>2. Datos Nominales (sin orden) y Etiquetas de Clase:</strong>
+Ej. Colores: 'red', 'green', 'blue' o Etiquetas: 'setosa', 'versicolor'.</p>
+<ul>
+<li>
+<p><strong>Codificación de Etiquetas (Label Encoding):</strong>
+    Convierte cada etiqueta única en un entero (ej. 'class1': 0, 'class2': 1). Se usa <code>LabelEncoder</code> de <code>scikit-learn</code>.</p>
+<ul>
+<li><code>from sklearn.preprocessing import LabelEncoder</code></li>
+<li><code>enc = LabelEncoder()</code></li>
+<li><code>y_encoded = enc.fit_transform(df['classlabel'])</code></li>
+</ul>
+</li>
+<li>
+<p><strong>One-Hot Encoding (para características nominales):</strong>
+    Usar <code>LabelEncoder</code> para características (X) es incorrecto, ya que crea un orden artificial. Se debe usar <strong>One-Hot Encoding</strong>.
+    Crea nuevas columnas "dummy" (0 o 1) para cada categoría, indicando presencia (1) o ausencia (0).</p>
+<ul>
+<li><strong>Método Pandas:</strong> <code>pd.get_dummies(df['species'])</code>.</li>
+<li><strong>Método <code>scikit-learn</code>:</strong> <code>OneHotEncoder</code>. Este método es preferido en pipelines y a menudo devuelve una <strong>matriz dispersa</strong> (sparse matrix) para ahorrar memoria, ya que la mayoría de los valores serán 0.</li>
+</ul>
+</li>
+</ul>
+<h4 id="division-de-datos-estratificada-stratify">División de Datos Estratificada (Stratify)</h4>
+<p>Al usar <code>train_test_split</code>, si el dataset está desbalanceado (ej. 90% clase A, 10% clase B), una división aleatoria simple podría resultar en un set de prueba sin muestras de la clase B.
+* <strong>Solución:</strong> Usar el parámetro <code>stratify=y</code>.
+* Esto asegura que la proporción de las clases (ej. 90/10) se mantenga <em>idéntica</em> tanto en el conjunto de entrenamiento como en el de prueba, reflejando el dataset original.</p>
+<h4 id="topicos-avanzados-tradeoff-de-sesgo-varianza-y-regularizacion">Tópicos Avanzados: Tradeoff de Sesgo-Varianza y Regularización</h4>
+<ul>
+<li><strong>Tradeoff de Sesgo-Varianza:</strong><ul>
+<li><strong>Sesgo (Bias):</strong> Error por suposiciones incorrectas (Underfitting).</li>
+<li><strong>Varianza (Variance):</strong> Error por sensibilidad excesiva a los datos de entrenamiento (Overfitting).</li>
+<li><strong>Error Total <span class="arithmatex">\(\approx\)</span> Sesgo² + Varianza</strong>. El objetivo es encontrar la complejidad óptima que minimice este error total.</li>
+</ul>
+</li>
+<li><strong>Regularización:</strong> Técnica para prevenir el overfitting en modelos lineales penalizando coeficientes (pesos) grandes.<ul>
+<li><strong>Ridge (L2):</strong> Añade una penalización <span class="arithmatex">\(\lambda\sum{w_j^2}\)</span>. Encoge los pesos, pero no los hace cero.</li>
+<li><strong>Lasso (L1):</strong> Añade una penalización <span class="arithmatex">\(\lambda\sum{|w_j|}\)</span>. Puede forzar que algunos pesos sean exactamente cero, realizando una selección de características automática.</li>
+<li><strong>ElasticNet:</strong> Combina penalizaciones L1 y L2.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="15-practica-solucion-de-problemas-con-scikit-learn-ej-iris">1.5. Práctica: Solución de Problemas con scikit-learn (Ej. Iris)</h3>
+<p>Esta sección aplica todos los conceptos anteriores en un caso práctico completo usando el dataset "Iris".</p>
+<h4 id="1-entendimiento-del-problema-y-datos-eda">1. Entendimiento del Problema y Datos (EDA)</h4>
+<ul>
+<li><strong>Objetivo:</strong> Clasificar la especie de una flor Iris (Target).</li>
+<li><strong>Clases (Target):</strong> 3 especies (Setosa, Versicolor, Virginica).</li>
+<li><strong>Características (Features):</strong> <code>sepal_length</code>, <code>sepal_width</code>, <code>petal_length</code>, <code>petal_width</code>.</li>
+<li><strong>Análisis de Datos:</strong><ul>
+<li>Se cargan los datos y se convierten a un DataFrame de Pandas.</li>
+<li><strong>Valores Faltantes:</strong> Se comprueba con <code>iris.isnull().sum()</code>. No se encontraron.</li>
+<li><strong>Distribución de Clases:</strong> Se comprueba con <code>iris.groupby('target').size()</code>. Hay 50 muestras de cada clase (33.3% cada una). Es un <strong>dataset balanceado</strong>.</li>
+<li><strong>Estadísticas y Correlación:</strong> <code>iris.describe()</code> y <code>iris.corr()</code>. Se observa que <code>petal_length</code> y <code>petal_width</code> están altamente correlacionados (0.96), sugiriendo un problema de multicolinealidad.</li>
+<li><strong>Visualización:</strong> Se usan <code>pairplot</code> y <code>heatmap</code> para confirmar visualmente las relaciones y la alta correlación.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-division-y-preparacion-de-datos">2. División y Preparación de Datos</h4>
+<ul>
+<li><strong>Separación X/y:</strong> Se separan las características (X) del objetivo (y).</li>
+<li><strong>División Train/Test:</strong> Se usa <code>train_test_split</code> (ej. 80% train, 20% test).</li>
+<li><strong>Validación Cruzada:</strong><ul>
+<li>Se muestra cómo usar <code>KFold</code> (CV estándar) y <code>StratifiedKFold</code> (CV estratificada).</li>
+<li><code>StratifiedKFold</code> es preferible porque mantiene la distribución 33/33/33 de las clases en cada fold, asegurando que la validación sea representativa.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-seleccion-y-evaluacion-del-modelo">3. Selección y Evaluación del Modelo</h4>
+<ul>
+<li><strong>Curva de Aprendizaje (<code>Learning Curve</code>):</strong>
+    Se usa para diagnosticar bias vs. variance. Muestra el rendimiento del modelo a medida que ve más datos de entrenamiento.</li>
+<li><strong>Afinado de Hiperparámetros (<code>GridSearchCV</code>):</strong>
+    Se utiliza para encontrar la mejor combinación de hiperparámetros (ej. <code>criterion</code>, <code>max_depth</code> para un <code>DecisionTreeClassifier</code>) probando todas las combinaciones posibles mediante validación cruzada.</li>
+</ul>
+<h4 id="4-metricas-de-evaluacion-clasificacion">4. Métricas de Evaluación (Clasificación)</h4>
+<p>Una vez que el modelo (<code>GridSearchCV</code>) está entrenado y se hacen predicciones sobre el <code>X_test</code>, se evalúa el rendimiento.</p>
+<ul>
+<li>
+<p><strong>Matriz de Confusión (<code>Confusion Matrix</code>):</strong>
+    Es la base para todas las métricas. Compara los valores reales (True label) con los predichos (Predicted label).</p>
+<ul>
+<li><strong>TP (True Positive):</strong> Real = 1, Predicho = 1.</li>
+<li><strong>FN (False Negative):</strong> Real = 1, Predicho = 0.</li>
+<li><strong>FP (False Positive):</strong> Real = 0, Predicho = 1.</li>
+<li><strong>TN (True Negative):</strong> Real = 0, Predicho = 0.</li>
+</ul>
+</li>
+<li>
+<p><strong>Métricas Clave:</strong></p>
+<ul>
+<li><strong>Accuracy (Exactitud):</strong> <span class="arithmatex">\(\frac{TP + TN}{Total}\)</span>. Proporción de predicciones correctas. (Usar con cuidado en datasets desbalanceados).</li>
+<li><strong>Precision (Precisión):</strong> <span class="arithmatex">\(\frac{TP}{TP + FP}\)</span>. De los que <em>dijimos</em> que eran positivos, ¿cuántos acertamos?.</li>
+<li><strong>Recall (Sensibilidad o TPR):</strong> <span class="arithmatex">\(\frac{TP}{TP + FN}\)</span>. De <em>todos los positivos reales</em>, ¿cuántos encontramos?.</li>
+<li><strong>F1-Score:</strong> La media armónica de Precision y Recall. Es una métrica excelente para datasets desbalanceados. <span class="arithmatex">\(F_1 = 2 \frac{Precision \times Recall}{Precision + Recall}\)</span>.</li>
+<li><strong>FPR (Tasa de Falsos Positivos):</strong> <span class="arithmatex">\(\frac{FP}{FP + TN}\)</span>. Proporción de negativos reales que clasificamos incorrectamente como positivos.</li>
+</ul>
+</li>
+<li>
+<p><strong>Curva ROC y AUC:</strong></p>
+<ul>
+<li><strong>Curva ROC:</strong> Gráfica que muestra el rendimiento de un clasificador en todos los umbrales de clasificación. Muestra <strong>TPR</strong> (Eje Y) vs. <strong>FPR</strong> (Eje X).</li>
+<li><strong>AUC (Area Under the Curve):</strong> El área bajo la curva ROC. Es una métrica única que resume el rendimiento del modelo.<ul>
+<li>AUC = 1.0: Clasificador perfecto.</li>
+<li>AUC = 0.5: Clasificador inútil (aleatorio).</li>
+<li>Un AUC de 0.85 o más se considera bueno.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-prediccion-final">5. Predicción Final</h4>
+<ul>
+<li>Se carga el modelo final (el mejor <code>estimator_</code> encontrado por <code>GridSearchCV</code>).</li>
+<li>Se realizan las predicciones finales sobre el conjunto de prueba (<code>X_test</code>).</li>
+<li>Los resultados se guardan, por ejemplo, en un archivo CSV.</li>
+</ul>
+<hr />
+<p>📅 <strong>Fecha de creación:</strong> 27/10/2025<br />
+✍️ <strong>Autor:</strong> Fran García</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Introducción">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Introducción
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02-prediccion-numerica/" class="md-footer__link md-footer__link--next" aria-label="Next: 2. Predicción Numérica">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                2. Predicción Numérica
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Francisco García
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/fmgarcia27/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@fmgarcia" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.sections", "navigation.expand", "navigation.top", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

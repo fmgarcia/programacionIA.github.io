@@ -1,5 +1,5 @@
 site_name: Programación en Inteligencia Artificial
-site_url: https://sitename.example
+site_url: https://fmgarcia.github.io/aprendizaje_supervisado.github.io/
 theme:
   name: material
   font:
@@ -9,6 +9,10 @@ theme:
   favicon: assets/favicon.ico
   features:
     - navigation.footer
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
   palette:
     # Dark Mode
     - scheme: slate
@@ -61,3 +65,22 @@ extra:
       link: https://www.youtube.com/@fmgarcia
 
 copyright: Copyright &copy; 2025 Francisco García
+
+nav:
+  - Inicio: index.md
+  - Aprendizaje Supervisado:
+    - Introducción: aprendizaje-supervisado/index.md
+    - 1. Machine Learning: aprendizaje-supervisado/01-machine-learning.md
+    - 2. Predicción Numérica: aprendizaje-supervisado/02-prediccion-numerica.md
+    - 3. Predicción Categórica: aprendizaje-supervisado/03-prediccion-categorica.md
+    - 4. Árboles de Decisión: aprendizaje-supervisado/04-arboles-decision.md
+    - 5. Naive Bayes: aprendizaje-supervisado/05-naive-bayes.md
+    - 6. Algoritmo KNN: aprendizaje-supervisado/06-knn.md
+    - 7. Algoritmo SVM: aprendizaje-supervisado/07-svm.md
+    - 8. Ensamblado: aprendizaje-supervisado/08-ensamblado.md
+  - Aprendizaje No Supervisado:
+    - Introducción: aprendizaje-no-supervisado/index.md
+  - Procesamiento de Lenguaje Natural:
+    - Introducción: procesamiento-lenguaje-natural/index.md
+  - Deep Learning:
+    - Introducción: deep-learning/index.md
