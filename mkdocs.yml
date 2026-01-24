@@ -80,6 +80,14 @@ nav:
     - 8. Ensamblado: aprendizaje-supervisado/08-ensamblado.md
   - Aprendizaje No Supervisado:
     - Introducción: aprendizaje-no-supervisado/index.md
+    - 1. Fundamentos: aprendizaje-no-supervisado/01-aprendizaje-no-supervisado.md
+    - 2. K-Means: aprendizaje-no-supervisado/02-kmeans.md
+    - 3. DBSCAN: aprendizaje-no-supervisado/03-dbscan.md
+    - 4. Clustering Jerárquico: aprendizaje-no-supervisado/04-clustering-jerarquico.md
+    - 5. PCA: aprendizaje-no-supervisado/05-pca.md
+    - 6. t-SNE: aprendizaje-no-supervisado/06-tsne.md
+    - 7. Isolation Forest: aprendizaje-no-supervisado/07-isolation-forest.md
+    - 8. Apriori: aprendizaje-no-supervisado/08-apriori.md
   - Procesamiento de Lenguaje Natural:
     - Introducción: procesamiento-lenguaje-natural/index.md
   - Deep Learning:
