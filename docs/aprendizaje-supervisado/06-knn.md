@@ -8,10 +8,10 @@ El algoritmo **K-Nearest Neighbors** (K-Vecinos Más Cercanos) es uno de los mé
 
 La intuición detrás de KNN es sencilla y se basa en la proximidad: "Dime con quién andas y te diré quién eres". Para clasificar un nuevo punto de datos, el algoritmo busca en todo el conjunto de datos de entrenamiento los **'k'** puntos más cercanos (vecinos) a ese nuevo punto.
 
-1.  **Calcular distancias:** Se calcula la distancia matemática entre el punto nuevo que queremos predecir y todos los puntos existentes en el dataset.
-2.  **Buscar vecinos:** Se seleccionan los $k$ puntos con las distancias más cortas.
-3.  **Votación (Clasificación):** La clase del nuevo punto se determina por mayoría de votos de sus vecinos. La clase más frecuente entre los $k$ vecinos se asigna al nuevo punto.
-4.  **Promedio (Regresión):** El valor del nuevo punto es el promedio (o media ponderada) de los valores numéricos de sus vecinos.
+1. **Calcular distancias:** Se calcula la distancia matemática entre el punto nuevo que queremos predecir y todos los puntos existentes en el dataset.
+2. **Buscar vecinos:** Se seleccionan los $k$ puntos con las distancias más cortas.
+3. **Votación (Clasificación):** La clase del nuevo punto se determina por mayoría de votos de sus vecinos. La clase más frecuente entre los $k$ vecinos se asigna al nuevo punto.
+4. **Promedio (Regresión):** El valor del nuevo punto es el promedio (o media ponderada) de los valores numéricos de sus vecinos.
 
 ---
 
@@ -23,13 +23,13 @@ Dados dos puntos $P$ y $Q$ en un espacio n-dimensional (donde $n$ es el número 
 $P = (p_1, p_2, ..., p_n)$
 $Q = (q_1, q_2, ..., q_n)$
 
-*   **Distancia Euclidiana (L2):** Es la distancia en línea recta "a vuelo de pájaro". Es la más utilizada por defecto.
+* **Distancia Euclidiana (L2):** Es la distancia en línea recta "a vuelo de pájaro". Es la más utilizada por defecto.
     $$d(P, Q) = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}$$
 
-*   **Distancia Manhattan (L1):** Suma de las diferencias absolutas. Es útil en sistemas tipo cuadrícula (como manzanas de una ciudad).
+* **Distancia Manhattan (L1):** Suma de las diferencias absolutas. Es útil en sistemas tipo cuadrícula (como manzanas de una ciudad).
     $$d(P, Q) = \sum_{i=1}^{n} |q_i - p_i|$$
 
-*   **Distancia Minkowski:** Una generalización matemática de las anteriores.
+* **Distancia Minkowski:** Una generalización matemática de las anteriores.
     $$d(P, Q) = (\sum_{i=1}^{n} |q_i - p_i|^p)^{1/p}$$
     (Si $p=1$ es Manhattan, si $p=2$ es Euclidiana).
 
@@ -85,35 +85,35 @@ print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
 
 ### 6.5. Ejemplos Comunes de Uso
 
-*   **Sistemas de Recomendación:** Sugerir productos, películas o música basándose en las preferencias de usuarios "vecinos" con gustos similares (Filtrado Colaborativo).
-*   **Reconocimiento de Patrones:** Reconocimiento de caracteres escritos a mano (OCR) o clasificación de imágenes simples basándose en la similitud de píxeles.
-*   **Detección de Anomalías:** Identificar fraudes bancarios o intrusiones en redes detectando eventos que están "lejos" de los grupos de vecinos normales.
-*   **Imputación de Datos Faltantes:** Rellenar valores nulos en un dataset basándose en los valores de los vecinos más cercanos (`KNNImputer`).
-*   **Medicina:** Clasificación de pacientes con perfiles similares para predecir riesgos de enfermedades.
+* **Sistemas de Recomendación:** Sugerir productos, películas o música basándose en las preferencias de usuarios "vecinos" con gustos similares (Filtrado Colaborativo).
+* **Reconocimiento de Patrones:** Reconocimiento de caracteres escritos a mano (OCR) o clasificación de imágenes simples basándose en la similitud de píxeles.
+* **Detección de Anomalías:** Identificar fraudes bancarios o intrusiones en redes detectando eventos que están "lejos" de los grupos de vecinos normales.
+* **Imputación de Datos Faltantes:** Rellenar valores nulos en un dataset basándose en los valores de los vecinos más cercanos (`KNNImputer`).
+* **Medicina:** Clasificación de pacientes con perfiles similares para predecir riesgos de enfermedades.
 
 ### 6.6. Aplicaciones Reales de KNN
 
 Aunque es un algoritmo simple, KNN se utiliza en sistemas donde la interpretabilidad y la simplicidad son clave:
 
-*   **Sistemas de Recomendación (Retail):** Empresas como Amazon o Netflix utilizan variantes de algoritmos basados en vecindad para recomendar productos ("Los usuarios que compraron X también compraron Y").
-    *   [Sistemas de recomendación con KNN](https://github.com/topics/recommendation-system)
-*   **Reconocimiento de Escritura a Mano:** El servicio postal de EE.UU. (USPS) utilizó métodos basados en vecindad para reconocer dígitos escritos a mano en códigos postales.
-    *   [Dataset MNIST y KNN](https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html)
-*   **Detección de Intrusiones (Ciberseguridad):** Clasificar actividades de red como normales o sospechosas basándose en su similitud con patrones de ataques conocidos.
-*   **Bioinformática:** Clasificación de muestras de genes o proteínas basándose en su similitud con perfiles conocidos para el diagnóstico de enfermedades.
+* **Sistemas de Recomendación (Retail):** Empresas como Amazon o Netflix utilizan variantes de algoritmos basados en vecindad para recomendar productos ("Los usuarios que compraron X también compraron Y").
+  * [Sistemas de recomendación con KNN](https://github.com/topics/recommendation-system)
+* **Reconocimiento de Escritura a Mano:** El servicio postal de EE.UU. (USPS) utilizó métodos basados en vecindad para reconocer dígitos escritos a mano en códigos postales.
+  * [Dataset MNIST y KNN](https://scikit-learn.org/stable/auto_examples/classification/plot_digits_classification.html)
+* **Detección de Intrusiones (Ciberseguridad):** Clasificar actividades de red como normales o sospechosas basándose en su similitud con patrones de ataques conocidos.
+* **Bioinformática:** Clasificación de muestras de genes o proteínas basándose en su similitud con perfiles conocidos para el diagnóstico de enfermedades.
 
 ---
 
 ### 6.7. Consideraciones Finales
 
-1.  **Elección de 'k' (Hiperparámetro clave):**
-    *   Un $k$ muy pequeño (ej. $k=1$) hace que el modelo sea muy sensible al ruido (**Overfitting**).
-    *   Un $k$ muy grande suaviza demasiado la frontera de decisión y puede incluir vecinos de otras clases lejanas (**Underfitting**).
-    *   Se suele elegir un $k$ **impar** para evitar empates en clasificación binaria.
-    *   El valor óptimo se encuentra usualmente mediante validación cruzada (técnica del codo o *Elbow Method*).
+1. **Elección de 'k' (Hiperparámetro clave):**
+    * Un $k$ muy pequeño (ej. $k=1$) hace que el modelo sea muy sensible al ruido (**Overfitting**).
+    * Un $k$ muy grande suaviza demasiado la frontera de decisión y puede incluir vecinos de otras clases lejanas (**Underfitting**).
+    * Se suele elegir un $k$ **impar** para evitar empates en clasificación binaria.
+    * El valor óptimo se encuentra usualmente mediante validación cruzada (técnica del codo o *Elbow Method*).
 
-2.  **Escalado de Características:**
-    *   Dado que KNN se basa puramente en distancias, es **obligatorio** escalar las variables (usando `StandardScaler` o `MinMaxScaler`). Si una variable tiene una magnitud mucho mayor que otra (ej. Salario [1000-5000] vs Edad [20-60]), la variable de mayor magnitud dominará completamente el cálculo de la distancia, haciendo que la otra sea irrelevante.
+2. **Escalado de Características:**
+    * Dado que KNN se basa puramente en distancias, es **obligatorio** escalar las variables (usando `StandardScaler` o `MinMaxScaler`). Si una variable tiene una magnitud mucho mayor que otra (ej. Salario [1000-5000] vs Edad [20-60]), la variable de mayor magnitud dominará completamente el cálculo de la distancia, haciendo que la otra sea irrelevante.
 
 ---
 

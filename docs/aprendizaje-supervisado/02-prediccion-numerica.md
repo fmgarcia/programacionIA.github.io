@@ -28,11 +28,11 @@ La regresión lineal es ampliamente utilizada en una variedad de aplicaciones, c
 
 - **Salud**: Modelado de la relación entre la dosis de un medicamento y la respuesta del paciente. En este ámbito, se podría usar la regresión lineal para entender cómo varía la presión sanguínea en respuesta a diferentes dosis de un medicamento. Si existen múltiples factores (como edad, peso, y otras condiciones de salud), **Lasso Regression** podría ayudar a identificar cuáles son las características más relevantes. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_model_selection.html)
 
-- **Marketing**: Determinación de la relación entre el gasto publicitario y las ventas. La regresión lineal se utiliza para estimar el impacto de diferentes estrategias publicitarias en las ventas. Si existen muchas campañas publicitarias y se necesita identificar cuáles son las más efectivas, **Lasso Regression** podría ayudar a eliminar las menos significativas y reducir la complejidad del modelo. 
+- **Marketing**: Determinación de la relación entre el gasto publicitario y las ventas. La regresión lineal se utiliza para estimar el impacto de diferentes estrategias publicitarias en las ventas. Si existen muchas campañas publicitarias y se necesita identificar cuáles son las más efectivas, **Lasso Regression** podría ayudar a eliminar las menos significativas y reducir la complejidad del modelo.
 
-- **Educación**: Predicción de calificaciones de estudiantes en función de variables como el tiempo de estudio y la asistencia. Si el objetivo es identificar los factores que tienen mayor influencia en el rendimiento académico, **Lasso Regression** sería útil para seleccionar solo las características más relevantes, como participación en clase, tiempo de estudio, o participación en actividades extracurriculares. 
+- **Educación**: Predicción de calificaciones de estudiantes en función de variables como el tiempo de estudio y la asistencia. Si el objetivo es identificar los factores que tienen mayor influencia en el rendimiento académico, **Lasso Regression** sería útil para seleccionar solo las características más relevantes, como participación en clase, tiempo de estudio, o participación en actividades extracurriculares.
 
-- **Inmobiliaria**: Predicción del valor de una propiedad con base en características como la ubicación, el tamaño y el número de habitaciones. En este contexto, **Ridge Regression** puede ser útil para manejar la multicolinealidad, ya que características como la ubicación y el tamaño de una propiedad suelen estar correlacionadas. Ridge ayuda a estabilizar los coeficientes y mejorar la capacidad predictiva del modelo. 
+- **Inmobiliaria**: Predicción del valor de una propiedad con base en características como la ubicación, el tamaño y el número de habitaciones. En este contexto, **Ridge Regression** puede ser útil para manejar la multicolinealidad, ya que características como la ubicación y el tamaño de una propiedad suelen estar correlacionadas. Ridge ayuda a estabilizar los coeficientes y mejorar la capacidad predictiva del modelo.
 
 - **Agricultura**: Estimación del rendimiento de cultivos en función de factores como el clima, la cantidad de fertilizante y el tipo de suelo. **Ridge Regression** es adecuada cuando hay múltiples factores que pueden estar correlacionados, como la temperatura y la precipitación. Esto ayuda a manejar mejor la multicolinealidad y a mejorar la generalización del modelo. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html)
 
@@ -40,9 +40,9 @@ La regresión lineal es ampliamente utilizada en una variedad de aplicaciones, c
 
 - **Economía y Finanzas**: En estos campos, la **regresión lineal** puede ser útil cuando se trata de problemas simples, como la predicción de precios basada en una o dos características. Sin embargo, si hay muchas variables que están altamente correlacionadas, **Ridge Regression** sería más apropiada para evitar el sobreajuste. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html)
 - **Salud**: Para el modelado de la relación entre la dosis de un medicamento y la respuesta del paciente, **Lasso Regression** sería adecuada si hay muchas características potenciales, ya que podría simplificar el modelo eliminando características irrelevantes. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_lasso_model_selection.html)
-- **Marketing**: Si hay muchas variables de marketing, como diferentes tipos de publicidad, **Lasso Regression** puede ayudar a identificar cuáles de ellas son las más importantes, eliminando las menos significativas. 
-- **Inmobiliaria**: En el caso de la predicción de precios de propiedades, **Ridge Regression** puede ser útil para manejar la multicolinealidad, ya que a menudo las características como ubicación, tamaño y tipo de propiedad están correlacionadas. 
-- **Educación**: Si queremos predecir las calificaciones de los estudiantes y hay muchas características (como el historial académico, asistencia, participación en clase, etc.), **Lasso** sería útil para identificar las variables más relevantes y eliminar las menos importantes. 
+- **Marketing**: Si hay muchas variables de marketing, como diferentes tipos de publicidad, **Lasso Regression** puede ayudar a identificar cuáles de ellas son las más importantes, eliminando las menos significativas.
+- **Inmobiliaria**: En el caso de la predicción de precios de propiedades, **Ridge Regression** puede ser útil para manejar la multicolinealidad, ya que a menudo las características como ubicación, tamaño y tipo de propiedad están correlacionadas.
+- **Educación**: Si queremos predecir las calificaciones de los estudiantes y hay muchas características (como el historial académico, asistencia, participación en clase, etc.), **Lasso** sería útil para identificar las variables más relevantes y eliminar las menos importantes.
 - **Agricultura**: Para la estimación del rendimiento de cultivos, **Ridge Regression** sería adecuada si existen múltiples factores correlacionados, ya que permite manejar mejor la multicolinealidad. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html)
 
 ## Limitaciones de la Regresión Lineal
@@ -64,11 +64,11 @@ Para superar algunas de las limitaciones de la regresión lineal estándar, se h
 **Ridge Regression**, también conocida como **regresión de cresta**, añade un término de regularización L2 a la función de pérdida. Esto significa que el modelo penaliza los coeficientes grandes, haciendo que los valores de los parámetros sean más pequeños y estables. La ecuación para Ridge es:
 
 $$
-J(	heta) = \sum (y_i - \hat{y_i})^2 + \lambda \sum 	heta_j^2
+J( heta) = \sum (y_i - \hat{y_i})^2 + \lambda \sum  heta_j^2
 $$
 
 - **\lambda**: Parámetro de regularización que controla la cantidad de penalización.
-- **	$heta_j$**: Coeficientes del modelo.
+- **$heta_j$**: Coeficientes del modelo.
 
 El término de penalización ayuda a reducir la complejidad del modelo, lo cual resulta útil especialmente cuando existen múltiples variables independientes correlacionadas (multicolinealidad).
 
@@ -82,7 +82,7 @@ El término de penalización ayuda a reducir la complejidad del modelo, lo cual 
 **Lasso Regression** añade un término de regularización L1 a la función de pérdida. Este término tiene la capacidad de hacer que algunos coeficientes sean exactamente cero, eliminando efectivamente ciertas características del modelo. La ecuación de Lasso es:
 
 $$
-J(	heta) = \sum (y_i - \hat{y_i})^2 + \lambda \sum |	heta_j|
+J( heta) = \sum (y_i - \hat{y_i})^2 + \lambda \sum | heta_j|
 $$
 
 - **$\lambda$**: Parámetro de regularización que controla la penalización.
@@ -117,8 +117,8 @@ La elección entre la regresión lineal, Ridge y Lasso dependerá de la naturale
 ## Ejemplos Adicionales de Uso
 
 - **Predicción de Ventas Minoristas**: En un negocio minorista donde existen múltiples características que afectan las ventas (promociones, temporadas, clima, ubicación), **Ridge Regression** sería útil para manejar la posible multicolinealidad entre estas características. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_ridge_path.html)
-- **Modelado de la Demanda Energética**: En la predicción del consumo de energía eléctrica, que depende de variables como temperatura, hora del día, y tipo de día (laboral o festivo), **Ridge** podría ayudar a manejar la complejidad y multicolinealidad. 
-- **Análisis de Sentimientos**: Al predecir la polaridad de una opinión (positiva o negativa) en base a muchas palabras o frases, **Lasso Regression** sería ideal para seleccionar las palabras más relevantes y reducir la dimensionalidad. 
-- **Predicción de Costos de Seguros Médicos**: Para estimar los costos de seguros médicos en función de características como edad, estado de salud, hábitos de vida y ubicación geográfica, **Lasso** podría ayudar a eliminar características redundantes, haciendo el modelo más interpretable. 
-- **Optimización de Cadenas de Suministro**: Para predecir el tiempo de entrega de productos considerando múltiples variables (tráfico, distancia, clima, inventario), **Ridge Regression** puede ser útil para manejar la correlación entre factores como tráfico y distancia. 
+- **Modelado de la Demanda Energética**: En la predicción del consumo de energía eléctrica, que depende de variables como temperatura, hora del día, y tipo de día (laboral o festivo), **Ridge** podría ayudar a manejar la complejidad y multicolinealidad.
+- **Análisis de Sentimientos**: Al predecir la polaridad de una opinión (positiva o negativa) en base a muchas palabras o frases, **Lasso Regression** sería ideal para seleccionar las palabras más relevantes y reducir la dimensionalidad.
+- **Predicción de Costos de Seguros Médicos**: Para estimar los costos de seguros médicos en función de características como edad, estado de salud, hábitos de vida y ubicación geográfica, **Lasso** podría ayudar a eliminar características redundantes, haciendo el modelo más interpretable.
+- **Optimización de Cadenas de Suministro**: Para predecir el tiempo de entrega de productos considerando múltiples variables (tráfico, distancia, clima, inventario), **Ridge Regression** puede ser útil para manejar la correlación entre factores como tráfico y distancia.
 - **Reconocimiento de Actividad Humana**: En la clasificación de actividades humanas usando sensores portátiles (como acelerómetros y giroscopios), **Lasso** podría ayudar a identificar cuáles de las señales del sensor son más importantes para diferenciar entre actividades como caminar, correr o estar de pie. [Ejemplo en Python](https://scikit-learn.org/stable/auto_examples/linear_model/plot_sparse_recovery.html)

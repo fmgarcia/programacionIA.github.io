@@ -10,9 +10,9 @@ La intuición detrás de esto es la **"Sabiduría de las Masas"**: así como la 
 
 El objetivo principal es reducir el **sesgo** (bias) o la **varianza** (variance), o ambos. Los métodos de ensamblado se dividen principalmente en tres categorías según cómo combinan los modelos:
 
-1.  **Voting (Votación):** Se entrenan varios modelos diferentes (ej. KNN, SVM, Árbol) y se "vota" para decidir la clase final.
-2.  **Bagging (Bootstrap Aggregating):** Se entrena el *mismo* algoritmo muchas veces en paralelo, pero con diferentes subconjuntos aleatorios de los datos de entrenamiento. Su objetivo es reducir la **varianza** (evitar overfitting). El ejemplo clásico es **Random Forest**.
-3.  **Boosting:** Se entrena el *mismo* algoritmo de forma **secuencial**. Cada nuevo modelo intenta corregir los errores cometidos por el modelo anterior. Su objetivo es reducir el **sesgo** (evitar underfitting). Ejemplos: AdaBoost, XGBoost.
+1. **Voting (Votación):** Se entrenan varios modelos diferentes (ej. KNN, SVM, Árbol) y se "vota" para decidir la clase final.
+2. **Bagging (Bootstrap Aggregating):** Se entrena el *mismo* algoritmo muchas veces en paralelo, pero con diferentes subconjuntos aleatorios de los datos de entrenamiento. Su objetivo es reducir la **varianza** (evitar overfitting). El ejemplo clásico es **Random Forest**.
+3. **Boosting:** Se entrena el *mismo* algoritmo de forma **secuencial**. Cada nuevo modelo intenta corregir los errores cometidos por el modelo anterior. Su objetivo es reducir el **sesgo** (evitar underfitting). Ejemplos: AdaBoost, XGBoost.
 
 ---
 
@@ -22,8 +22,8 @@ Es la forma más simple de ensamblado. Consiste en agregar las predicciones de c
 
 #### Tipos de Votación
 
-*   **Hard Voting (Votación Dura):** Cada clasificador vota por una clase. La clase con la mayoría de votos gana (moda).
-*   **Soft Voting (Votación Suave):** Si los clasificadores pueden estimar probabilidades (tienen método `predict_proba`), se promedian las probabilidades de cada clase. La clase con el promedio de probabilidad más alto gana. El *Soft Voting* suele funcionar mejor porque da más peso a los votos con "alta confianza".
+* **Hard Voting (Votación Dura):** Cada clasificador vota por una clase. La clase con la mayoría de votos gana (moda).
+* **Soft Voting (Votación Suave):** Si los clasificadores pueden estimar probabilidades (tienen método `predict_proba`), se promedian las probabilidades de cada clase. La clase con el promedio de probabilidad más alto gana. El *Soft Voting* suele funcionar mejor porque da más peso a los votos con "alta confianza".
 
 #### Ejemplo en Python (Voting)
 
@@ -64,8 +64,8 @@ for clf in (log_clf, rnd_clf, svm_clf, voting_clf):
 
 **Bagging** (Bootstrap Aggregating) implica entrenar el mismo algoritmo en diferentes subconjuntos aleatorios del dataset de entrenamiento.
 
-*   **Bootstrap:** El muestreo se hace *con reemplazo* (una misma muestra puede aparecer varias veces en el mismo subconjunto).
-*   **Pasting:** El muestreo se hace *sin reemplazo*.
+* **Bootstrap:** El muestreo se hace *con reemplazo* (una misma muestra puede aparecer varias veces en el mismo subconjunto).
+* **Pasting:** El muestreo se hace *sin reemplazo*.
 
 Una vez entrenados, los modelos agregan sus predicciones (moda para clasificación, promedio para regresión).
 
@@ -76,10 +76,10 @@ Introduce aleatoriedad extra: al dividir un nodo en el árbol, no busca la mejor
 
 **Hiperparámetros Clave:**
 
-*   `n_estimators`: Número de árboles (más es mejor, pero más lento).
-*   `max_features`: Número máximo de características a considerar en cada división.
-*   `bootstrap`: Si usar muestreo con reemplazo (True por defecto).
-*   `n_jobs`: Número de núcleos de CPU a usar (-1 para todos).
+* `n_estimators`: Número de árboles (más es mejor, pero más lento).
+* `max_features`: Número máximo de características a considerar en cada división.
+* `bootstrap`: Si usar muestreo con reemplazo (True por defecto).
+* `n_jobs`: Número de núcleos de CPU a usar (-1 para todos).
 
 #### Ejemplo en Python (Random Forest)
 
@@ -110,17 +110,18 @@ El Boosting entrena predictores secuencialmente, cada uno intentando corregir a 
 
 El algoritmo presta más atención a las instancias de entrenamiento que el predecesor clasificó incorrectamente.
 
-1.  Entrena un clasificador base.
-2.  Aumenta el **peso relativo** de las instancias mal clasificadas.
-3.  Entrena un segundo clasificador con los pesos actualizados.
-4.  Repite el proceso.
+1. Entrena un clasificador base.
+2. Aumenta el **peso relativo** de las instancias mal clasificadas.
+3. Entrena un segundo clasificador con los pesos actualizados.
+4. Repite el proceso.
 
 **Hiperparámetros Clave:**
 
-*   `n_estimators`: Número de iteraciones.
-*   `learning_rate`: Cuánto contribuye cada modelo. Un valor bajo requiere más estimadores.
+* `n_estimators`: Número de iteraciones.
+* `learning_rate`: Cuánto contribuye cada modelo. Un valor bajo requiere más estimadores.
 
 **Ejemplo Python (AdaBoost):**
+
 ```python
 from sklearn.ensemble import AdaBoostClassifier
 
@@ -137,6 +138,7 @@ ada_clf.fit(X_train, y_train)
 En lugar de ajustar los pesos de las instancias, GBM intenta ajustar el nuevo predictor a los **errores residuales** (la diferencia entre el valor real y el predicho) del predictor anterior.
 
 **Ejemplo Python (GradientBoosting de sklearn):**
+
 ```python
 from sklearn.ensemble import GradientBoostingClassifier
 
@@ -148,18 +150,19 @@ gbrt.fit(X_train, y_train)
 
 Es una versión optimizada de Gradient Boosting diseñada para ser altamente eficiente, flexible y portátil. Es el algoritmo dominante en competiciones de Machine Learning (Kaggle).
 
-*   **Regularización:** Incluye regularización L1 y L2 para evitar overfitting.
-*   **Paralelización:** Construcción de árboles en paralelo.
-*   **Manejo de nulos:** Aprende automáticamente la mejor dirección para valores faltantes.
+* **Regularización:** Incluye regularización L1 y L2 para evitar overfitting.
+* **Paralelización:** Construcción de árboles en paralelo.
+* **Manejo de nulos:** Aprende automáticamente la mejor dirección para valores faltantes.
 
 **Hiperparámetros Clave:**
 
-*   `eta` (learning_rate): Paso de reducción de pesos para prevenir overfitting.
-*   `max_depth`: Profundidad máxima del árbol.
-*   `subsample`: Ratio de muestras de entrenamiento usadas.
-*   `colsample_bytree`: Ratio de columnas usadas por árbol.
+* `eta` (learning_rate): Paso de reducción de pesos para prevenir overfitting.
+* `max_depth`: Profundidad máxima del árbol.
+* `subsample`: Ratio de muestras de entrenamiento usadas.
+* `colsample_bytree`: Ratio de columnas usadas por árbol.
 
 **Ejemplo Python (XGBoost):**
+
 ```python
 import xgboost as xgb
 
@@ -182,15 +185,16 @@ print(f"XGBoost Accuracy: {accuracy_score(y_test, xgb_clf.predict(X_test)):.4f}"
 
 Desarrollado por Microsoft. A diferencia de otros que crecen el árbol por niveles (level-wise), LightGBM crece por hojas (**leaf-wise**). Elige la hoja con mayor pérdida para crecer.
 
-*   **Ventajas:** Mucho más rápido que XGBoost en grandes datasets y consume menos memoria.
-*   **Desventajas:** Puede hacer overfitting fácilmente en datasets pequeños (< 10,000 filas).
+* **Ventajas:** Mucho más rápido que XGBoost en grandes datasets y consume menos memoria.
+* **Desventajas:** Puede hacer overfitting fácilmente en datasets pequeños (< 10,000 filas).
 
 **Hiperparámetros Clave:**
 
-*   `num_leaves`: Parámetro principal para controlar la complejidad (en lugar de max_depth).
-*   `min_data_in_leaf`: Importante para evitar overfitting.
+* `num_leaves`: Parámetro principal para controlar la complejidad (en lugar de max_depth).
+* `min_data_in_leaf`: Importante para evitar overfitting.
 
 **Ejemplo Python (LightGBM):**
+
 ```python
 import lightgbm as lgb
 
@@ -221,21 +225,21 @@ print(f"LightGBM Accuracy: {accuracy_score(y_test, lgb_clf.predict(X_test)):.4f}
 
 Los métodos de ensamblado dominan actualmente las competiciones de ciencia de datos y las aplicaciones industriales en datos estructurados:
 
-*   **Detección de Fraude (Banca):** Algoritmos como XGBoost y Random Forest son el estándar en la industria financiera para detectar transacciones fraudulentas en tiempo real debido a su alta precisión y velocidad.
-    *   [Detección de fraude con XGBoost](https://github.com/topics/fraud-detection)
-*   **Diagnóstico Médico:** Random Forest se utiliza para diagnosticar enfermedades (como la retinopatía diabética) analizando múltiples variables de pacientes, ya que proporciona una medida de qué síntomas son más relevantes.
-*   **Ranking de Búsqueda (Search Engines):** Motores de búsqueda utilizan Gradient Boosting para ordenar los resultados de búsqueda (Learning to Rank), optimizando la relevancia para el usuario.
-    *   [Learning to Rank con LightGBM](https://github.com/microsoft/LightGBM/tree/master/examples/lambdarank)
-*   **Predicción de Demanda (Retail):** Cadenas de suministro usan estos modelos para predecir la demanda futura de productos, optimizando el inventario y reduciendo desperdicios.
+* **Detección de Fraude (Banca):** Algoritmos como XGBoost y Random Forest son el estándar en la industria financiera para detectar transacciones fraudulentas en tiempo real debido a su alta precisión y velocidad.
+  * [Detección de fraude con XGBoost](https://github.com/topics/fraud-detection)
+* **Diagnóstico Médico:** Random Forest se utiliza para diagnosticar enfermedades (como la retinopatía diabética) analizando múltiples variables de pacientes, ya que proporciona una medida de qué síntomas son más relevantes.
+* **Ranking de Búsqueda (Search Engines):** Motores de búsqueda utilizan Gradient Boosting para ordenar los resultados de búsqueda (Learning to Rank), optimizando la relevancia para el usuario.
+  * [Learning to Rank con LightGBM](https://github.com/microsoft/LightGBM/tree/master/examples/lambdarank)
+* **Predicción de Demanda (Retail):** Cadenas de suministro usan estos modelos para predecir la demanda futura de productos, optimizando el inventario y reduciendo desperdicios.
 
 ---
 
 ### 8.7. Consideraciones Finales
 
-1.  **Random Forest** es una excelente "primera opción". Es robusto, requiere poco ajuste de hiperparámetros y nos da la importancia de las características.
-2.  **XGBoost / LightGBM** suelen ofrecer el **mejor rendimiento** (Accuracy) en datos tabulares estructurados, pero requieren más ajuste de hiperparámetros y cuidado con el overfitting.
-3.  **Escalado:** Los algoritmos basados en árboles (Random Forest, Boosting) **NO requieren escalado** de características (StandardScaler), lo cual es una gran ventaja práctica.
-4.  **Interpretabilidad:** Los modelos de ensamblado son "Cajas Negras". Perdemos la interpretabilidad simple de un solo Árbol de Decisión o una Regresión Lineal, aunque podemos usar la "Importancia de Características" para entender qué variables pesan más.
+1. **Random Forest** es una excelente "primera opción". Es robusto, requiere poco ajuste de hiperparámetros y nos da la importancia de las características.
+2. **XGBoost / LightGBM** suelen ofrecer el **mejor rendimiento** (Accuracy) en datos tabulares estructurados, pero requieren más ajuste de hiperparámetros y cuidado con el overfitting.
+3. **Escalado:** Los algoritmos basados en árboles (Random Forest, Boosting) **NO requieren escalado** de características (StandardScaler), lo cual es una gran ventaja práctica.
+4. **Interpretabilidad:** Los modelos de ensamblado son "Cajas Negras". Perdemos la interpretabilidad simple de un solo Árbol de Decisión o una Regresión Lineal, aunque podemos usar la "Importancia de Características" para entender qué variables pesan más.
 
 ---
 

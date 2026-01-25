@@ -6,20 +6,20 @@
 
 ### Características Principales
 
-*   **Fácil de aprender:** Su sintaxis es clara y legible, similar al inglés.
-*   **Versátil:** Se usa en web, ciencia de datos, IA, automatización, juegos...
-*   **Interpretado:** No necesita compilación, se ejecuta línea por línea.
-*   **Gran comunidad:** Miles de librerías y recursos disponibles.
-*   **Gratuito y Open Source:** Puedes usarlo libremente.
+* **Fácil de aprender:** Su sintaxis es clara y legible, similar al inglés.
+* **Versátil:** Se usa en web, ciencia de datos, IA, automatización, juegos...
+* **Interpretado:** No necesita compilación, se ejecuta línea por línea.
+* **Gran comunidad:** Miles de librerías y recursos disponibles.
+* **Gratuito y Open Source:** Puedes usarlo libremente.
 
 ### ¿Por qué Python para IA?
 
 Python es el lenguaje dominante en Inteligencia Artificial y Machine Learning por:
 
-1.  Librerías especializadas (NumPy, Pandas, TensorFlow, PyTorch).
-2.  Sintaxis sencilla que permite enfocarse en los algoritmos.
-3.  Gran comunidad científica y abundante documentación.
-4.  Integración con otras herramientas y lenguajes.
+1. Librerías especializadas (NumPy, Pandas, TensorFlow, PyTorch).
+2. Sintaxis sencilla que permite enfocarse en los algoritmos.
+3. Gran comunidad científica y abundante documentación.
+4. Integración con otras herramientas y lenguajes.
 
 ---
 
@@ -27,11 +27,11 @@ Python es el lenguaje dominante en Inteligencia Artificial y Machine Learning po
 
 ### Windows
 
-1.  Ve a [python.org/downloads](https://www.python.org/downloads/).
-2.  Descarga la última versión de Python 3.x.
-3.  Ejecuta el instalador.
-4.  **¡IMPORTANTE!** Marca la casilla **"Add Python to PATH"**.
-5.  Haz clic en "Install Now".
+1. Ve a [python.org/downloads](https://www.python.org/downloads/).
+2. Descarga la última versión de Python 3.x.
+3. Ejecuta el instalador.
+4. **¡IMPORTANTE!** Marca la casilla **"Add Python to PATH"**.
+5. Haz clic en "Install Now".
 
 ### macOS
 
@@ -79,28 +79,28 @@ Un **IDE** (Integrated Development Environment) es un programa que facilita escr
 
 ### Visual Studio Code (Recomendado)
 
-*   **Gratuito** y muy popular.
-*   Extensiones para Python excelentes.
-*   Descarga: [code.visualstudio.com](https://code.visualstudio.com/)
+* **Gratuito** y muy popular.
+* Extensiones para Python excelentes.
+* Descarga: [code.visualstudio.com](https://code.visualstudio.com/)
 
 Después de instalarlo, instala la extensión "Python" de Microsoft.
 
 ### PyCharm
 
-*   IDE específico para Python.
-*   Versión Community gratuita.
-*   Descarga: [jetbrains.com/pycharm](https://www.jetbrains.com/pycharm/)
+* IDE específico para Python.
+* Versión Community gratuita.
+* Descarga: [jetbrains.com/pycharm](https://www.jetbrains.com/pycharm/)
 
 ### Jupyter Notebook
 
-*   Ideal para ciencia de datos y aprendizaje.
-*   Permite combinar código con explicaciones.
-*   Se instala con: `pip install jupyter`
+* Ideal para ciencia de datos y aprendizaje.
+* Permite combinar código con explicaciones.
+* Se instala con: `pip install jupyter`
 
 ### IDLE
 
-*   Viene incluido con Python.
-*   Básico pero funcional para empezar.
+* Viene incluido con Python.
+* Básico pero funcional para empezar.
 
 ---
 
@@ -130,9 +130,9 @@ Salida:
 
 ### Explicación
 
-*   `print()` es una **función** incorporada de Python.
-*   Muestra en pantalla lo que pongas entre los paréntesis.
-*   El texto entre comillas se llama **cadena de texto** o **string**.
+* `print()` es una **función** incorporada de Python.
+* Muestra en pantalla lo que pongas entre los paréntesis.
+* El texto entre comillas se llama **cadena de texto** o **string**.
 
 ---
 
@@ -367,9 +367,9 @@ Python
 
 ### Ventajas del Modo Interactivo
 
-*   Pruebas rápidas de código.
-*   Explorar funciones y librerías.
-*   Calculadora avanzada.
+* Pruebas rápidas de código.
+* Explorar funciones y librerías.
+* Calculadora avanzada.
 
 ---
 
@@ -459,9 +459,10 @@ SyntaxError: '(' was never closed
 ```
 
 Esto te indica:
-- El archivo: `programa.py`
-- La línea: 3
-- El problema: Un paréntesis sin cerrar
+
+* El archivo: `programa.py`
+* La línea: 3
+* El problema: Un paréntesis sin cerrar
 
 ---
 

@@ -7,6 +7,7 @@ A continuación, exploraremos la teoría detrás de los árboles de decisión, c
 #### 1. **Estructura de un Árbol de Decisión**
 
 Un **árbol de decisión** está compuesto por varios elementos fundamentales:
+
 - **Nodos de Decisión**: Representan la división de los datos según una característica específica. Aquí se toma una decisión sobre qué atributo se usa para dividir el conjunto de datos.
 - **Ramas**: Las conexiones entre nodos representan el resultado de una decisión. Cada rama lleva a un nuevo nodo o a un nodo hoja.
 - **Nodos Hoja**: Son los puntos finales del árbol. Representan la categoría final o el valor predicho para una determinada observación.
@@ -29,6 +30,7 @@ H(S) = -p_+ \cdot \log_2(p_+) - p_- \cdot \log_2(p_-)
 $$
 
 Donde:
+
 - \( p_+ \) y \( p_- \) son las proporciones de ejemplos positivos y negativos en el nodo.
 
 El objetivo es minimizar la entropía en cada nodo, lo que equivale a hacer los nodos lo más homogéneos posible.
@@ -40,6 +42,7 @@ IG(S, A) = H(S) - \sum_{v \in Valores(A)} \frac{|S_v|}{|S|} H(S_v)
 $$
 
 Donde:
+
 - S es el conjunto de datos original.
 - A es el atributo por el cual se está dividiendo.
 - S_v son los subconjuntos de S resultantes de la división por el valor v de la característica A.
@@ -72,6 +75,7 @@ Supongamos que tenemos un conjunto de datos con la siguiente distribución para 
 Primero calculamos la **entropía** para cada uno de los nodos resultantes de dividir el conjunto de datos según la característica "A":
 
 Para **A**:
+
 - Total de ejemplos: \( 4 + 2 = 6 \)
 - Proporción de clase Sí $( p_+ ): (\frac{4}{6})$
 - Proporción de clase No $( p_- ): (\frac{2}{6})$
@@ -82,6 +86,7 @@ H(A) = -\left( \frac{4}{6} \right) \log_2\left( \frac{4}{6} \right) - \left( \fr
 $$
 
 Para **B**:
+
 - Total de ejemplos: \( 1 + 3 = 4 \)
 - Proporción de clase Sí $( p_+ ): (\frac{1}{4})$
 - Proporción de clase No $( p_+ ): (\frac{3}{4})$
@@ -96,6 +101,7 @@ $$
 Ahora calculamos el **índice Gini** para la misma división:
 
 Para **A**:
+
 - Proporción de clase Sí $( p_+ ): (\frac{4}{6})$
 - Proporción de clase No $( p_- ): (\frac{2}{6})$
 
@@ -105,6 +111,7 @@ Gini(A) = 1 - \left( \frac{4}{6} \right)^2 - \left( \frac{2}{6} \right)^2 = 0.44
 $$
 
 Para **B**:
+
 - Proporción de clase Sí $( p_+ ): (\frac{1}{4})$
 - Proporción de clase No $( p_+ ): (\frac{3}{4})$
 

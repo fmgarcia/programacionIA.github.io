@@ -14,8 +14,8 @@ $$
 P(A \mid B) = \frac{P(B \mid A) \cdot P(A)}{P(B)}
 $$
 
-
 Donde:
+
 - \( P(A|B) \): Probabilidad de que ocurra el evento \( A \) dado que \( B \) ha ocurrido (probabilidad posterior).
 - \( P(B|A) \): Probabilidad de que ocurra el evento \( B \) dado que \( A \) ha ocurrido (verosimilitud).
 - \( P(A) \): Probabilidad a priori del evento \( A \).
@@ -27,10 +27,10 @@ El Teorema de Bayes permite actualizar la probabilidad a priori de un evento a p
 
 El clasificador **Naive Bayes** se deriva del Teorema de Bayes con la suposición de independencia entre características. En lugar de considerar todas las relaciones posibles entre los atributos, se asume que cada característica es independiente de las demás, dado el resultado. Esto simplifica el cálculo de la probabilidad conjunta.
 
-La probabilidad de que un ejemplo 
-$$ 
+La probabilidad de que un ejemplo
+$$
  x = (x_1, x_2, \dots, x_n)
-$$ 
+$$
 pertenezca a una clase \( C_k \) se puede calcular como:
 
 $$
@@ -44,6 +44,7 @@ P(C_k | x) \propto P(C_k) \prod_{i=1}^n P(x_i | C_k)
 $$
 
 Donde:
+
 - P(C_k | x): Probabilidad posterior de que el ejemplo pertenezca a la clase C_k .
 - P(C_k): Probabilidad a priori de la clase C_k.
 - P(x_i | C_k): Probabilidad condicional de la característica x_i dada la clase C_k.
@@ -110,6 +111,7 @@ Por ejemplo, calculamos la probabilidad de cada palabra para **spam**:
 - **P(gratis | Spam)** y **P(premios | Spam)** también se calculan de manera similar.
 
 Donde:
+
 - $N_{Spam}$ : Número de correos spam.
 - V : Número de palabras únicas en el vocabulario.
 
@@ -145,12 +147,12 @@ Finalmente, elegimos la clase que tiene la probabilidad mayor. Si $ P(Spam \mid 
 
 Debido a su eficiencia y capacidad para manejar grandes volúmenes de datos, Naive Bayes se utiliza en una amplia variedad de aplicaciones del mundo real:
 
-*   **Filtrado de Spam:** Es el uso más clásico. Servicios como Gmail o Outlook utilizan variantes de Naive Bayes para clasificar correos entrantes como deseados o no deseados basándose en la frecuencia de ciertas palabras.
-    *   [Ejemplo de implementación de filtro Spam](https://github.com/topics/spam-filter)
-*   **Análisis de Sentimientos:** Determinar si una opinión en redes sociales (Twitter, reseñas de productos) es positiva, negativa o neutral. Es muy usado en marketing para monitorear la reputación de marca.
-    *   [Análisis de sentimientos en Twitter](https://github.com/topics/sentiment-analysis)
-*   **Clasificación de Documentos:** Organizar noticias en categorías (Deportes, Política, Tecnología) o clasificar documentos legales y médicos.
-*   **Sistemas de Recomendación:** Filtrado colaborativo para predecir si a un usuario le gustará un recurso dado.
+- **Filtrado de Spam:** Es el uso más clásico. Servicios como Gmail o Outlook utilizan variantes de Naive Bayes para clasificar correos entrantes como deseados o no deseados basándose en la frecuencia de ciertas palabras.
+  - [Ejemplo de implementación de filtro Spam](https://github.com/topics/spam-filter)
+- **Análisis de Sentimientos:** Determinar si una opinión en redes sociales (Twitter, reseñas de productos) es positiva, negativa o neutral. Es muy usado en marketing para monitorear la reputación de marca.
+  - [Análisis de sentimientos en Twitter](https://github.com/topics/sentiment-analysis)
+- **Clasificación de Documentos:** Organizar noticias en categorías (Deportes, Política, Tecnología) o clasificar documentos legales y médicos.
+- **Sistemas de Recomendación:** Filtrado colaborativo para predecir si a un usuario le gustará un recurso dado.
 
 #### 6. **Ventajas y Limitaciones de Naive Bayes**
 

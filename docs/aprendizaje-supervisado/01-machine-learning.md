@@ -309,13 +309,13 @@ Al usar `train_test_split`, si el dataset está desbalanceado (ej. 90% clase A, 
 
 * **Tradeoff de Sesgo-Varianza:**
   
-    * **Sesgo (Bias):** Error por suposiciones incorrectas (Underfitting).
-    * **Varianza (Variance):** Error por sensibilidad excesiva a los datos de entrenamiento (Overfitting).
-    * **Error Total $\approx$ Sesgo² + Varianza**. El objetivo es encontrar la complejidad óptima que minimice este error total.
+  * **Sesgo (Bias):** Error por suposiciones incorrectas (Underfitting).
+  * **Varianza (Variance):** Error por sensibilidad excesiva a los datos de entrenamiento (Overfitting).
+  * **Error Total $\approx$ Sesgo² + Varianza**. El objetivo es encontrar la complejidad óptima que minimice este error total.
 * **Regularización:** Técnica para prevenir el overfitting en modelos lineales penalizando coeficientes (pesos) grandes.
-    * **Ridge (L2):** Añade una penalización $\lambda\sum{w_j^2}$. Encoge los pesos, pero no los hace cero.
-    * **Lasso (L1):** Añade una penalización $\lambda\sum{|w_j|}$. Puede forzar que algunos pesos sean exactamente cero, realizando una selección de características automática.
-    * **ElasticNet:** Combina penalizaciones L1 y L2.
+  * **Ridge (L2):** Añade una penalización $\lambda\sum{w_j^2}$. Encoge los pesos, pero no los hace cero.
+  * **Lasso (L1):** Añade una penalización $\lambda\sum{|w_j|}$. Puede forzar que algunos pesos sean exactamente cero, realizando una selección de características automática.
+  * **ElasticNet:** Combina penalizaciones L1 y L2.
 
 ---
 
@@ -330,11 +330,11 @@ Esta sección aplica todos los conceptos anteriores en un caso práctico complet
 * **Características (Features):** `sepal_length`, `sepal_width`, `petal_length`, `petal_width`.
 * **Análisis de Datos:**
 
-    * Se cargan los datos y se convierten a un DataFrame de Pandas.
-    * **Valores Faltantes:** Se comprueba con `iris.isnull().sum()`. No se encontraron.
-    * **Distribución de Clases:** Se comprueba con `iris.groupby('target').size()`. Hay 50 muestras de cada clase (33.3% cada una). Es un **dataset balanceado**.
-    * **Estadísticas y Correlación:** `iris.describe()` y `iris.corr()`. Se observa que `petal_length` y `petal_width` están altamente correlacionados (0.96), sugiriendo un problema de multicolinealidad.
-    * **Visualización:** Se usan `pairplot` y `heatmap` para confirmar visualmente las relaciones y la alta correlación.
+  * Se cargan los datos y se convierten a un DataFrame de Pandas.
+  * **Valores Faltantes:** Se comprueba con `iris.isnull().sum()`. No se encontraron.
+  * **Distribución de Clases:** Se comprueba con `iris.groupby('target').size()`. Hay 50 muestras de cada clase (33.3% cada una). Es un **dataset balanceado**.
+  * **Estadísticas y Correlación:** `iris.describe()` y `iris.corr()`. Se observa que `petal_length` y `petal_width` están altamente correlacionados (0.96), sugiriendo un problema de multicolinealidad.
+  * **Visualización:** Se usan `pairplot` y `heatmap` para confirmar visualmente las relaciones y la alta correlación.
 
 #### 2. División y Preparación de Datos
 
@@ -342,8 +342,8 @@ Esta sección aplica todos los conceptos anteriores en un caso práctico complet
 * **División Train/Test:** Se usa `train_test_split` (ej. 80% train, 20% test).
 * **Validación Cruzada:**
   
-    * Se muestra cómo usar `KFold` (CV estándar) y `StratifiedKFold` (CV estratificada).
-    * `StratifiedKFold` es preferible porque mantiene la distribución 33/33/33 de las clases en cada fold, asegurando que la validación sea representativa.
+  * Se muestra cómo usar `KFold` (CV estándar) y `StratifiedKFold` (CV estratificada).
+  * `StratifiedKFold` es preferible porque mantiene la distribución 33/33/33 de las clases en cada fold, asegurando que la validación sea representativa.
 
 #### 3. Selección y Evaluación del Modelo
 
@@ -358,26 +358,26 @@ Una vez que el modelo (`GridSearchCV`) está entrenado y se hacen predicciones s
 
 * **Matriz de Confusión (`Confusion Matrix`):**
     Es la base para todas las métricas. Compara los valores reales (True label) con los predichos (Predicted label).
-    * **TP (True Positive):** Real = 1, Predicho = 1.
-    * **FN (False Negative):** Real = 1, Predicho = 0.
-    * **FP (False Positive):** Real = 0, Predicho = 1.
-    * **TN (True Negative):** Real = 0, Predicho = 0.
+  * **TP (True Positive):** Real = 1, Predicho = 1.
+  * **FN (False Negative):** Real = 1, Predicho = 0.
+  * **FP (False Positive):** Real = 0, Predicho = 1.
+  * **TN (True Negative):** Real = 0, Predicho = 0.
 
 * **Métricas Clave:**
   
-    * **Accuracy (Exactitud):** $\frac{TP + TN}{Total}$. Proporción de predicciones correctas. (Usar con cuidado en datasets desbalanceados).
-    * **Precision (Precisión):** $\frac{TP}{TP + FP}$. De los que *dijimos* que eran positivos, ¿cuántos acertamos?.
-    * **Recall (Sensibilidad o TPR):** $\frac{TP}{TP + FN}$. De *todos los positivos reales*, ¿cuántos encontramos?.
-    * **F1-Score:** La media armónica de Precision y Recall. Es una métrica excelente para datasets desbalanceados. $F_1 = 2 \frac{Precision \times Recall}{Precision + Recall}$.
-    * **FPR (Tasa de Falsos Positivos):** $\frac{FP}{FP + TN}$. Proporción de negativos reales que clasificamos incorrectamente como positivos.
+  * **Accuracy (Exactitud):** $\frac{TP + TN}{Total}$. Proporción de predicciones correctas. (Usar con cuidado en datasets desbalanceados).
+  * **Precision (Precisión):** $\frac{TP}{TP + FP}$. De los que *dijimos* que eran positivos, ¿cuántos acertamos?.
+  * **Recall (Sensibilidad o TPR):** $\frac{TP}{TP + FN}$. De *todos los positivos reales*, ¿cuántos encontramos?.
+  * **F1-Score:** La media armónica de Precision y Recall. Es una métrica excelente para datasets desbalanceados. $F_1 = 2 \frac{Precision \times Recall}{Precision + Recall}$.
+  * **FPR (Tasa de Falsos Positivos):** $\frac{FP}{FP + TN}$. Proporción de negativos reales que clasificamos incorrectamente como positivos.
 
 * **Curva ROC y AUC:**
   
-    * **Curva ROC:** Gráfica que muestra el rendimiento de un clasificador en todos los umbrales de clasificación. Muestra **TPR** (Eje Y) vs. **FPR** (Eje X).
-    * **AUC (Area Under the Curve):** El área bajo la curva ROC. Es una métrica única que resume el rendimiento del modelo.
-        * AUC = 1.0: Clasificador perfecto.
-        * AUC = 0.5: Clasificador inútil (aleatorio).
-        * Un AUC de 0.85 o más se considera bueno.
+  * **Curva ROC:** Gráfica que muestra el rendimiento de un clasificador en todos los umbrales de clasificación. Muestra **TPR** (Eje Y) vs. **FPR** (Eje X).
+  * **AUC (Area Under the Curve):** El área bajo la curva ROC. Es una métrica única que resume el rendimiento del modelo.
+    * AUC = 1.0: Clasificador perfecto.
+    * AUC = 0.5: Clasificador inútil (aleatorio).
+    * Un AUC de 0.85 o más se considera bueno.
 
 #### 5. Predicción Final
 
@@ -389,4 +389,3 @@ Una vez que el modelo (`GridSearchCV`) está entrenado y se hacen predicciones s
 
 📅 **Fecha de creación:** 27/10/2025  
 ✍️ **Autor:** Fran García
-
