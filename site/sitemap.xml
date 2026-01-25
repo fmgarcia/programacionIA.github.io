@@ -2,86 +2,214 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/01-aprendizaje-no-supervisado/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/02-kmeans/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/03-dbscan/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/04-clustering-jerarquico/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/05-pca/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/06-tsne/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/07-isolation-forest/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/08-apriori/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/01-machine-learning/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/02-prediccion-numerica/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/03-prediccion-categorica/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/04-arboles-decision/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/05-naive-bayes/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/06-knn/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/07-svm/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/08-ensamblado/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/01-introduccion-python/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/02-variables-tipos-datos/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/03-operadores/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/04-estructuras-control/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/05-estructuras-datos/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/06-funciones/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/07-modulos-paquetes/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/08-manejo-archivos/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/09-excepciones/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/10-poo/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/11-numpy/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/12-pandas/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/13-matplotlib/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/14-seaborn/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/15-scikit-learn/</loc>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/01-fundamentos/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/02-cnn/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/03-rnn-lstm/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/04-transformers-dl/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/05-autoencoders/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/06-gans/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/07-transfer-learning/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/08-frameworks-practica/</loc>
+         <lastmod>2026-01-25</lastmod>
     </url>
     <url>
          <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/</loc>
-         <lastmod>2026-01-24</lastmod>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/01-fundamentos-nlp/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/02-bow-tfidf/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/03-word-embeddings/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/04-analisis-sentimientos/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/05-ner/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/06-clasificacion-texto/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/07-transformers/</loc>
+         <lastmod>2026-01-25</lastmod>
+    </url>
+    <url>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/08-aplicaciones-avanzadas/</loc>
+         <lastmod>2026-01-25</lastmod>
     </url>
 </urlset>

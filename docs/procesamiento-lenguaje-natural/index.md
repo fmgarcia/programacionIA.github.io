@@ -57,17 +57,5 @@ El objetivo del NLP es permitir que las máquinas **comprendan, interpreten y ge
 
 ---
 
-## 🚧 Contenido en construcción
-
-Esta sección está siendo desarrollada. Próximamente encontrarás:
-
-- [ ] Preprocesamiento de texto
-- [ ] Representación de texto
-- [ ] Modelos de clasificación de texto
-- [ ] Transformers y modelos de lenguaje
-- [ ] Ejemplos prácticos con Python
-
----
-
 📅 **Fecha de creación:** Enero 2026  
 ✍️ **Autor:** Fran García

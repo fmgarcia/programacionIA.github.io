@@ -68,6 +68,25 @@ copyright: Copyright &copy; 2026 Francisco García
 
 nav:
   - Inicio: index.md
+  - Conocimientos Básicos:
+    - Introducción: conocimientos-basicos/index.md
+    - Curso de Python:
+      - 1. Introducción a Python: conocimientos-basicos/01-introduccion-python.md
+      - 2. Variables y Tipos de Datos: conocimientos-basicos/02-variables-tipos-datos.md
+      - 3. Operadores: conocimientos-basicos/03-operadores.md
+      - 4. Estructuras de Control: conocimientos-basicos/04-estructuras-control.md
+      - 5. Estructuras de Datos: conocimientos-basicos/05-estructuras-datos.md
+      - 6. Funciones: conocimientos-basicos/06-funciones.md
+      - 7. Módulos y Paquetes: conocimientos-basicos/07-modulos-paquetes.md
+      - 8. Manejo de Archivos: conocimientos-basicos/08-manejo-archivos.md
+      - 9. Excepciones: conocimientos-basicos/09-excepciones.md
+      - 10. POO: conocimientos-basicos/10-poo.md
+    - Librerías para IA:
+      - 11. NumPy: conocimientos-basicos/11-numpy.md
+      - 12. Pandas: conocimientos-basicos/12-pandas.md
+      - 13. Matplotlib: conocimientos-basicos/13-matplotlib.md
+      - 14. Seaborn: conocimientos-basicos/14-seaborn.md
+      - 15. Scikit-learn: conocimientos-basicos/15-scikit-learn.md
   - Aprendizaje Supervisado:
     - Introducción: aprendizaje-supervisado/index.md
     - 1. Machine Learning: aprendizaje-supervisado/01-machine-learning.md

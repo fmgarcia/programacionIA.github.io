@@ -65,17 +65,5 @@ A diferencia de los algoritmos tradicionales de ML que requieren ingeniería de 
 
 ---
 
-## 🚧 Contenido en construcción
-
-Esta sección está siendo desarrollada. Próximamente encontrarás:
-
-- [ ] Fundamentos de redes neuronales
-- [ ] Redes convolucionales (CNN)
-- [ ] Redes recurrentes (RNN, LSTM)
-- [ ] Transformers y atención
-- [ ] Ejemplos prácticos con TensorFlow/PyTorch
-
----
-
 📅 **Fecha de creación:** Enero 2026  
 ✍️ **Autor:** Fran García

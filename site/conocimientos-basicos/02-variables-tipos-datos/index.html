@@ -1,0 +1,3464 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://fmgarcia.github.io/programacionIA.github.io/conocimientos-basicos/02-variables-tipos-datos/">
+      
+      
+        <link rel="prev" href="../01-introduccion-python/">
+      
+      
+        <link rel="next" href="../03-operadores/">
+      
+      
+      <link rel="icon" href="../../assets/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>2. Variables y Tipos de Datos - Programación en Inteligencia Artificial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,300i,400,400i,700,700i%7CRed+Hat+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Merriweather Sans";--md-code-font:"Red Hat Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#unidad-2-variables-y-tipos-de-datos" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-header__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Programación en Inteligencia Artificial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. Variables y Tipos de Datos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="deep-purple"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="deep-orange"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Programación en Inteligencia Artificial" class="md-nav__button md-logo" aria-label="Programación en Inteligencia Artificial" data-md-component="logo">
+      
+  <img src="../../assets/logo.png" alt="logo">
+
+    </a>
+    Programación en Inteligencia Artificial
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Conocimientos Básicos
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Conocimientos Básicos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Curso de Python
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Curso de Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-introduccion-python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Introducción a Python
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    2. Variables y Tipos de Datos
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Variables y Tipos de Datos
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#21-que-es-una-variable" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. ¿Qué es una Variable?
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1. ¿Qué es una Variable?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#asignacion-de-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Asignación de Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-para-nombrar-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reglas para Nombrar Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convenciones-de-nombres-pep-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Convenciones de Nombres (PEP 8)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-asignacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de Asignación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22-tipos-de-datos-basicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. Tipos de Datos Básicos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2. Tipos de Datos Básicos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#funcion-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Función type()
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#23-numeros-enteros-int" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. Números Enteros (int)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3. Números Enteros (int)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-con-enteros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operaciones con Enteros
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos Prácticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#24-numeros-decimales-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4. Números Decimales (float)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4. Números Decimales (float)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notacion-cientifica" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notación Científica
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operaciones-con-decimales" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operaciones con Decimales
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#precision-de-los-float" class="md-nav__link">
+    <span class="md-ellipsis">
+      Precisión de los Float
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-practicos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos Prácticos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#25-cadenas-de-texto-str" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5. Cadenas de Texto (str)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5. Cadenas de Texto (str)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creacion-de-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creación de Strings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strings-multilinea" class="md-nav__link">
+    <span class="md-ellipsis">
+      Strings Multilínea
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comillas-dentro-de-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Comillas Dentro de Strings
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#caracteres-especiales-escape" class="md-nav__link">
+    <span class="md-ellipsis">
+      Caracteres Especiales (Escape)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#raw-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Raw Strings
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#26-operaciones-con-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6. Operaciones con Strings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6. Operaciones con Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#concatenacion-unir-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Concatenación (Unir Strings)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repeticion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repetición
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#longitud-de-un-string" class="md-nav__link">
+    <span class="md-ellipsis">
+      Longitud de un String
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acceso-a-caracteres-indexacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Acceso a Caracteres (Indexación)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slicing-cortar-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      Slicing (Cortar Strings)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplos-de-slicing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplos de Slicing
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#27-metodos-de-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7. Métodos de Strings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7. Métodos de Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cambio-de-mayusculasminusculas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cambio de Mayúsculas/Minúsculas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busqueda" class="md-nav__link">
+    <span class="md-ellipsis">
+      Búsqueda
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Modificación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dividir-y-unir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dividir y Unir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Verificación
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#28-formateo-de-strings" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8. Formateo de Strings
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8. Formateo de Strings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#f-strings-recomendado-python-36" class="md-nav__link">
+    <span class="md-ellipsis">
+      f-strings (Recomendado - Python 3.6+)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formateo-de-numeros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Formateo de Números
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metodo-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      Método format()
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-estilo-antiguo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operador % (Estilo Antiguo)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#29-booleanos-bool" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.9. Booleanos (bool)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.9. Booleanos (bool)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#valores-booleanos-en-contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valores Booleanos en Contexto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-de-comparacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores de Comparación
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operadores-logicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Operadores Lógicos
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-none-valor-nulo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.10. None (Valor Nulo)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-conversion-de-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.11. Conversión de Tipos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.11. Conversión de Tipos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#int-convertir-a-entero" class="md-nav__link">
+    <span class="md-ellipsis">
+      int() - Convertir a Entero
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#float-convertir-a-decimal" class="md-nav__link">
+    <span class="md-ellipsis">
+      float() - Convertir a Decimal
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#str-convertir-a-texto" class="md-nav__link">
+    <span class="md-ellipsis">
+      str() - Convertir a Texto
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bool-convertir-a-booleano" class="md-nav__link">
+    <span class="md-ellipsis">
+      bool() - Convertir a Booleano
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejemplo-practico-calculadora" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejemplo Práctico: Calculadora
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-ejercicios-practicos" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.12. Ejercicios Prácticos
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.12. Ejercicios Prácticos">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-1-intercambio-de-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 1: Intercambio de Variables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-2-calculadora-de-propina" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 2: Calculadora de Propina
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-3-extractor-de-informacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 3: Extractor de Información
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-4-formateo-de-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 4: Formateo de Datos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ejercicio-5-validador-de-contrasena" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ejercicio 5: Validador de Contraseña
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-resumen" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.13. Resumen
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-operadores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Operadores
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-estructuras-control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Estructuras de Control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-estructuras-datos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Estructuras de Datos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-funciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Funciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-modulos-paquetes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Módulos y Paquetes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-manejo-archivos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Manejo de Archivos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-excepciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    9. Excepciones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10-poo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    10. POO
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Librerías para IA
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Librerías para IA
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11-numpy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    11. NumPy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12-pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    12. Pandas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../13-matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    13. Matplotlib
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../14-seaborn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    14. Seaborn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../15-scikit-learn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    15. Scikit-learn
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../aprendizaje-supervisado/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje Supervisado
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/01-machine-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Machine Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/02-prediccion-numerica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. Predicción Numérica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/03-prediccion-categorica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Predicción Categórica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/04-arboles-decision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Árboles de Decisión
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/05-naive-bayes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Naive Bayes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/06-knn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Algoritmo KNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/07-svm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Algoritmo SVM
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-supervisado/08-ensamblado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Ensamblado
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../aprendizaje-no-supervisado/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Aprendizaje No Supervisado
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Aprendizaje No Supervisado
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/01-aprendizaje-no-supervisado/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Fundamentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/02-kmeans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. K-Means
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/03-dbscan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. DBSCAN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/04-clustering-jerarquico/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Clustering Jerárquico
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/05-pca/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. PCA
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/06-tsne/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. t-SNE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/07-isolation-forest/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Isolation Forest
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../aprendizaje-no-supervisado/08-apriori/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Apriori
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../procesamiento-lenguaje-natural/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Procesamiento de Lenguaje Natural
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Procesamiento de Lenguaje Natural
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/01-fundamentos-nlp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Fundamentos de NLP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/02-bow-tfidf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. BoW y TF-IDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/03-word-embeddings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. Word Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/04-analisis-sentimientos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Análisis de Sentimientos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/05-ner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. NER
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/06-clasificacion-texto/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. Clasificación de Texto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/07-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Transformers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../procesamiento-lenguaje-natural/08-aplicaciones-avanzadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Aplicaciones Avanzadas
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../deep-learning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Deep Learning
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Deep Learning
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/01-fundamentos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    1. Fundamentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/02-cnn/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    2. CNN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/03-rnn-lstm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    3. RNN, LSTM y GRU
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/04-transformers-dl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    4. Transformers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/05-autoencoders/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    5. Autoencoders
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/06-gans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    6. GANs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/07-transfer-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    7. Transfer Learning
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep-learning/08-frameworks-practica/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    8. Frameworks y Práctica
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="unidad-2-variables-y-tipos-de-datos">📦 Unidad 2. Variables y Tipos de Datos</h1>
+<h2 id="21-que-es-una-variable">2.1. ¿Qué es una Variable?</h2>
+<p>Una <strong>variable</strong> es un espacio en la memoria del ordenador donde guardamos información. Piensa en ella como una "caja" con una etiqueta (nombre) donde almacenamos un valor.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Creamos una variable llamada &quot;edad&quot; y le asignamos el valor 25</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Ahora podemos usar esa variable</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">edad</span><span class="p">)</span>  <span class="c1"># Muestra: 25</span>
+</span></code></pre></div>
+<h3 id="asignacion-de-variables">Asignación de Variables</h3>
+<p>El símbolo <code>=</code> se usa para <strong>asignar</strong> un valor a una variable:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Ana&quot;</span>        <span class="c1"># Texto</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">30</span>             <span class="c1"># Número entero</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">altura</span> <span class="o">=</span> <span class="mf">1.75</span>         <span class="c1"># Número decimal</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">es_estudiante</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Valor booleano (verdadero/falso)</span>
+</span></code></pre></div>
+<h3 id="reglas-para-nombrar-variables">Reglas para Nombrar Variables</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Regla</th>
+<th style="text-align: left;">Ejemplo Válido</th>
+<th style="text-align: left;">Ejemplo Inválido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Debe empezar con letra o <code>_</code></td>
+<td style="text-align: left;"><code>nombre</code>, <code>_edad</code></td>
+<td style="text-align: left;"><code>1nombre</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Solo letras, números y <code>_</code></td>
+<td style="text-align: left;"><code>mi_variable</code>, <code>edad2</code></td>
+<td style="text-align: left;"><code>mi-variable</code>, <code>edad@</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">No puede ser palabra reservada</td>
+<td style="text-align: left;"><code>mi_class</code></td>
+<td style="text-align: left;"><code>class</code>, <code>if</code>, <code>for</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Distingue mayúsculas/minúsculas</td>
+<td style="text-align: left;"><code>Nombre</code> ≠ <code>nombre</code></td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="convenciones-de-nombres-pep-8">Convenciones de Nombres (PEP 8)</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># BIEN: snake_case (recomendado en Python)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">nombre_completo</span> <span class="o">=</span> <span class="s2">&quot;Juan García&quot;</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">numero_de_telefono</span> <span class="o">=</span> <span class="s2">&quot;123456789&quot;</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">es_mayor_de_edad</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># MAL: Otros estilos (válidos pero no recomendados en Python)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">NombreCompleto</span> <span class="o">=</span> <span class="s2">&quot;Juan García&quot;</span>     <span class="c1"># PascalCase (se usa para clases)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">numeroTelefono</span> <span class="o">=</span> <span class="s2">&quot;123456789&quot;</span>       <span class="c1"># camelCase (se usa en otros lenguajes)</span>
+</span></code></pre></div>
+<h3 id="ejemplos-de-asignacion">Ejemplos de Asignación</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1"># Asignación simple</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">mensaje</span> <span class="o">=</span> <span class="s2">&quot;Hola Mundo&quot;</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1"># Asignación múltiple</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 1</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 2</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>  <span class="c1"># 3</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="c1"># Mismo valor a varias variables</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>  <span class="c1"># 0 0 0</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="c1"># Intercambiar valores (muy útil en Python)</span>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>  <span class="c1"># Intercambio</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 10</span>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>  <span class="c1"># 5</span>
+</span></code></pre></div>
+<hr />
+<h2 id="22-tipos-de-datos-basicos">2.2. Tipos de Datos Básicos</h2>
+<p>Python tiene varios tipos de datos fundamentales:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Nombre en Python</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Entero</td>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: left;"><code>42</code>, <code>-7</code>, <code>0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Decimal</td>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: left;"><code>3.14</code>, <code>-0.5</code>, <code>2.0</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Texto</td>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;"><code>"Hola"</code>, <code>'Python'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Booleano</td>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;"><code>True</code>, <code>False</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Nulo</td>
+<td style="text-align: left;"><code>NoneType</code></td>
+<td style="text-align: left;"><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="funcion-type">Función type()</h3>
+<p>Puedes saber el tipo de una variable con <code>type()</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">edad</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;int&#39;&gt;</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">precio</span> <span class="o">=</span> <span class="mf">19.99</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">precio</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;float&#39;&gt;</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">nombre</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;str&#39;&gt;</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">activo</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">activo</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;bool&#39;&gt;</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">nada</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">nada</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;NoneType&#39;&gt;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="23-numeros-enteros-int">2.3. Números Enteros (int)</h2>
+<p>Los <strong>enteros</strong> son números sin decimales, positivos o negativos.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Enteros positivos</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">poblacion</span> <span class="o">=</span> <span class="mi">47000000</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="n">año</span> <span class="o">=</span> <span class="mi">2026</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="c1"># Enteros negativos</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="n">temperatura</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="n">deuda</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1000</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="c1"># Cero</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="n">contador</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="c1"># Números grandes (puedes usar _ para legibilidad)</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="n">millones</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">millones</span><span class="p">)</span>  <span class="c1"># 1000000</span>
+</span></code></pre></div>
+<h3 id="operaciones-con-enteros">Operaciones con Enteros</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="c1"># Operaciones básicas</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Suma: 13</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Resta: 7</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Multiplicación: 30</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># División: 3.3333... (devuelve float)</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># División entera: 3</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># Módulo (resto): 1</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># Potencia: 1000</span>
+</span></code></pre></div>
+<h3 id="ejemplos-practicos">Ejemplos Prácticos</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Ejemplo 1: Cálculo de edad</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">año_actual</span> <span class="o">=</span> <span class="mi">2026</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="n">año_nacimiento</span> <span class="o">=</span> <span class="mi">1990</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">edad</span> <span class="o">=</span> <span class="n">año_actual</span> <span class="o">-</span> <span class="n">año_nacimiento</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tienes </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años&quot;</span><span class="p">)</span>  <span class="c1"># Tienes 36 años</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># Ejemplo 2: Conversión de minutos a horas</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">minutos_totales</span> <span class="o">=</span> <span class="mi">150</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="n">horas</span> <span class="o">=</span> <span class="n">minutos_totales</span> <span class="o">//</span> <span class="mi">60</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="n">minutos_restantes</span> <span class="o">=</span> <span class="n">minutos_totales</span> <span class="o">%</span> <span class="mi">60</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">minutos_totales</span><span class="si">}</span><span class="s2"> minutos = </span><span class="si">{</span><span class="n">horas</span><span class="si">}</span><span class="s2"> horas y </span><span class="si">{</span><span class="n">minutos_restantes</span><span class="si">}</span><span class="s2"> minutos&quot;</span><span class="p">)</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1"># 150 minutos = 2 horas y 30 minutos</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="c1"># Ejemplo 3: Cálculo de precio total</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="n">precio_unitario</span> <span class="o">=</span> <span class="mi">15</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="n">cantidad</span> <span class="o">=</span> <span class="mi">7</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="n">total</span> <span class="o">=</span> <span class="n">precio_unitario</span> <span class="o">*</span> <span class="n">cantidad</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>  <span class="c1"># Total: 105€</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="c1"># Ejemplo 4: Potencias</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="n">base</span> <span class="o">=</span> <span class="mi">2</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="n">exponente</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="n">resultado</span> <span class="o">=</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponente</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">^</span><span class="si">{</span><span class="n">exponente</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">resultado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># 2^10 = 1024</span>
+</span></code></pre></div>
+<hr />
+<h2 id="24-numeros-decimales-float">2.4. Números Decimales (float)</h2>
+<p>Los <strong>float</strong> son números con parte decimal.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Declaración de floats</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">precio</span> <span class="o">=</span> <span class="mf">19.99</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="n">temperatura</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">porcentaje</span> <span class="o">=</span> <span class="mf">0.75</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="c1"># También puedes escribirlos así</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>      <span class="c1"># Es float aunque sea un número &quot;entero&quot;</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="n">y</span> <span class="o">=</span> <span class="mf">.5</span>       <span class="c1"># Equivale a 0.5</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="n">z</span> <span class="o">=</span> <span class="mf">2.</span>       <span class="c1"># Equivale a 2.0</span>
+</span></code></pre></div>
+<h3 id="notacion-cientifica">Notación Científica</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># Para números muy grandes o muy pequeños</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">distancia_sol</span> <span class="o">=</span> <span class="mf">1.496e11</span>  <span class="c1"># 1.496 × 10¹¹ metros</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">masa_electron</span> <span class="o">=</span> <span class="mf">9.109e-31</span>  <span class="c1"># 9.109 × 10⁻³¹ kg</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">distancia_sol</span><span class="p">)</span>   <span class="c1"># 149600000000.0</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">masa_electron</span><span class="p">)</span>   <span class="c1"># 9.109e-31</span>
+</span></code></pre></div>
+<h3 id="operaciones-con-decimales">Operaciones con Decimales</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">a</span> <span class="o">=</span> <span class="mf">10.5</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">b</span> <span class="o">=</span> <span class="mf">3.2</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># 13.7</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># 7.3</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># 33.6</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># 3.28125</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">//</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># 3.0 (división entera, pero sigue siendo float)</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># 0.8999999... (resto)</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># 1613.16...</span>
+</span></code></pre></div>
+<h3 id="precision-de-los-float">Precisión de los Float</h3>
+<p><strong>¡Cuidado!</strong> Los float tienen limitaciones de precisión:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Esto puede dar resultados inesperados</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">)</span>  <span class="c1"># 0.30000000000000004 (no exactamente 0.3)</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c1"># Para comparaciones, usa redondeo o tolerancia</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="n">resultado</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">resultado</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>  <span class="c1"># True</span>
+</span></code></pre></div>
+<h3 id="ejemplos-practicos_1">Ejemplos Prácticos</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Ejemplo 1: Cálculo de IVA</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">precio_base</span> <span class="o">=</span> <span class="mf">100.00</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">iva</span> <span class="o">=</span> <span class="mf">0.21</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="n">precio_con_iva</span> <span class="o">=</span> <span class="n">precio_base</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">iva</span><span class="p">)</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Precio con IVA: </span><span class="si">{</span><span class="n">precio_con_iva</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>  <span class="c1"># 121.0€</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="c1"># Ejemplo 2: Conversión de temperatura</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="n">celsius</span> <span class="o">=</span> <span class="mf">25.0</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="n">fahrenheit</span> <span class="o">=</span> <span class="p">(</span><span class="n">celsius</span> <span class="o">*</span> <span class="mi">9</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">32</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">celsius</span><span class="si">}</span><span class="s2">°C = </span><span class="si">{</span><span class="n">fahrenheit</span><span class="si">}</span><span class="s2">°F&quot;</span><span class="p">)</span>  <span class="c1"># 25.0°C = 77.0°F</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># Ejemplo 3: Calcular promedio</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="n">nota1</span> <span class="o">=</span> <span class="mf">7.5</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">nota2</span> <span class="o">=</span> <span class="mf">8.0</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="n">nota3</span> <span class="o">=</span> <span class="mf">6.5</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="n">promedio</span> <span class="o">=</span> <span class="p">(</span><span class="n">nota1</span> <span class="o">+</span> <span class="n">nota2</span> <span class="o">+</span> <span class="n">nota3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Promedio: </span><span class="si">{</span><span class="n">promedio</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Promedio: 7.33</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c1"># Ejemplo 4: Área de un círculo</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="n">radio</span> <span class="o">=</span> <span class="mf">5.0</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="n">area</span> <span class="o">=</span> <span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">radio</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Área del círculo: </span><span class="si">{</span><span class="n">area</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> unidades²&quot;</span><span class="p">)</span>  <span class="c1"># 78.54 unidades²</span>
+</span></code></pre></div>
+<hr />
+<h2 id="25-cadenas-de-texto-str">2.5. Cadenas de Texto (str)</h2>
+<p>Las <strong>strings</strong> o cadenas son secuencias de caracteres (texto).</p>
+<h3 id="creacion-de-strings">Creación de Strings</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="c1"># Con comillas dobles</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">saludo</span> <span class="o">=</span> <span class="s2">&quot;Hola, mundo&quot;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="c1"># Con comillas simples</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s1">&#39;Python&#39;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="c1"># Ambas son equivalentes, elige una y sé consistente</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="n">mensaje1</span> <span class="o">=</span> <span class="s2">&quot;Esto es un string&quot;</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="n">mensaje2</span> <span class="o">=</span> <span class="s1">&#39;Esto también es un string&#39;</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1"># Strings vacíos</span>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="n">vacio</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="n">tambien_vacio</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+</span></code></pre></div>
+<h3 id="strings-multilinea">Strings Multilínea</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Con triple comilla</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">poema</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Caminante, no hay camino,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="s2">se hace camino al andar.</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="s2">- Antonio Machado&quot;&quot;&quot;</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">poema</span><span class="p">)</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># También con comillas simples</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="n">texto</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Primera línea</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="s1">Segunda línea</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="s1">Tercera línea&#39;&#39;&#39;</span>
+</span></code></pre></div>
+<h3 id="comillas-dentro-de-strings">Comillas Dentro de Strings</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Usar comillas diferentes</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">frase1</span> <span class="o">=</span> <span class="s2">&quot;Él dijo: &#39;Hola&#39;&quot;</span>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">frase2</span> <span class="o">=</span> <span class="s1">&#39;Ella respondió: &quot;Buenos días&quot;&#39;</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="c1"># O usar escape con \</span>
+</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">frase3</span> <span class="o">=</span> <span class="s2">&quot;Él dijo: </span><span class="se">\&quot;</span><span class="s2">Hola</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">frase4</span> <span class="o">=</span> <span class="s1">&#39;No puedo ir a María</span><span class="se">\&#39;</span><span class="s1">s house&#39;</span>
+</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase1</span><span class="p">)</span>  <span class="c1"># Él dijo: &#39;Hola&#39;</span>
+</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase3</span><span class="p">)</span>  <span class="c1"># Él dijo: &quot;Hola&quot;</span>
+</span></code></pre></div>
+<h3 id="caracteres-especiales-escape">Caracteres Especiales (Escape)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Secuencia</th>
+<th style="text-align: left;">Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>\n</code></td>
+<td style="text-align: left;">Nueva línea</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>\t</code></td>
+<td style="text-align: left;">Tabulación</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>\\</code></td>
+<td style="text-align: left;">Barra invertida</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>\'</code></td>
+<td style="text-align: left;">Comilla simple</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>\"</code></td>
+<td style="text-align: left;">Comilla doble</td>
+</tr>
+</tbody>
+</table>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1"># Ejemplos de escape</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Primera línea</span><span class="se">\n</span><span class="s2">Segunda línea&quot;</span><span class="p">)</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Primera línea</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="c1"># Segunda línea</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columna1</span><span class="se">\t</span><span class="s2">Columna2</span><span class="se">\t</span><span class="s2">Columna3&quot;</span><span class="p">)</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="c1"># Columna1    Columna2    Columna3</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ruta: C:</span><span class="se">\\</span><span class="s2">Users</span><span class="se">\\</span><span class="s2">Documentos&quot;</span><span class="p">)</span>
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c1"># Ruta: C:\Users\Documentos</span>
+</span></code></pre></div>
+<h3 id="raw-strings">Raw Strings</h3>
+<p>Para evitar que Python interprete los escapes:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="c1"># String normal</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">ruta1</span> <span class="o">=</span> <span class="s2">&quot;C:</span><span class="se">\n</span><span class="s2">uevo</span><span class="se">\t</span><span class="s2">exto&quot;</span>  <span class="c1"># \n y \t se interpretan como escape</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="c1"># Raw string (r al inicio)</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="n">ruta2</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\nuevo\texto&quot;</span>  <span class="c1"># Se mantiene literal</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">ruta2</span><span class="p">)</span>  <span class="c1"># C:\nuevo\texto</span>
+</span></code></pre></div>
+<hr />
+<h2 id="26-operaciones-con-strings">2.6. Operaciones con Strings</h2>
+<h3 id="concatenacion-unir-strings">Concatenación (Unir Strings)</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Juan&quot;</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">apellido</span> <span class="o">=</span> <span class="s2">&quot;García&quot;</span>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># Con el operador +</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">nombre_completo</span> <span class="o">=</span> <span class="n">nombre</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">apellido</span>
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">nombre_completo</span><span class="p">)</span>  <span class="c1"># Juan García</span>
+</span><span id="__span-18-7"><a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+</span><span id="__span-18-8"><a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a><span class="c1"># Con coma en print (añade espacio automático)</span>
+</span><span id="__span-18-9"><a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">apellido</span><span class="p">)</span>  <span class="c1"># Juan García</span>
+</span></code></pre></div>
+<h3 id="repeticion">Repetición</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">linea</span> <span class="o">=</span> <span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">30</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">linea</span><span class="p">)</span>  <span class="c1"># ------------------------------</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">eco</span> <span class="o">=</span> <span class="s2">&quot;Hola &quot;</span> <span class="o">*</span> <span class="mi">3</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">eco</span><span class="p">)</span>  <span class="c1"># Hola Hola Hola</span>
+</span></code></pre></div>
+<h3 id="longitud-de-un-string">Longitud de un String</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">mensaje</span> <span class="o">=</span> <span class="s2">&quot;Python es genial&quot;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mensaje</span><span class="p">))</span>  <span class="c1"># 16 (incluye espacios)</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;secreto123&quot;</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tu contraseña tiene </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span><span class="si">}</span><span class="s2"> caracteres&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="acceso-a-caracteres-indexacion">Acceso a Caracteres (Indexación)</h3>
+<p>Los strings son secuencias, cada carácter tiene una posición (índice):</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a> P  y  t  h  o  n
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a> 0  1  2  3  4  5   (índices positivos)
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>-6 -5 -4 -3 -2 -1   (índices negativos)
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="c1"># Índices positivos (desde el inicio)</span>
+</span><span id="__span-22-4"><a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>   <span class="c1"># P (primer carácter)</span>
+</span><span id="__span-22-5"><a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># y</span>
+</span><span id="__span-22-6"><a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>   <span class="c1"># n (último carácter)</span>
+</span><span id="__span-22-7"><a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>
+</span><span id="__span-22-8"><a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a><span class="c1"># Índices negativos (desde el final)</span>
+</span><span id="__span-22-9"><a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># n (último)</span>
+</span><span id="__span-22-10"><a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># o (penúltimo)</span>
+</span><span id="__span-22-11"><a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">])</span>  <span class="c1"># P (primero)</span>
+</span></code></pre></div>
+<h3 id="slicing-cortar-strings">Slicing (Cortar Strings)</h3>
+<p>Sintaxis: <code>string[inicio:fin:paso]</code></p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Python es genial&quot;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="c1"># Desde índice 0 hasta 6 (sin incluir el 6)</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">])</span>    <span class="c1"># Python</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="c1"># Desde índice 7 hasta el final</span>
+</span><span id="__span-23-7"><a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="mi">7</span><span class="p">:])</span>     <span class="c1"># es genial</span>
+</span><span id="__span-23-8"><a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+</span><span id="__span-23-9"><a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="c1"># Desde el inicio hasta índice 6</span>
+</span><span id="__span-23-10"><a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>     <span class="c1"># Python</span>
+</span><span id="__span-23-11"><a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>
+</span><span id="__span-23-12"><a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="c1"># Desde índice -6 hasta el final</span>
+</span><span id="__span-23-13"><a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">:])</span>    <span class="c1"># genial</span>
+</span><span id="__span-23-14"><a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>
+</span><span id="__span-23-15"><a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="c1"># Con paso</span>
+</span><span id="__span-23-16"><a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>    <span class="c1"># Pto sgna (cada 2 caracteres)</span>
+</span><span id="__span-23-17"><a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>
+</span><span id="__span-23-18"><a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a><span class="c1"># Invertir string</span>
+</span><span id="__span-23-19"><a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># laineg se nohtyP</span>
+</span></code></pre></div>
+<h3 id="ejemplos-de-slicing">Ejemplos de Slicing</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">fecha</span> <span class="o">=</span> <span class="s2">&quot;25-01-2026&quot;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">dia</span> <span class="o">=</span> <span class="n">fecha</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>      <span class="c1"># &quot;25&quot;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="n">mes</span> <span class="o">=</span> <span class="n">fecha</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>      <span class="c1"># &quot;01&quot;</span>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="n">año</span> <span class="o">=</span> <span class="n">fecha</span><span class="p">[</span><span class="mi">6</span><span class="p">:]</span>       <span class="c1"># &quot;2026&quot;</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Día: </span><span class="si">{</span><span class="n">dia</span><span class="si">}</span><span class="s2">, Mes: </span><span class="si">{</span><span class="n">mes</span><span class="si">}</span><span class="s2">, Año: </span><span class="si">{</span><span class="n">año</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="c1"># Obtener extensión de archivo</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="n">archivo</span> <span class="o">=</span> <span class="s2">&quot;documento.pdf&quot;</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="n">extension</span> <span class="o">=</span> <span class="n">archivo</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]</span>  <span class="c1"># &quot;pdf&quot;</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="n">nombre</span> <span class="o">=</span> <span class="n">archivo</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>     <span class="c1"># &quot;documento&quot;</span>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nombre: </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2">, Extensión: </span><span class="si">{</span><span class="n">extension</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="27-metodos-de-strings">2.7. Métodos de Strings</h2>
+<p>Los strings tienen muchos métodos (funciones) incorporados:</p>
+<h3 id="cambio-de-mayusculasminusculas">Cambio de Mayúsculas/Minúsculas</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Hola Mundo&quot;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>       <span class="c1"># HOLA MUNDO</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>       <span class="c1"># hola mundo</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>  <span class="c1"># Hola mundo (solo primera letra)</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">title</span><span class="p">())</span>       <span class="c1"># Hola Mundo (cada palabra)</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">swapcase</span><span class="p">())</span>    <span class="c1"># hOLA mUNDO (invierte)</span>
+</span></code></pre></div>
+<h3 id="busqueda">Búsqueda</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Python es un lenguaje de programación&quot;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="c1"># Encontrar posición</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;es&quot;</span><span class="p">))</span>       <span class="c1"># 7 (índice donde empieza &quot;es&quot;)</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;Java&quot;</span><span class="p">))</span>     <span class="c1"># -1 (no encontrado)</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="c1"># Contar ocurrencias</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>       <span class="c1"># 3</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="c1"># Verificar inicio/fin</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">))</span>  <span class="c1"># True</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;ción&quot;</span><span class="p">))</span>      <span class="c1"># True</span>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="c1"># Verificar contenido</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span> <span class="ow">in</span> <span class="n">frase</span><span class="p">)</span>      <span class="c1"># True</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Java&quot;</span> <span class="ow">in</span> <span class="n">frase</span><span class="p">)</span>        <span class="c1"># False</span>
+</span></code></pre></div>
+<h3 id="modificacion">Modificación</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1"># Reemplazar</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="n">texto</span> <span class="o">=</span> <span class="s2">&quot;Hola Mundo&quot;</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">texto</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;Mundo&quot;</span><span class="p">,</span> <span class="s2">&quot;Python&quot;</span><span class="p">))</span>  <span class="c1"># Hola Python</span>
+</span><span id="__span-27-4"><a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>
+</span><span id="__span-27-5"><a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="c1"># Eliminar espacios</span>
+</span><span id="__span-27-6"><a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">mensaje</span> <span class="o">=</span> <span class="s2">&quot;   Hola   &quot;</span>
+</span><span id="__span-27-7"><a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>   <span class="c1"># &quot;Hola&quot; (elimina espacios inicio/fin)</span>
+</span><span id="__span-27-8"><a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="o">.</span><span class="n">lstrip</span><span class="p">())</span>  <span class="c1"># &quot;Hola   &quot; (solo izquierda)</span>
+</span><span id="__span-27-9"><a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">mensaje</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>  <span class="c1"># &quot;   Hola&quot; (solo derecha)</span>
+</span><span id="__span-27-10"><a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>
+</span><span id="__span-27-11"><a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="c1"># También elimina otros caracteres</span>
+</span><span id="__span-27-12"><a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;...www.ejemplo.com...&quot;</span>
+</span><span id="__span-27-13"><a id="__codelineno-27-13" name="__codelineno-27-13" href="#__codelineno-27-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">url</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">))</span>  <span class="c1"># www.ejemplo.com</span>
+</span></code></pre></div>
+<h3 id="dividir-y-unir">Dividir y Unir</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="c1"># split() - Dividir string en lista</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot;Python es genial&quot;</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">palabras</span> <span class="o">=</span> <span class="n">frase</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>  <span class="c1"># Divide por espacios</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">palabras</span><span class="p">)</span>  <span class="c1"># [&#39;Python&#39;, &#39;es&#39;, &#39;genial&#39;]</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a><span class="n">fecha</span> <span class="o">=</span> <span class="s2">&quot;25-01-2026&quot;</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a><span class="n">partes</span> <span class="o">=</span> <span class="n">fecha</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">)</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">partes</span><span class="p">)</span>  <span class="c1"># [&#39;25&#39;, &#39;01&#39;, &#39;2026&#39;]</span>
+</span><span id="__span-28-9"><a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>
+</span><span id="__span-28-10"><a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="c1"># join() - Unir lista en string</span>
+</span><span id="__span-28-11"><a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a><span class="n">palabras</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Python&#39;</span><span class="p">,</span> <span class="s1">&#39;es&#39;</span><span class="p">,</span> <span class="s1">&#39;genial&#39;</span><span class="p">]</span>
+</span><span id="__span-28-12"><a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a><span class="n">frase</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">palabras</span><span class="p">)</span>
+</span><span id="__span-28-13"><a id="__codelineno-28-13" name="__codelineno-28-13" href="#__codelineno-28-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">frase</span><span class="p">)</span>  <span class="c1"># Python es genial</span>
+</span><span id="__span-28-14"><a id="__codelineno-28-14" name="__codelineno-28-14" href="#__codelineno-28-14"></a>
+</span><span id="__span-28-15"><a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="n">numeros</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">]</span>
+</span><span id="__span-28-16"><a id="__codelineno-28-16" name="__codelineno-28-16" href="#__codelineno-28-16"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">numeros</span><span class="p">))</span>  <span class="c1"># 1-2-3-4</span>
+</span></code></pre></div>
+<h3 id="verificacion">Verificación</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1"># Verificar tipo de contenido</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;12345&quot;</span><span class="o">.</span><span class="n">isdigit</span><span class="p">())</span>     <span class="c1"># True (solo dígitos)</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="o">.</span><span class="n">isalpha</span><span class="p">())</span>    <span class="c1"># True (solo letras)</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Python3&quot;</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>   <span class="c1"># True (letras y números)</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;   &quot;</span><span class="o">.</span><span class="n">isspace</span><span class="p">())</span>       <span class="c1"># True (solo espacios)</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;HOLA&quot;</span><span class="o">.</span><span class="n">isupper</span><span class="p">())</span>      <span class="c1"># True (todo mayúsculas)</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hola&quot;</span><span class="o">.</span><span class="n">islower</span><span class="p">())</span>      <span class="c1"># True (todo minúsculas)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="28-formateo-de-strings">2.8. Formateo de Strings</h2>
+<h3 id="f-strings-recomendado-python-36">f-strings (Recomendado - Python 3.6+)</h3>
+<p>La forma más moderna y legible:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Ana&quot;</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="c1"># Interpolación básica</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Me llamo </span><span class="si">{</span><span class="n">nombre</span><span class="si">}</span><span class="s2"> y tengo </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años&quot;</span><span class="p">)</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="c1"># Me llamo Ana y tengo 25 años</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="c1"># Expresiones dentro de las llaves</span>
+</span><span id="__span-30-9"><a id="__codelineno-30-9" name="__codelineno-30-9" href="#__codelineno-30-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;En 5 años tendré </span><span class="si">{</span><span class="n">edad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2"> años&quot;</span><span class="p">)</span>
+</span><span id="__span-30-10"><a id="__codelineno-30-10" name="__codelineno-30-10" href="#__codelineno-30-10"></a><span class="c1"># En 5 años tendré 30 años</span>
+</span><span id="__span-30-11"><a id="__codelineno-30-11" name="__codelineno-30-11" href="#__codelineno-30-11"></a>
+</span><span id="__span-30-12"><a id="__codelineno-30-12" name="__codelineno-30-12" href="#__codelineno-30-12"></a><span class="c1"># Llamar métodos</span>
+</span><span id="__span-30-13"><a id="__codelineno-30-13" name="__codelineno-30-13" href="#__codelineno-30-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mi nombre en mayúsculas: </span><span class="si">{</span><span class="n">nombre</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-30-14"><a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="c1"># Mi nombre en mayúsculas: ANA</span>
+</span></code></pre></div>
+<h3 id="formateo-de-numeros">Formateo de Números</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">precio</span> <span class="o">=</span> <span class="mf">1234.5678</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="n">porcentaje</span> <span class="o">=</span> <span class="mf">0.756</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="c1"># Decimales</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Precio: </span><span class="si">{</span><span class="n">precio</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>  <span class="c1"># Precio: 1234.57€</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="c1"># Separador de miles</span>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Precio: </span><span class="si">{</span><span class="n">precio</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>  <span class="c1"># Precio: 1,234.57€</span>
+</span><span id="__span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>
+</span><span id="__span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="c1"># Porcentaje</span>
+</span><span id="__span-31-11"><a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Porcentaje: </span><span class="si">{</span><span class="n">porcentaje</span><span class="si">:</span><span class="s2">.1%</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># Porcentaje: 75.6%</span>
+</span><span id="__span-31-12"><a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>
+</span><span id="__span-31-13"><a id="__codelineno-31-13" name="__codelineno-31-13" href="#__codelineno-31-13"></a><span class="c1"># Alineación y relleno</span>
+</span><span id="__span-31-14"><a id="__codelineno-31-14" name="__codelineno-31-14" href="#__codelineno-31-14"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-31-15"><a id="__codelineno-31-15" name="__codelineno-31-15" href="#__codelineno-31-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">numero</span><span class="si">:</span><span class="s2">05d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># 00042 (rellena con ceros)</span>
+</span><span id="__span-31-16"><a id="__codelineno-31-16" name="__codelineno-31-16" href="#__codelineno-31-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">numero</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># &quot;        42&quot; (alinea derecha)</span>
+</span><span id="__span-31-17"><a id="__codelineno-31-17" name="__codelineno-31-17" href="#__codelineno-31-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">numero</span><span class="si">:</span><span class="s2">&lt;10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># &quot;42        &quot; (alinea izquierda)</span>
+</span><span id="__span-31-18"><a id="__codelineno-31-18" name="__codelineno-31-18" href="#__codelineno-31-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">numero</span><span class="si">:</span><span class="s2">^10</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>   <span class="c1"># &quot;    42    &quot; (centrado)</span>
+</span></code></pre></div>
+<h3 id="metodo-format">Método format()</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="c1"># Alternativa a f-strings</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;Carlos&quot;</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">30</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Me llamo </span><span class="si">{}</span><span class="s2"> y tengo </span><span class="si">{}</span><span class="s2"> años&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">))</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Me llamo </span><span class="si">{0}</span><span class="s2"> y tengo </span><span class="si">{1}</span><span class="s2"> años&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">))</span>
+</span><span id="__span-32-7"><a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Me llamo </span><span class="si">{n}</span><span class="s2"> y tengo </span><span class="si">{e}</span><span class="s2"> años&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">nombre</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">edad</span><span class="p">))</span>
+</span></code></pre></div>
+<h3 id="operador-estilo-antiguo">Operador % (Estilo Antiguo)</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1"># Menos recomendado, pero aún se ve en código antiguo</span>
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;María&quot;</span>
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">28</span>
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Me llamo </span><span class="si">%s</span><span class="s2"> y tengo </span><span class="si">%d</span><span class="s2"> años&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nombre</span><span class="p">,</span> <span class="n">edad</span><span class="p">))</span>
+</span></code></pre></div>
+<hr />
+<h2 id="29-booleanos-bool">2.9. Booleanos (bool)</h2>
+<p>Los <strong>booleanos</strong> solo tienen dos valores: <code>True</code> (verdadero) o <code>False</code> (falso).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="n">es_mayor</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-34-2"><a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="n">tiene_permiso</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-34-3"><a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+</span><span id="__span-34-4"><a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">es_mayor</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;bool&#39;&gt;</span>
+</span></code></pre></div>
+<h3 id="valores-booleanos-en-contexto">Valores Booleanos en Contexto</h3>
+<p>En Python, muchos valores se pueden evaluar como booleanos:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1"># Valores &quot;falsos&quot; (Falsy)</span>
+</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>        <span class="c1"># False</span>
+</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>      <span class="c1"># False</span>
+</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span>       <span class="c1"># False (string vacío)</span>
+</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([]))</span>       <span class="c1"># False (lista vacía)</span>
+</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">))</span>     <span class="c1"># False</span>
+</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>
+</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="c1"># Valores &quot;verdaderos&quot; (Truthy)</span>
+</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>        <span class="c1"># True</span>
+</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">))</span>       <span class="c1"># True (cualquier número no cero)</span>
+</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;Hola&quot;</span><span class="p">))</span>   <span class="c1"># True (string no vacío)</span>
+</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>   <span class="c1"># True (lista no vacía)</span>
+</span></code></pre></div>
+<h3 id="operadores-de-comparacion">Operadores de Comparación</h3>
+<p>Devuelven valores booleanos:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># False (igual a)</span>
+</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># True (diferente de)</span>
+</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># True (mayor que)</span>
+</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">)</span>    <span class="c1"># False (menor que)</span>
+</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># True (mayor o igual)</span>
+</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="n">y</span><span class="p">)</span>   <span class="c1"># False (menor o igual)</span>
+</span></code></pre></div>
+<h3 id="operadores-logicos">Operadores Lógicos</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="n">a</span> <span class="o">=</span> <span class="kc">True</span>
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="n">b</span> <span class="o">=</span> <span class="kc">False</span>
+</span><span id="__span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+</span><span id="__span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">and</span> <span class="n">b</span><span class="p">)</span>  <span class="c1"># False (Y lógico: ambos deben ser True)</span>
+</span><span id="__span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="ow">or</span> <span class="n">b</span><span class="p">)</span>   <span class="c1"># True (O lógico: al menos uno True)</span>
+</span><span id="__span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="nb">print</span><span class="p">(</span><span class="ow">not</span> <span class="n">a</span><span class="p">)</span>    <span class="c1"># False (negación)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="210-none-valor-nulo">2.10. None (Valor Nulo)</h2>
+<p><code>None</code> representa la ausencia de valor:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="n">resultado</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-38-2"><a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+</span><span id="__span-38-3"><a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>        <span class="c1"># None</span>
+</span><span id="__span-38-4"><a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">resultado</span><span class="p">))</span>  <span class="c1"># &lt;class &#39;NoneType&#39;&gt;</span>
+</span><span id="__span-38-5"><a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">resultado</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># True</span>
+</span><span id="__span-38-6"><a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>
+</span><span id="__span-38-7"><a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="c1"># Uso común: valor inicial antes de asignar</span>
+</span><span id="__span-38-8"><a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="n">usuario</span> <span class="o">=</span> <span class="kc">None</span>
+</span><span id="__span-38-9"><a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a>
+</span><span id="__span-38-10"><a id="__codelineno-38-10" name="__codelineno-38-10" href="#__codelineno-38-10"></a><span class="c1"># Después de algún proceso</span>
+</span><span id="__span-38-11"><a id="__codelineno-38-11" name="__codelineno-38-11" href="#__codelineno-38-11"></a><span class="n">usuario</span> <span class="o">=</span> <span class="s2">&quot;admin&quot;</span>
+</span><span id="__span-38-12"><a id="__codelineno-38-12" name="__codelineno-38-12" href="#__codelineno-38-12"></a>
+</span><span id="__span-38-13"><a id="__codelineno-38-13" name="__codelineno-38-13" href="#__codelineno-38-13"></a><span class="c1"># Verificar si tiene valor</span>
+</span><span id="__span-38-14"><a id="__codelineno-38-14" name="__codelineno-38-14" href="#__codelineno-38-14"></a><span class="k">if</span> <span class="n">usuario</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+</span><span id="__span-38-15"><a id="__codelineno-38-15" name="__codelineno-38-15" href="#__codelineno-38-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Usuario: </span><span class="si">{</span><span class="n">usuario</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="211-conversion-de-tipos">2.11. Conversión de Tipos</h2>
+<p>A veces necesitas convertir entre tipos de datos.</p>
+<h3 id="int-convertir-a-entero">int() - Convertir a Entero</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c1"># Desde string</span>
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="n">edad_texto</span> <span class="o">=</span> <span class="s2">&quot;25&quot;</span>
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="n">edad_numero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">edad_texto</span><span class="p">)</span>
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">edad_numero</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># 30</span>
+</span><span id="__span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>
+</span><span id="__span-39-6"><a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a><span class="c1"># Desde float (trunca decimales)</span>
+</span><span id="__span-39-7"><a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="n">precio</span> <span class="o">=</span> <span class="mf">19.99</span>
+</span><span id="__span-39-8"><a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a><span class="n">precio_entero</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">precio</span><span class="p">)</span>
+</span><span id="__span-39-9"><a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">precio_entero</span><span class="p">)</span>  <span class="c1"># 19</span>
+</span><span id="__span-39-10"><a id="__codelineno-39-10" name="__codelineno-39-10" href="#__codelineno-39-10"></a>
+</span><span id="__span-39-11"><a id="__codelineno-39-11" name="__codelineno-39-11" href="#__codelineno-39-11"></a><span class="c1"># Errores comunes</span>
+</span><span id="__span-39-12"><a id="__codelineno-39-12" name="__codelineno-39-12" href="#__codelineno-39-12"></a><span class="c1"># int(&quot;Hola&quot;)  # Error: no se puede convertir texto</span>
+</span><span id="__span-39-13"><a id="__codelineno-39-13" name="__codelineno-39-13" href="#__codelineno-39-13"></a><span class="c1"># int(&quot;19.99&quot;)  # Error: tiene decimal</span>
+</span></code></pre></div>
+<h3 id="float-convertir-a-decimal">float() - Convertir a Decimal</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="c1"># Desde string</span>
+</span><span id="__span-40-2"><a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a><span class="n">temperatura</span> <span class="o">=</span> <span class="s2">&quot;36.5&quot;</span>
+</span><span id="__span-40-3"><a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="n">temp_numero</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">temperatura</span><span class="p">)</span>
+</span><span id="__span-40-4"><a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">temp_numero</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span>  <span class="c1"># 37.0</span>
+</span><span id="__span-40-5"><a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
+</span><span id="__span-40-6"><a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a><span class="c1"># Desde entero</span>
+</span><span id="__span-40-7"><a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">42</span>
+</span><span id="__span-40-8"><a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a><span class="n">decimal</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">numero</span><span class="p">)</span>
+</span><span id="__span-40-9"><a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span>  <span class="c1"># 42.0</span>
+</span></code></pre></div>
+<h3 id="str-convertir-a-texto">str() - Convertir a Texto</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">25</span>
+</span><span id="__span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="n">edad_texto</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">edad</span><span class="p">)</span>
+</span><span id="__span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tengo &quot;</span> <span class="o">+</span> <span class="n">edad_texto</span> <span class="o">+</span> <span class="s2">&quot; años&quot;</span><span class="p">)</span>
+</span><span id="__span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>
+</span><span id="__span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a><span class="n">precio</span> <span class="o">=</span> <span class="mf">19.99</span>
+</span><span id="__span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Precio: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">precio</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;€&quot;</span><span class="p">)</span>
+</span><span id="__span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>
+</span><span id="__span-41-8"><a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a><span class="c1"># Útil para concatenar con +</span>
+</span><span id="__span-41-9"><a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a><span class="n">numero</span> <span class="o">=</span> <span class="mi">100</span>
+</span><span id="__span-41-10"><a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a><span class="c1"># print(&quot;Valor: &quot; + numero)  # Error!</span>
+</span><span id="__span-41-11"><a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Valor: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">numero</span><span class="p">))</span>  <span class="c1"># Correcto</span>
+</span></code></pre></div>
+<h3 id="bool-convertir-a-booleano">bool() - Convertir a Booleano</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>      <span class="c1"># True</span>
+</span><span id="__span-42-2"><a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>      <span class="c1"># False</span>
+</span><span id="__span-42-3"><a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;Sí&quot;</span><span class="p">))</span>   <span class="c1"># True</span>
+</span><span id="__span-42-4"><a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span>     <span class="c1"># False</span>
+</span></code></pre></div>
+<h3 id="ejemplo-practico-calculadora">Ejemplo Práctico: Calculadora</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== CALCULADORA ===&quot;</span><span class="p">)</span>
+</span><span id="__span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="nb">print</span><span class="p">()</span>
+</span><span id="__span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+</span><span id="__span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="c1"># input() siempre devuelve string</span>
+</span><span id="__span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="n">num1_texto</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Primer número: &quot;</span><span class="p">)</span>
+</span><span id="__span-43-6"><a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a><span class="n">num2_texto</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Segundo número: &quot;</span><span class="p">)</span>
+</span><span id="__span-43-7"><a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>
+</span><span id="__span-43-8"><a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="c1"># Convertir a números</span>
+</span><span id="__span-43-9"><a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="n">num1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num1_texto</span><span class="p">)</span>
+</span><span id="__span-43-10"><a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="n">num2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num2_texto</span><span class="p">)</span>
+</span><span id="__span-43-11"><a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a>
+</span><span id="__span-43-12"><a id="__codelineno-43-12" name="__codelineno-43-12" href="#__codelineno-43-12"></a><span class="c1"># Ahora podemos hacer operaciones</span>
+</span><span id="__span-43-13"><a id="__codelineno-43-13" name="__codelineno-43-13" href="#__codelineno-43-13"></a><span class="n">suma</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
+</span><span id="__span-43-14"><a id="__codelineno-43-14" name="__codelineno-43-14" href="#__codelineno-43-14"></a><span class="n">resta</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">-</span> <span class="n">num2</span>
+</span><span id="__span-43-15"><a id="__codelineno-43-15" name="__codelineno-43-15" href="#__codelineno-43-15"></a><span class="n">multiplicacion</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+</span><span id="__span-43-16"><a id="__codelineno-43-16" name="__codelineno-43-16" href="#__codelineno-43-16"></a><span class="n">division</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">/</span> <span class="n">num2</span>
+</span><span id="__span-43-17"><a id="__codelineno-43-17" name="__codelineno-43-17" href="#__codelineno-43-17"></a>
+</span><span id="__span-43-18"><a id="__codelineno-43-18" name="__codelineno-43-18" href="#__codelineno-43-18"></a><span class="nb">print</span><span class="p">()</span>
+</span><span id="__span-43-19"><a id="__codelineno-43-19" name="__codelineno-43-19" href="#__codelineno-43-19"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num1</span><span class="si">}</span><span class="s2"> + </span><span class="si">{</span><span class="n">num2</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">suma</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-43-20"><a id="__codelineno-43-20" name="__codelineno-43-20" href="#__codelineno-43-20"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num1</span><span class="si">}</span><span class="s2"> - </span><span class="si">{</span><span class="n">num2</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">resta</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-43-21"><a id="__codelineno-43-21" name="__codelineno-43-21" href="#__codelineno-43-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num1</span><span class="si">}</span><span class="s2"> × </span><span class="si">{</span><span class="n">num2</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">multiplicacion</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-43-22"><a id="__codelineno-43-22" name="__codelineno-43-22" href="#__codelineno-43-22"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">num1</span><span class="si">}</span><span class="s2"> ÷ </span><span class="si">{</span><span class="n">num2</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">division</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="212-ejercicios-practicos">2.12. Ejercicios Prácticos</h2>
+<h3 id="ejercicio-1-intercambio-de-variables">Ejercicio 1: Intercambio de Variables</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="c1"># Intercambia los valores de a y b</span>
+</span><span id="__span-44-2"><a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-44-3"><a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="n">b</span> <span class="o">=</span> <span class="mi">20</span>
+</span><span id="__span-44-4"><a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>
+</span><span id="__span-44-5"><a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Antes: a=</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, b=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-44-6"><a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+</span><span id="__span-44-7"><a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="c1"># Tu código aquí</span>
+</span><span id="__span-44-8"><a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span>
+</span><span id="__span-44-9"><a id="__codelineno-44-9" name="__codelineno-44-9" href="#__codelineno-44-9"></a>
+</span><span id="__span-44-10"><a id="__codelineno-44-10" name="__codelineno-44-10" href="#__codelineno-44-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Después: a=</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">, b=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-44-11"><a id="__codelineno-44-11" name="__codelineno-44-11" href="#__codelineno-44-11"></a><span class="c1"># Debe mostrar: Después: a=20, b=10</span>
+</span></code></pre></div>
+<h3 id="ejercicio-2-calculadora-de-propina">Ejercicio 2: Calculadora de Propina</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=== Calculadora de Propina ===&quot;</span><span class="p">)</span>
+</span><span id="__span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+</span><span id="__span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="n">cuenta</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Importe de la cuenta: &quot;</span><span class="p">))</span>
+</span><span id="__span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="n">porcentaje_propina</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Porcentaje de propina: &quot;</span><span class="p">))</span>
+</span><span id="__span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>
+</span><span id="__span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="n">propina</span> <span class="o">=</span> <span class="n">cuenta</span> <span class="o">*</span> <span class="p">(</span><span class="n">porcentaje_propina</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+</span><span id="__span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="n">total</span> <span class="o">=</span> <span class="n">cuenta</span> <span class="o">+</span> <span class="n">propina</span>
+</span><span id="__span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a>
+</span><span id="__span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="nb">print</span><span class="p">()</span>
+</span><span id="__span-45-10"><a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cuenta: </span><span class="si">{</span><span class="n">cuenta</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>
+</span><span id="__span-45-11"><a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Propina (</span><span class="si">{</span><span class="n">porcentaje_propina</span><span class="si">}</span><span class="s2">%): </span><span class="si">{</span><span class="n">propina</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>
+</span><span id="__span-45-12"><a id="__codelineno-45-12" name="__codelineno-45-12" href="#__codelineno-45-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total a pagar: </span><span class="si">{</span><span class="n">total</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="ejercicio-3-extractor-de-informacion">Ejercicio 3: Extractor de Información</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;usuario@dominio.com&quot;</span>
+</span><span id="__span-46-2"><a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>
+</span><span id="__span-46-3"><a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="c1"># Extraer usuario y dominio</span>
+</span><span id="__span-46-4"><a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="n">arroba_pos</span> <span class="o">=</span> <span class="n">email</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;@&quot;</span><span class="p">)</span>
+</span><span id="__span-46-5"><a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="n">usuario</span> <span class="o">=</span> <span class="n">email</span><span class="p">[:</span><span class="n">arroba_pos</span><span class="p">]</span>
+</span><span id="__span-46-6"><a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="n">dominio</span> <span class="o">=</span> <span class="n">email</span><span class="p">[</span><span class="n">arroba_pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+</span><span id="__span-46-7"><a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>
+</span><span id="__span-46-8"><a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Email: </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-46-9"><a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Usuario: </span><span class="si">{</span><span class="n">usuario</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-46-10"><a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dominio: </span><span class="si">{</span><span class="n">dominio</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="ejercicio-4-formateo-de-datos">Ejercicio 4: Formateo de Datos</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="n">nombre</span> <span class="o">=</span> <span class="s2">&quot;ana garcía&quot;</span>
+</span><span id="__span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="n">edad</span> <span class="o">=</span> <span class="mi">28</span>
+</span><span id="__span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="n">salario</span> <span class="o">=</span> <span class="mf">32500.50</span>
+</span><span id="__span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>
+</span><span id="__span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="c1"># Formatear correctamente</span>
+</span><span id="__span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a><span class="n">nombre_formateado</span> <span class="o">=</span> <span class="n">nombre</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
+</span><span id="__span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nombre: </span><span class="si">{</span><span class="n">nombre_formateado</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-47-8"><a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Edad: </span><span class="si">{</span><span class="n">edad</span><span class="si">}</span><span class="s2"> años&quot;</span><span class="p">)</span>
+</span><span id="__span-47-9"><a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Salario: </span><span class="si">{</span><span class="n">salario</span><span class="si">:</span><span class="s2">,.2f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="ejercicio-5-validador-de-contrasena">Ejercicio 5: Validador de Contraseña</h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Introduce una contraseña: &quot;</span><span class="p">)</span>
+</span><span id="__span-48-2"><a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>
+</span><span id="__span-48-3"><a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="n">longitud</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+</span><span id="__span-48-4"><a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="n">tiene_numeros</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span>
+</span><span id="__span-48-5"><a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a><span class="n">tiene_letras</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">isalpha</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">password</span><span class="p">)</span>
+</span><span id="__span-48-6"><a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>
+</span><span id="__span-48-7"><a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a><span class="nb">print</span><span class="p">()</span>
+</span><span id="__span-48-8"><a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitud: </span><span class="si">{</span><span class="n">longitud</span><span class="si">}</span><span class="s2"> caracteres&quot;</span><span class="p">)</span>
+</span><span id="__span-48-9"><a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contiene números: </span><span class="si">{</span><span class="n">tiene_numeros</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-48-10"><a id="__codelineno-48-10" name="__codelineno-48-10" href="#__codelineno-48-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contiene letras: </span><span class="si">{</span><span class="n">tiene_letras</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-48-11"><a id="__codelineno-48-11" name="__codelineno-48-11" href="#__codelineno-48-11"></a>
+</span><span id="__span-48-12"><a id="__codelineno-48-12" name="__codelineno-48-12" href="#__codelineno-48-12"></a><span class="k">if</span> <span class="n">longitud</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="ow">and</span> <span class="n">tiene_numeros</span> <span class="ow">and</span> <span class="n">tiene_letras</span><span class="p">:</span>
+</span><span id="__span-48-13"><a id="__codelineno-48-13" name="__codelineno-48-13" href="#__codelineno-48-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✓ Contraseña válida&quot;</span><span class="p">)</span>
+</span><span id="__span-48-14"><a id="__codelineno-48-14" name="__codelineno-48-14" href="#__codelineno-48-14"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-48-15"><a id="__codelineno-48-15" name="__codelineno-48-15" href="#__codelineno-48-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✗ Contraseña no válida&quot;</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="213-resumen">2.13. Resumen</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>int</code></td>
+<td style="text-align: left;">Números enteros</td>
+<td style="text-align: left;"><code>42</code>, <code>-7</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>float</code></td>
+<td style="text-align: left;">Números decimales</td>
+<td style="text-align: left;"><code>3.14</code>, <code>-0.5</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>str</code></td>
+<td style="text-align: left;">Texto</td>
+<td style="text-align: left;"><code>"Hola"</code>, <code>'Python'</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>bool</code></td>
+<td style="text-align: left;">Verdadero/Falso</td>
+<td style="text-align: left;"><code>True</code>, <code>False</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>None</code></td>
+<td style="text-align: left;">Valor nulo</td>
+<td style="text-align: left;"><code>None</code></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Conversión</th>
+<th style="text-align: left;">Función</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">A entero</td>
+<td style="text-align: left;"><code>int()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">A decimal</td>
+<td style="text-align: left;"><code>float()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">A texto</td>
+<td style="text-align: left;"><code>str()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">A booleano</td>
+<td style="text-align: left;"><code>bool()</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>📅 <strong>Fecha de creación:</strong> Enero 2026<br />
+✍️ <strong>Autor:</strong> Fran García</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../01-introduccion-python/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 1. Introducción a Python">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                1. Introducción a Python
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../03-operadores/" class="md-footer__link md-footer__link--next" aria-label="Next: 3. Operadores">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                3. Operadores
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Francisco García
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/fmgarcia27/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@fmgarcia" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305m-317.51 213.508V175.185l142.739 81.205z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "navigation.sections", "navigation.top", "navigation.indexes", "toc.integrate"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
