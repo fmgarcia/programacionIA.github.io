@@ -109,6 +109,7 @@ El Boosting entrena predictores secuencialmente, cada uno intentando corregir a 
 #### 8.4.1. AdaBoost (Adaptive Boosting)
 
 El algoritmo presta más atención a las instancias de entrenamiento que el predecesor clasificó incorrectamente.
+
 1.  Entrena un clasificador base.
 2.  Aumenta el **peso relativo** de las instancias mal clasificadas.
 3.  Entrena un segundo clasificador con los pesos actualizados.
