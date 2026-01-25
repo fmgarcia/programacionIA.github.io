@@ -28,6 +28,8 @@ Un curso completo de Python desde cero, diseñado para principiantes absolutos:
 | 8 | [Manejo de Archivos](08-manejo-archivos.md) | Lectura/escritura, CSV, JSON |
 | 9 | [Excepciones](09-excepciones.md) | Manejo de errores, try/except |
 | 10 | [Programación Orientada a Objetos](10-poo.md) | Clases, herencia, polimorfismo |
+| 11 | [Trabajando con JSON](11-json.md) | Lectura, escritura y APIs REST |
+| 12 | [Librería Faker](12-faker.md) | Generación de datos ficticios |
 
 ### Librerías Esenciales para IA
 
@@ -35,11 +37,11 @@ Documentación detallada de las librerías fundamentales:
 
 | Librería | Descripción |
 | :--- | :--- |
-| [NumPy](11-numpy.md) | Computación numérica y arrays multidimensionales |
-| [Pandas](12-pandas.md) | Manipulación y análisis de datos |
-| [Matplotlib](13-matplotlib.md) | Visualización de datos y gráficos |
-| [Seaborn](14-seaborn.md) | Visualización estadística avanzada |
-| [Scikit-learn](15-scikit-learn.md) | Introducción al Machine Learning |
+| [NumPy](13-numpy.md) | Computación numérica y arrays multidimensionales |
+| [Pandas](14-pandas.md) | Manipulación y análisis de datos |
+| [Matplotlib](15-matplotlib.md) | Visualización de datos y gráficos |
+| [Seaborn](16-seaborn.md) | Visualización estadística avanzada |
+| [Scikit-learn](17-scikit-learn.md) | Introducción al Machine Learning |
 
 ---
 
