@@ -44,16 +44,5 @@ A diferencia del aprendizaje supervisado, aquí no hay una variable objetivo que
 
 ---
 
-## 🚧 Contenido en construcción
-
-Esta sección está siendo desarrollada. Próximamente encontrarás:
-
-- [ ] Algoritmos de Clustering
-- [ ] Reducción de dimensionalidad
-- [ ] Detección de anomalías
-- [ ] Ejemplos prácticos con Python
-
----
-
 📅 **Fecha de creación:** Enero 2026  
 ✍️ **Autor:** Fran García

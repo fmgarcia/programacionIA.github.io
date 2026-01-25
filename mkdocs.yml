@@ -1,5 +1,5 @@
 site_name: Programación en Inteligencia Artificial
-site_url: https://fmgarcia.github.io/aprendizaje_supervisado.github.io/
+site_url: https://fmgarcia.github.io/programacionIA.github.io/
 theme:
   name: material
   font:
@@ -10,8 +10,8 @@ theme:
   features:
     - navigation.footer
     - navigation.sections
-    - navigation.expand
     - navigation.top
+    - navigation.indexes
     - toc.integrate
   palette:
     # Dark Mode
@@ -64,7 +64,7 @@ extra:
     - icon: fontawesome/brands/youtube
       link: https://www.youtube.com/@fmgarcia
 
-copyright: Copyright &copy; 2025 Francisco García
+copyright: Copyright &copy; 2026 Francisco García
 
 nav:
   - Inicio: index.md
@@ -90,5 +90,21 @@ nav:
     - 8. Apriori: aprendizaje-no-supervisado/08-apriori.md
   - Procesamiento de Lenguaje Natural:
     - Introducción: procesamiento-lenguaje-natural/index.md
+    - 1. Fundamentos de NLP: procesamiento-lenguaje-natural/01-fundamentos-nlp.md
+    - 2. BoW y TF-IDF: procesamiento-lenguaje-natural/02-bow-tfidf.md
+    - 3. Word Embeddings: procesamiento-lenguaje-natural/03-word-embeddings.md
+    - 4. Análisis de Sentimientos: procesamiento-lenguaje-natural/04-analisis-sentimientos.md
+    - 5. NER: procesamiento-lenguaje-natural/05-ner.md
+    - 6. Clasificación de Texto: procesamiento-lenguaje-natural/06-clasificacion-texto.md
+    - 7. Transformers: procesamiento-lenguaje-natural/07-transformers.md
+    - 8. Aplicaciones Avanzadas: procesamiento-lenguaje-natural/08-aplicaciones-avanzadas.md
   - Deep Learning:
     - Introducción: deep-learning/index.md
+    - 1. Fundamentos: deep-learning/01-fundamentos.md
+    - 2. CNN: deep-learning/02-cnn.md
+    - 3. RNN, LSTM y GRU: deep-learning/03-rnn-lstm.md
+    - 4. Transformers: deep-learning/04-transformers-dl.md
+    - 5. Autoencoders: deep-learning/05-autoencoders.md
+    - 6. GANs: deep-learning/06-gans.md
+    - 7. Transfer Learning: deep-learning/07-transfer-learning.md
+    - 8. Frameworks y Práctica: deep-learning/08-frameworks-practica.md

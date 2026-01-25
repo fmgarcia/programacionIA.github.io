@@ -1,87 +1,87 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/01-aprendizaje-no-supervisado/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/01-aprendizaje-no-supervisado/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/02-kmeans/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/02-kmeans/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/03-dbscan/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/03-dbscan/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/04-clustering-jerarquico/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/04-clustering-jerarquico/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/05-pca/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/05-pca/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/06-tsne/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/06-tsne/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/07-isolation-forest/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/07-isolation-forest/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-no-supervisado/08-apriori/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-no-supervisado/08-apriori/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/01-machine-learning/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/01-machine-learning/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/02-prediccion-numerica/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/02-prediccion-numerica/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/03-prediccion-categorica/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/03-prediccion-categorica/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/04-arboles-decision/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/04-arboles-decision/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/05-naive-bayes/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/05-naive-bayes/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/06-knn/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/06-knn/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/07-svm/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/07-svm/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/aprendizaje-supervisado/08-ensamblado/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/aprendizaje-supervisado/08-ensamblado/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/deep-learning/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/deep-learning/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
     <url>
-         <loc>https://fmgarcia.github.io/aprendizaje_supervisado.github.io/procesamiento-lenguaje-natural/</loc>
+         <loc>https://fmgarcia.github.io/programacionIA.github.io/procesamiento-lenguaje-natural/</loc>
          <lastmod>2026-01-24</lastmod>
     </url>
 </urlset>
