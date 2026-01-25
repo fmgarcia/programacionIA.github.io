@@ -77,8 +77,6 @@ El flujo de trabajo de la API de `scikit-learn` es intuitivo y sigue tres pasos:
 
 3. **Predict / transform:** Usar el modelo entrenado para hacer predicciones o transformar datos.
 
-
-
 #### Estimator, Classifier y Regressor
 
 * **`Estimator`:** El objeto base. Aprende de los datos usando el método `.fit()` y puede hacer predicciones usando `.predict()`.
@@ -128,6 +126,7 @@ myGridCV = GridSearchCV(estimator, parameter_grid, cv=5)
 ```
 
 #### Ejemplo Práctico: Estandarización
+
 El preprocesamiento, como la **estandarización**, es crucial para mejorar el rendimiento. La estandarización (o *z-transformation*) convierte los datos para que sigan una distribución normal estándar, usando la fórmula $z = \frac{x - m}{\sigma}$ (donde $m$ es la media y $\sigma$ la desviación estándar).
 
 En `scikit-learn`, se usa `StandardScaler`:
@@ -182,15 +181,15 @@ La división de datos es fundamental para evaluar un modelo de ML. El conjunto d
 
 * **Underfitting (Subajuste):** Ocurre cuando un modelo es *demasiado simple* (baja capacidad) y no puede capturar el patrón subyacente de los datos.
 
-
-
 > **El Dilema:** A medida que aumenta la complejidad (flexibilidad) del modelo:
+>
 > * El error en el **conjunto de entrenamiento** (Training set) siempre disminuye.
 > * El error en el **conjunto de prueba** (Test set) disminuye al principio, pero luego comienza a *aumentar*. El punto donde el error de prueba empieza a subir es donde comienza el overfitting.
 
 El conjunto de prueba es **esencial** para detectar el overfitting y seleccionar un modelo que generalice bien.
 
 #### Cross-Validation (Validación Cruzada)
+
 El conjunto de prueba (Test set) debe usarse **¡solo una vez!** al final, para la evaluación final.
 
 Para evaluar el modelo *durante* el entrenamiento (por ejemplo, para afinar hiperparámetros), necesitamos una forma de simular un "conjunto de prueba" sin tocar el real. Para esto, dividimos el **conjunto de entrenamiento** (Training Data) en dos partes más pequeñas: un nuevo conjunto de `Train` y un conjunto de `Cross Validate` (Validación).
@@ -209,8 +208,6 @@ Es el método más común:
 
 5. El rendimiento final del modelo es el **promedio** de las métricas de las *k* rondas.
 
-
-
 **Método: Leave One Out (LOO)**
 Es un caso extremo de k-Fold donde $k$ es igual al número total de muestras. Se entrena con todos los datos menos uno, y se valida con ese único dato. Es computacionalmente muy costoso.
 
@@ -221,6 +218,7 @@ Es un caso extremo de k-Fold donde $k$ es igual al número total de muestras. Se
 Preparar los datos es vital para un buen modelo. Esto incluye la limpieza (manejo de valores atípicos y faltantes) y la transformación (escalado y codificación).
 
 #### Manejo de Valores Faltantes (Missing Values)
+
 Los valores faltantes (identificados en Python como `np.nan` o `NaN`) deben ser tratados.
 
 **1. Identificación:**
@@ -263,6 +261,7 @@ X_test_imputed = impt.transform(X_test)
 ```
 
 #### Manejo de Datos Categóricos
+
 Los algoritmos de ML requieren entradas numéricas. Los datos categóricos deben ser convertidos.
 
 **1. Datos Ordinales (con orden):**
@@ -307,7 +306,9 @@ Al usar `train_test_split`, si el dataset está desbalanceado (ej. 90% clase A, 
 * Esto asegura que la proporción de las clases (ej. 90/10) se mantenga *idéntica* tanto en el conjunto de entrenamiento como en el de prueba, reflejando el dataset original.
 
 #### Tópicos Avanzados: Tradeoff de Sesgo-Varianza y Regularización
+
 * **Tradeoff de Sesgo-Varianza:**
+  
     * **Sesgo (Bias):** Error por suposiciones incorrectas (Underfitting).
     * **Varianza (Variance):** Error por sensibilidad excesiva a los datos de entrenamiento (Overfitting).
     * **Error Total $\approx$ Sesgo² + Varianza**. El objetivo es encontrar la complejidad óptima que minimice este error total.
@@ -323,10 +324,12 @@ Al usar `train_test_split`, si el dataset está desbalanceado (ej. 90% clase A, 
 Esta sección aplica todos los conceptos anteriores en un caso práctico completo usando el dataset "Iris".
 
 #### 1. Entendimiento del Problema y Datos (EDA)
+
 * **Objetivo:** Clasificar la especie de una flor Iris (Target).
 * **Clases (Target):** 3 especies (Setosa, Versicolor, Virginica).
 * **Características (Features):** `sepal_length`, `sepal_width`, `petal_length`, `petal_width`.
 * **Análisis de Datos:**
+
     * Se cargan los datos y se convierten a un DataFrame de Pandas.
     * **Valores Faltantes:** Se comprueba con `iris.isnull().sum()`. No se encontraron.
     * **Distribución de Clases:** Se comprueba con `iris.groupby('target').size()`. Hay 50 muestras de cada clase (33.3% cada una). Es un **dataset balanceado**.
@@ -334,19 +337,23 @@ Esta sección aplica todos los conceptos anteriores en un caso práctico complet
     * **Visualización:** Se usan `pairplot` y `heatmap` para confirmar visualmente las relaciones y la alta correlación.
 
 #### 2. División y Preparación de Datos
+
 * **Separación X/y:** Se separan las características (X) del objetivo (y).
 * **División Train/Test:** Se usa `train_test_split` (ej. 80% train, 20% test).
 * **Validación Cruzada:**
+  
     * Se muestra cómo usar `KFold` (CV estándar) y `StratifiedKFold` (CV estratificada).
     * `StratifiedKFold` es preferible porque mantiene la distribución 33/33/33 de las clases en cada fold, asegurando que la validación sea representativa.
 
 #### 3. Selección y Evaluación del Modelo
+
 * **Curva de Aprendizaje (`Learning Curve`):**
     Se usa para diagnosticar bias vs. variance. Muestra el rendimiento del modelo a medida que ve más datos de entrenamiento.
 * **Afinado de Hiperparámetros (`GridSearchCV`):**
     Se utiliza para encontrar la mejor combinación de hiperparámetros (ej. `criterion`, `max_depth` para un `DecisionTreeClassifier`) probando todas las combinaciones posibles mediante validación cruzada.
 
 #### 4. Métricas de Evaluación (Clasificación)
+
 Una vez que el modelo (`GridSearchCV`) está entrenado y se hacen predicciones sobre el `X_test`, se evalúa el rendimiento.
 
 * **Matriz de Confusión (`Confusion Matrix`):**
@@ -357,6 +364,7 @@ Una vez que el modelo (`GridSearchCV`) está entrenado y se hacen predicciones s
     * **TN (True Negative):** Real = 0, Predicho = 0.
 
 * **Métricas Clave:**
+  
     * **Accuracy (Exactitud):** $\frac{TP + TN}{Total}$. Proporción de predicciones correctas. (Usar con cuidado en datasets desbalanceados).
     * **Precision (Precisión):** $\frac{TP}{TP + FP}$. De los que *dijimos* que eran positivos, ¿cuántos acertamos?.
     * **Recall (Sensibilidad o TPR):** $\frac{TP}{TP + FN}$. De *todos los positivos reales*, ¿cuántos encontramos?.
@@ -364,6 +372,7 @@ Una vez que el modelo (`GridSearchCV`) está entrenado y se hacen predicciones s
     * **FPR (Tasa de Falsos Positivos):** $\frac{FP}{FP + TN}$. Proporción de negativos reales que clasificamos incorrectamente como positivos.
 
 * **Curva ROC y AUC:**
+  
     * **Curva ROC:** Gráfica que muestra el rendimiento de un clasificador en todos los umbrales de clasificación. Muestra **TPR** (Eje Y) vs. **FPR** (Eje X).
     * **AUC (Area Under the Curve):** El área bajo la curva ROC. Es una métrica única que resume el rendimiento del modelo.
         * AUC = 1.0: Clasificador perfecto.
@@ -371,6 +380,7 @@ Una vez que el modelo (`GridSearchCV`) está entrenado y se hacen predicciones s
         * Un AUC de 0.85 o más se considera bueno.
 
 #### 5. Predicción Final
+
 * Se carga el modelo final (el mejor `estimator_` encontrado por `GridSearchCV`).
 * Se realizan las predicciones finales sobre el conjunto de prueba (`X_test`).
 * Los resultados se guardan, por ejemplo, en un archivo CSV.

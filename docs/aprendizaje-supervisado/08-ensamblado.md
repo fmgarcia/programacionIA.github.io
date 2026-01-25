@@ -21,6 +21,7 @@ El objetivo principal es reducir el **sesgo** (bias) o la **varianza** (variance
 Es la forma más simple de ensamblado. Consiste en agregar las predicciones de clasificadores totalmente diferentes.
 
 #### Tipos de Votación
+
 *   **Hard Voting (Votación Dura):** Cada clasificador vota por una clase. La clase con la mayoría de votos gana (moda).
 *   **Soft Voting (Votación Suave):** Si los clasificadores pueden estimar probabilidades (tienen método `predict_proba`), se promedian las probabilidades de cada clase. La clase con el promedio de probabilidad más alto gana. El *Soft Voting* suele funcionar mejor porque da más peso a los votos con "alta confianza".
 
@@ -62,16 +63,19 @@ for clf in (log_clf, rnd_clf, svm_clf, voting_clf):
 ### 8.3. Bagging y Random Forest
 
 **Bagging** (Bootstrap Aggregating) implica entrenar el mismo algoritmo en diferentes subconjuntos aleatorios del dataset de entrenamiento.
+
 *   **Bootstrap:** El muestreo se hace *con reemplazo* (una misma muestra puede aparecer varias veces en el mismo subconjunto).
 *   **Pasting:** El muestreo se hace *sin reemplazo*.
 
 Una vez entrenados, los modelos agregan sus predicciones (moda para clasificación, promedio para regresión).
 
 #### Random Forest (Bosques Aleatorios)
+
 Es una implementación específica y optimizada de Bagging usando **Árboles de Decisión**.
 Introduce aleatoriedad extra: al dividir un nodo en el árbol, no busca la mejor característica de *todas* las disponibles, sino la mejor característica dentro de un **subconjunto aleatorio de características**. Esto hace que los árboles sean más diversos (descorrelacionados), lo que reduce drásticamente la varianza.
 
 **Hiperparámetros Clave:**
+
 *   `n_estimators`: Número de árboles (más es mejor, pero más lento).
 *   `max_features`: Número máximo de características a considerar en cada división.
 *   `bootstrap`: Si usar muestreo con reemplazo (True por defecto).
@@ -103,6 +107,7 @@ for name, score in zip(["Feature 1", "Feature 2"], rnd_clf.feature_importances_)
 El Boosting entrena predictores secuencialmente, cada uno intentando corregir a su predecesor.
 
 #### 8.4.1. AdaBoost (Adaptive Boosting)
+
 El algoritmo presta más atención a las instancias de entrenamiento que el predecesor clasificó incorrectamente.
 1.  Entrena un clasificador base.
 2.  Aumenta el **peso relativo** de las instancias mal clasificadas.
@@ -110,6 +115,7 @@ El algoritmo presta más atención a las instancias de entrenamiento que el pred
 4.  Repite el proceso.
 
 **Hiperparámetros Clave:**
+
 *   `n_estimators`: Número de iteraciones.
 *   `learning_rate`: Cuánto contribuye cada modelo. Un valor bajo requiere más estimadores.
 
@@ -126,6 +132,7 @@ ada_clf.fit(X_train, y_train)
 ```
 
 #### 8.4.2. Gradient Boosting Machine (GBM)
+
 En lugar de ajustar los pesos de las instancias, GBM intenta ajustar el nuevo predictor a los **errores residuales** (la diferencia entre el valor real y el predicho) del predictor anterior.
 
 **Ejemplo Python (GradientBoosting de sklearn):**
@@ -137,12 +144,15 @@ gbrt.fit(X_train, y_train)
 ```
 
 #### 8.4.3. XGBoost (Extreme Gradient Boosting)
+
 Es una versión optimizada de Gradient Boosting diseñada para ser altamente eficiente, flexible y portátil. Es el algoritmo dominante en competiciones de Machine Learning (Kaggle).
+
 *   **Regularización:** Incluye regularización L1 y L2 para evitar overfitting.
 *   **Paralelización:** Construcción de árboles en paralelo.
 *   **Manejo de nulos:** Aprende automáticamente la mejor dirección para valores faltantes.
 
 **Hiperparámetros Clave:**
+
 *   `eta` (learning_rate): Paso de reducción de pesos para prevenir overfitting.
 *   `max_depth`: Profundidad máxima del árbol.
 *   `subsample`: Ratio de muestras de entrenamiento usadas.
@@ -168,11 +178,14 @@ print(f"XGBoost Accuracy: {accuracy_score(y_test, xgb_clf.predict(X_test)):.4f}"
 ```
 
 #### 8.4.4. LightGBM (Light Gradient Boosting Machine)
+
 Desarrollado por Microsoft. A diferencia de otros que crecen el árbol por niveles (level-wise), LightGBM crece por hojas (**leaf-wise**). Elige la hoja con mayor pérdida para crecer.
+
 *   **Ventajas:** Mucho más rápido que XGBoost en grandes datasets y consume menos memoria.
 *   **Desventajas:** Puede hacer overfitting fácilmente en datasets pequeños (< 10,000 filas).
 
 **Hiperparámetros Clave:**
+
 *   `num_leaves`: Parámetro principal para controlar la complejidad (en lugar de max_depth).
 *   `min_data_in_leaf`: Importante para evitar overfitting.
 

@@ -16,6 +16,7 @@ Un **objeto** es una entidad que tiene:
 **Ejemplo del mundo real:**
 
 Un coche tiene:
+
 *   Atributos: color, marca, velocidad, combustible
 *   Métodos: arrancar(), acelerar(), frenar(), apagar()
 
