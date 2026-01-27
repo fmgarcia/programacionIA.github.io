@@ -79,6 +79,91 @@ clf.fit(X_train, y_train)
 # 6. Predecir y Evaluar
 y_pred = clf.predict(X_test)
 print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+print("\nReporte de Clasificación:")
+print(metrics.classification_report(y_test, y_pred, target_names=iris.target_names))
+
+# Comparar diferentes kernels
+from sklearn.model_selection import cross_val_score
+import matplotlib.pyplot as plt
+
+kernels = ['linear', 'poly', 'rbf', 'sigmoid']
+C_values = [0.1, 1, 10, 100]
+results = {}
+
+print("\n" + "="*60)
+print("COMPARACIÓN DE KERNELS")
+print("="*60)
+
+for kernel in kernels:
+    scores = []
+    for C in C_values:
+        svm_model = svm.SVC(kernel=kernel, C=C, gamma='scale')
+        cv_scores = cross_val_score(svm_model, X_train_scaled, y_train, cv=5)
+        scores.append(cv_scores.mean())
+    results[kernel] = scores
+    print(f"\n{kernel.upper()} Kernel:")
+    for C, score in zip(C_values, scores):
+        print(f"  C={C:5.1f}: Accuracy={score:.4f}")
+
+# Visualizar comparación
+fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+
+# Gráfico 1: Comparación de kernels
+for kernel, scores in results.items():
+    axes[0].plot(C_values, scores, marker='o', label=kernel, linewidth=2)
+axes[0].set_xlabel('Valor de C (Regularización)')
+axes[0].set_ylabel('Accuracy (Cross-Validation)')
+axes[0].set_title('Comparación de Kernels SVM')
+axes[0].set_xscale('log')
+axes[0].legend()
+axes[0].grid(True, alpha=0.3)
+
+# Gráfico 2: Fronteras de decisión (2D)
+from matplotlib.colors import ListedColormap
+
+# Usar solo 2 características para visualización
+X_2d = iris.data[:, [2, 3]]  # petal length y width
+y_2d = iris.target
+X_train_2d, X_test_2d, y_train_2d, y_test_2d = train_test_split(X_2d, y_2d, test_size=0.3, random_state=42)
+
+# Escalar
+scaler_2d = StandardScaler()
+X_train_2d_scaled = scaler_2d.fit_transform(X_train_2d)
+X_test_2d_scaled = scaler_2d.transform(X_test_2d)
+
+# Entrenar SVM RBF
+svm_rbf = svm.SVC(kernel='rbf', C=10, gamma='scale')
+svm_rbf.fit(X_train_2d_scaled, y_train_2d)
+
+# Crear malla
+h = 0.02
+x_min, x_max = X_train_2d_scaled[:, 0].min() - 1, X_train_2d_scaled[:, 0].max() + 1
+y_min, y_max = X_train_2d_scaled[:, 1].min() - 1, X_train_2d_scaled[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+Z = svm_rbf.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
+cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
+axes[1].contourf(xx, yy, Z, alpha=0.4, cmap=cmap_light)
+axes[1].scatter(X_train_2d_scaled[:, 0], X_train_2d_scaled[:, 1], c=y_train_2d,
+                cmap=cmap_bold, edgecolor='k', s=50, alpha=0.7)
+
+# Marcar vectores de soporte
+support_vectors = svm_rbf.support_vectors_
+axes[1].scatter(support_vectors[:, 0], support_vectors[:, 1], 
+                s=200, linewidth=2, facecolors='none', edgecolors='black',
+                label='Vectores de Soporte')
+
+axes[1].set_xlabel('Petal Length (scaled)')
+axes[1].set_ylabel('Petal Width (scaled)')
+axes[1].set_title('SVM con Kernel RBF - Fronteras de Decisión')
+axes[1].legend()
+plt.tight_layout()
+plt.show()
+
+print(f"\nNúmero de vectores de soporte: {len(svm_rbf.support_vectors_)}")
+print(f"Accuracy en test (2D): {svm_rbf.score(X_test_2d_scaled, y_test_2d):.4f}")
 ```
 
 ---

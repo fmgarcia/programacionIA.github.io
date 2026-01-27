@@ -18,6 +18,52 @@ $$
 
 La regresión lineal se utiliza principalmente para problemas de predicción numérica, como el precio de una vivienda, el rendimiento de una acción o cualquier otra situación en la que exista una relación lineal entre las variables.
 
+#### Ejemplo en Python: Regresión Lineal Simple
+
+```python
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+
+# Generar datos de ejemplo
+np.random.seed(42)
+X = np.random.rand(100, 1) * 10  # Variable independiente
+y = 2.5 * X.flatten() + 5 + np.random.randn(100) * 2  # y = 2.5x + 5 + ruido
+
+# Dividir datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Crear y entrenar modelo
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+# Predicciones
+y_pred = model.predict(X_test)
+
+# Evaluación
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print(f"Coeficiente (pendiente): {model.coef_[0]:.4f}")
+print(f"Intercepto: {model.intercept_:.4f}")
+print(f"MSE: {mse:.4f}")
+print(f"R² Score: {r2:.4f}")
+
+# Visualización
+plt.figure(figsize=(10, 6))
+plt.scatter(X_test, y_test, color='blue', label='Datos reales', alpha=0.6)
+plt.plot(X_test, y_pred, color='red', linewidth=2, label='Predicción')
+plt.xlabel('Variable Independiente (X)')
+plt.ylabel('Variable Dependiente (y)')
+plt.title('Regresión Lineal Simple')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
 ## Aplicaciones de la Regresión Lineal
 
 La regresión lineal es ampliamente utilizada en una variedad de aplicaciones, como:
@@ -77,6 +123,68 @@ El término de penalización ayuda a reducir la complejidad del modelo, lo cual 
 - **Reducción del sobreajuste**: Ridge ayuda a reducir el riesgo de sobreajuste al penalizar los coeficientes grandes.
 - **Mejora la estabilidad**: Especialmente en presencia de multicolinealidad, el modelo Ridge tiende a ser más estable.
 
+#### Ejemplo en Python: Ridge Regression
+
+```python
+import numpy as np
+from sklearn.linear_model import Ridge, LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.datasets import make_regression
+
+# Generar datos con multicolinealidad
+X, y = make_regression(n_samples=200, n_features=10, n_informative=5, 
+                       noise=10, random_state=42)
+
+# Dividir datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Escalar datos (importante para Ridge)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Comparar Regresión Lineal vs Ridge
+linear_model = LinearRegression()
+ridge_model = Ridge(alpha=1.0)  # alpha es el parámetro de regularización λ
+
+# Entrenar modelos
+linear_model.fit(X_train_scaled, y_train)
+ridge_model.fit(X_train_scaled, y_train)
+
+# Predicciones
+y_pred_linear = linear_model.predict(X_test_scaled)
+y_pred_ridge = ridge_model.predict(X_test_scaled)
+
+# Evaluación
+print("Regresión Lineal:")
+print(f"  MSE: {mean_squared_error(y_test, y_pred_linear):.4f}")
+print(f"  R²: {r2_score(y_test, y_pred_linear):.4f}")
+print(f"  Suma de coeficientes al cuadrado: {np.sum(linear_model.coef_**2):.4f}")
+
+print("\nRidge Regression:")
+print(f"  MSE: {mean_squared_error(y_test, y_pred_ridge):.4f}")
+print(f"  R²: {r2_score(y_test, y_pred_ridge):.4f}")
+print(f"  Suma de coeficientes al cuadrado: {np.sum(ridge_model.coef_**2):.4f}")
+
+# Comparar magnitud de coeficientes
+import matplotlib.pyplot as plt
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.bar(range(len(linear_model.coef_)), linear_model.coef_)
+plt.title('Coeficientes - Regresión Lineal')
+plt.xlabel('Feature')
+plt.ylabel('Coeficiente')
+plt.subplot(1, 2, 2)
+plt.bar(range(len(ridge_model.coef_)), ridge_model.coef_)
+plt.title('Coeficientes - Ridge (alpha=1.0)')
+plt.xlabel('Feature')
+plt.ylabel('Coeficiente')
+plt.tight_layout()
+plt.show()
+```
+
 ### Lasso Regression
 
 **Lasso Regression** añade un término de regularización L1 a la función de pérdida. Este término tiene la capacidad de hacer que algunos coeficientes sean exactamente cero, eliminando efectivamente ciertas características del modelo. La ecuación de Lasso es:
@@ -93,6 +201,84 @@ Lasso es útil no solo para reducir el sobreajuste, sino también para la **sele
 
 - **Selección de características**: Lasso simplifica el modelo seleccionando solo las características más relevantes.
 - **Reducción del sobreajuste**: Similar a Ridge, Lasso ayuda a evitar el sobreajuste del modelo.
+
+#### Ejemplo en Python: Lasso Regression
+
+```python
+import numpy as np
+from sklearn.linear_model import Lasso, LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.datasets import make_regression
+
+# Generar datos con características irrelevantes
+X, y = make_regression(n_samples=200, n_features=20, n_informative=5, 
+                       noise=10, random_state=42)
+
+# Dividir y escalar datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# Entrenar modelos
+linear_model = LinearRegression()
+lasso_model = Lasso(alpha=1.0)  # alpha es el parámetro de regularización λ
+
+linear_model.fit(X_train_scaled, y_train)
+lasso_model.fit(X_train_scaled, y_train)
+
+# Predicciones
+y_pred_linear = linear_model.predict(X_test_scaled)
+y_pred_lasso = lasso_model.predict(X_test_scaled)
+
+# Evaluación
+print("Regresión Lineal:")
+print(f"  MSE: {mean_squared_error(y_test, y_pred_linear):.4f}")
+print(f"  R²: {r2_score(y_test, y_pred_linear):.4f}")
+print(f"  Coeficientes no-cero: {np.sum(np.abs(linear_model.coef_) > 0.01)}")
+
+print("\nLasso Regression:")
+print(f"  MSE: {mean_squared_error(y_test, y_pred_lasso):.4f}")
+print(f"  R²: {r2_score(y_test, y_pred_lasso):.4f}")
+print(f"  Coeficientes no-cero: {np.sum(np.abs(lasso_model.coef_) > 0.01)}")
+print(f"  Características eliminadas: {np.sum(lasso_model.coef_ == 0)}")
+
+# Visualizar selección de características
+import matplotlib.pyplot as plt
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.bar(range(len(linear_model.coef_)), linear_model.coef_)
+plt.title('Coeficientes - Regresión Lineal')
+plt.xlabel('Feature')
+plt.ylabel('Coeficiente')
+plt.axhline(y=0, color='r', linestyle='--', alpha=0.3)
+
+plt.subplot(1, 2, 2)
+plt.bar(range(len(lasso_model.coef_)), lasso_model.coef_)
+plt.title('Coeficientes - Lasso (alpha=1.0)')
+plt.xlabel('Feature')
+plt.ylabel('Coeficiente')
+plt.axhline(y=0, color='r', linestyle='--', alpha=0.3)
+plt.tight_layout()
+plt.show()
+
+# Ejemplo con RidgePath para visualizar el efecto de alpha
+from sklearn.linear_model import lasso_path
+alphas = np.logspace(-4, 1, 50)
+coefs, _ = lasso_path(X_train_scaled, y_train, alphas=alphas)
+
+plt.figure(figsize=(10, 6))
+for coef in coefs:
+    plt.plot(alphas, coef)
+plt.xscale('log')
+plt.xlabel('Alpha (regularización)')
+plt.ylabel('Coeficientes')
+plt.title('Lasso Path - Cómo varían los coeficientes con alpha')
+plt.grid(True, alpha=0.3)
+plt.show()
+```
 
 ## Comparación entre Regresión Lineal, Ridge y Lasso
 

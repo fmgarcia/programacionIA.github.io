@@ -13,6 +13,8 @@ theme:
     - navigation.top
     - navigation.indexes
     - toc.integrate
+    - content.code.copy
+    - content.code.annotate
   palette:
     # Dark Mode
     - scheme: slate

@@ -122,6 +122,64 @@ $$
 
 Con estos valores, podemos comparar las características y elegir cuál proporciona una mejor división de los datos según el criterio seleccionado (en este caso, el que minimice la entropía o el índice Gini).
 
+#### Ejemplo en Python: Cálculo de Entropía y Gini
+
+```python
+import numpy as np
+from scipy.stats import entropy
+
+def calcular_entropia(clases):
+    """Calcula la entropía de un conjunto de clases"""
+    total = len(clases)
+    if total == 0:
+        return 0
+    
+    # Contar cada clase
+    valores, cuentas = np.unique(clases, return_counts=True)
+    probabilidades = cuentas / total
+    
+    # Calcular entropía: -sum(p * log2(p))
+    entropia = -np.sum(probabilidades * np.log2(probabilidades))
+    return entropia
+
+def calcular_gini(clases):
+    """Calcula el índice Gini de un conjunto de clases"""
+    total = len(clases)
+    if total == 0:
+        return 0
+    
+    # Contar cada clase
+    valores, cuentas = np.unique(clases, return_counts=True)
+    probabilidades = cuentas / total
+    
+    # Calcular Gini: 1 - sum(p^2)
+    gini = 1 - np.sum(probabilidades ** 2)
+    return gini
+
+# Ejemplo con los datos de la tabla
+caracteristica_A = ['Sí', 'Sí', 'Sí', 'Sí', 'No', 'No']  # 4 Sí, 2 No
+caracteristica_B = ['Sí', 'No', 'No', 'No']  # 1 Sí, 3 No
+
+print("Cálculos para Característica A:")
+entropia_A = calcular_entropia(caracteristica_A)
+gini_A = calcular_gini(caracteristica_A)
+print(f"  Entropía: {entropia_A:.4f}")
+print(f"  Índice Gini: {gini_A:.4f}")
+
+print("\nCálculos para Característica B:")
+entropia_B = calcular_entropia(caracteristica_B)
+gini_B = calcular_gini(caracteristica_B)
+print(f"  Entropía: {entropia_B:.4f}")
+print(f"  Índice Gini: {gini_B:.4f}")
+
+# Interpretación
+print("\nInterpretación:")
+if gini_A < gini_B:
+    print(f"La característica A es mejor (Gini más bajo: {gini_A:.4f} < {gini_B:.4f})")
+else:
+    print(f"La característica B es mejor (Gini más bajo: {gini_B:.4f} < {gini_A:.4f})")
+```
+
 #### 3. **Construcción de un Árbol de Decisión**
 
 La construcción de un árbol de decisión se realiza de manera recursiva, siguiendo estos pasos:
@@ -131,6 +189,75 @@ La construcción de un árbol de decisión se realiza de manera recursiva, sigui
 3. **Repetir el Proceso**: Se repiten los pasos anteriores para cada subconjunto resultante hasta alcanzar un criterio de parada.
 
 **Criterios de Parada** pueden ser, por ejemplo, que todos los datos del nodo sean de la misma clase, que el nodo contenga muy pocas instancias (por debajo de un umbral mínimo), o que se haya alcanzado una profundidad máxima predefinida.
+
+#### Ejemplo en Python: Construcción de Árbol de Decisión
+
+```python
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Cargar datos
+iris = load_iris()
+X, y = iris.data, iris.target
+
+# Dividir datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Crear árboles con diferentes criterios
+tree_gini = DecisionTreeClassifier(criterion='gini', max_depth=3, random_state=42)
+tree_entropy = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=42)
+
+# Entrenar ambos modelos
+tree_gini.fit(X_train, y_train)
+tree_entropy.fit(X_train, y_train)
+
+# Predicciones
+y_pred_gini = tree_gini.predict(X_test)
+y_pred_entropy = tree_entropy.predict(X_test)
+
+# Evaluación
+print("\u00c1rbol con criterio Gini:")
+print(f"  Accuracy: {accuracy_score(y_test, y_pred_gini):.4f}")
+
+print("\n\u00c1rbol con criterio Entropía:")
+print(f"  Accuracy: {accuracy_score(y_test, y_pred_entropy):.4f}")
+
+# Visualizar ambos árboles
+fig, axes = plt.subplots(2, 1, figsize=(20, 20))
+
+# Árbol con Gini
+plot_tree(tree_gini, 
+          feature_names=iris.feature_names,
+          class_names=iris.target_names,
+          filled=True,
+          rounded=True,
+          fontsize=10,
+          ax=axes[0])
+axes[0].set_title('Árbol de Decisión - Criterio: Gini', fontsize=16, fontweight='bold')
+
+# Árbol con Entropía
+plot_tree(tree_entropy, 
+          feature_names=iris.feature_names,
+          class_names=iris.target_names,
+          filled=True,
+          rounded=True,
+          fontsize=10,
+          ax=axes[1])
+axes[1].set_title('Árbol de Decisión - Criterio: Entropía', fontsize=16, fontweight='bold')
+
+plt.tight_layout()
+plt.savefig('arboles_decision_comparacion.png', dpi=150, bbox_inches='tight')
+plt.show()
+
+# Información sobre la importancia de características
+print("\nImportancia de Características (Gini):")
+for nombre, importancia in zip(iris.feature_names, tree_gini.feature_importances_):
+    print(f"  {nombre}: {importancia:.4f}")
+```
 
 #### 4. **Ejemplo de Árbol de Decisión**
 
@@ -177,6 +304,106 @@ Para encontrar los valores óptimos de estos metaparámetros, se suelen usar té
 - **Random Search**: Busca valores de metaparámetros de manera aleatoria dentro de un rango definido. Es más eficiente que Grid Search cuando se trabaja con un gran número de combinaciones posibles.
 
 - **Validación Cruzada**: Tanto en Grid Search como en Random Search, se utiliza **validación cruzada** para evaluar el rendimiento del modelo para cada combinación de metaparámetros y seleccionar aquella que maximice la métrica de rendimiento, como la precisión o el F1-score.
+
+#### Ejemplo en Python: Optimización de Hiperparámetros
+
+```python
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+from sklearn.datasets import load_breast_cancer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report, confusion_matrix
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Cargar datos
+data = load_breast_cancer()
+X, y = data.data, data.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+print("=== GRID SEARCH ===")
+# Definir espacio de búsqueda
+param_grid = {
+    'criterion': ['gini', 'entropy'],
+    'max_depth': [3, 5, 7, 10, None],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4],
+    'max_features': ['sqrt', 'log2', None]
+}
+
+# Grid Search con validación cruzada
+grid_search = GridSearchCV(
+    DecisionTreeClassifier(random_state=42),
+    param_grid,
+    cv=5,
+    scoring='accuracy',
+    n_jobs=-1,
+    verbose=1
+)
+
+grid_search.fit(X_train, y_train)
+
+print(f"\nMejores parámetros: {grid_search.best_params_}")
+print(f"Mejor score (CV): {grid_search.best_score_:.4f}")
+
+# Evaluar en test
+y_pred_grid = grid_search.best_estimator_.predict(X_test)
+print(f"Accuracy en test: {accuracy_score(y_test, y_pred_grid):.4f}")
+
+print("\n=== RANDOM SEARCH ===")
+# Definir distribuciones para Random Search
+param_dist = {
+    'criterion': ['gini', 'entropy'],
+    'max_depth': [3, 5, 7, 10, 15, 20, None],
+    'min_samples_split': np.arange(2, 20),
+    'min_samples_leaf': np.arange(1, 10),
+    'max_features': ['sqrt', 'log2', None]
+}
+
+# Random Search
+random_search = RandomizedSearchCV(
+    DecisionTreeClassifier(random_state=42),
+    param_dist,
+    n_iter=50,  # Número de combinaciones a probar
+    cv=5,
+    scoring='accuracy',
+    n_jobs=-1,
+    random_state=42,
+    verbose=1
+)
+
+random_search.fit(X_train, y_train)
+
+print(f"\nMejores parámetros: {random_search.best_params_}")
+print(f"Mejor score (CV): {random_search.best_score_:.4f}")
+
+# Evaluar en test
+y_pred_random = random_search.best_estimator_.predict(X_test)
+print(f"Accuracy en test: {accuracy_score(y_test, y_pred_random):.4f}")
+
+# Visualizar efecto de max_depth
+max_depths = range(1, 21)
+train_scores = []
+test_scores = []
+
+for depth in max_depths:
+    tree = DecisionTreeClassifier(max_depth=depth, random_state=42)
+    tree.fit(X_train, y_train)
+    train_scores.append(tree.score(X_train, y_train))
+    test_scores.append(tree.score(X_test, y_test))
+
+plt.figure(figsize=(10, 6))
+plt.plot(max_depths, train_scores, label='Train Accuracy', marker='o')
+plt.plot(max_depths, test_scores, label='Test Accuracy', marker='s')
+plt.xlabel('Max Depth')
+plt.ylabel('Accuracy')
+plt.title('Efecto de max_depth en el Rendimiento')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.axvline(x=grid_search.best_params_['max_depth'], color='red', 
+            linestyle='--', alpha=0.7, label='Mejor max_depth (Grid Search)')
+plt.show()
+```
 
 #### 7. **Aplicaciones Reales de los Árboles de Decisión**
 

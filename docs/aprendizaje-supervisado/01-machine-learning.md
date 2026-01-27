@@ -53,6 +53,48 @@ El proceso general para construir un modelo de ML es:
 
 * **Hiperparámetros:** Se configuran *manualmente* por el practicante *antes* del entrenamiento. Se "afinan" (tunan) para optimizar el rendimiento (ej. el valor $k$ en KNN, la tasa de aprendizaje, la profundidad máxima de un árbol).
 
+#### Ejemplo Completo de Workflow de ML
+
+```python
+# 1. Importaciones necesarias
+import numpy as np
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score, classification_report
+
+# 2. Cargar y explorar datos
+iris = load_iris()
+X, y = iris.data, iris.target
+print(f"Forma de X: {X.shape}, Forma de y: {y.shape}")
+print(f"Clases: {iris.target_names}")
+
+# 3. División de datos (Train/Test)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42, stratify=y
+)
+
+# 4. Preprocesamiento (Escalado)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+
+# 5. Entrenamiento del modelo (con hiperparámetros)
+model = DecisionTreeClassifier(max_depth=3, random_state=42)
+model.fit(X_train_scaled, y_train)
+
+# 6. Predicción
+y_pred = model.predict(X_test_scaled)
+
+# 7. Evaluación
+accuracy = accuracy_score(y_test, y_pred)
+print(f"\nAccuracy: {accuracy:.4f}")
+print("\nReporte de Clasificación:")
+print(classification_report(y_test, y_pred, target_names=iris.target_names))
+```
+
 ---
 
 ### 1.2. Biblioteca Python scikit-learn
@@ -198,6 +240,27 @@ Para evaluar el modelo *durante* el entrenamiento (por ejemplo, para afinar hipe
 
 Es el método más común:
 
+```python
+from sklearn.model_selection import cross_val_score, KFold
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_iris
+
+# Cargar datos
+X, y = load_iris(return_X_y=True)
+
+# Configurar k-Fold (k=5)
+kfold = KFold(n_splits=5, shuffle=True, random_state=42)
+
+# Modelo
+model = DecisionTreeClassifier(max_depth=3, random_state=42)
+
+# Realizar validación cruzada
+scores = cross_val_score(model, X, y, cv=kfold, scoring='accuracy')
+
+print(f"Scores por fold: {scores}")
+print(f"Accuracy promedio: {scores.mean():.4f} (+/- {scores.std():.4f})")
+```
+
 1. Se subdivide el conjunto de entrenamiento (original) en *k* partes iguales (folds). (Usualmente k=10).
 
 2. Se itera *k* veces (rondas).
@@ -245,19 +308,36 @@ Se usa cuando eliminar datos resultaría en una pérdida significativa de inform
 * **Con `scikit-learn` (`SimpleImputer`):** Es el método preferido.
 
 ```python
+import numpy as np
+import pandas as pd
 from sklearn.impute import SimpleImputer
+from sklearn.model_selection import train_test_split
 
-# Estrategias: 'mean', 'median', 'most_frequent'
+# Ejemplo: Crear datos con valores faltantes
+data = pd.DataFrame({
+    'edad': [25, 30, np.nan, 35, 40, np.nan, 28],
+    'salario': [50000, 60000, 55000, np.nan, 70000, 65000, 58000],
+    'clase': [0, 1, 0, 1, 1, 0, 0]
+})
+
+X = data[['edad', 'salario']]
+y = data['clase']
+
+# Dividir datos
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Estrategias: 'mean', 'median', 'most_frequent', 'constant'
 impt = SimpleImputer(strategy='mean')
 
 # Aprende la media del set de entrenamiento
 impt.fit(X_train)
+print(f"Medias aprendidas: {impt.statistics_}")
 
 # Aplica la imputación
 X_train_imputed = impt.transform(X_train)
-
-# Aplica la misma imputación (con la media de train) al set de prueba
 X_test_imputed = impt.transform(X_test)
+
+print(f"\nDatos de entrenamiento imputados:\n{X_train_imputed}")
 ```
 
 #### Manejo de Datos Categóricos
@@ -296,6 +376,31 @@ Crea nuevas columnas "dummy" (0 o 1) para cada categoría, indicando presencia (
 * **Método Pandas:** `pd.get_dummies(df['species'])`.
 
 * **Método `scikit-learn`:** `OneHotEncoder`. Este método es preferido en pipelines y a menudo devuelve una **matriz dispersa** (sparse matrix) para ahorrar memoria, ya que la mayoría de los valores serán 0.
+
+```python
+import pandas as pd
+from sklearn.preprocessing import OneHotEncoder
+
+# Datos de ejemplo
+df = pd.DataFrame({
+    'color': ['rojo', 'verde', 'azul', 'rojo', 'verde'],
+    'tamaño': ['M', 'L', 'M', 'XL', 'L']
+})
+
+# One-Hot Encoding con pandas (simple)
+df_encoded = pd.get_dummies(df, columns=['color', 'tamaño'])
+print("One-Hot con pandas:")
+print(df_encoded)
+
+# One-Hot Encoding con scikit-learn (para pipelines)
+encoder = OneHotEncoder(sparse_output=False, drop='first')  # drop='first' evita multicolinealidad
+X_encoded = encoder.fit_transform(df[['color', 'tamaño']])
+
+print("\nOne-Hot con sklearn:")
+print(f"Categorías: {encoder.categories_}")
+print(f"Nombres de columnas: {encoder.get_feature_names_out()}")
+print(X_encoded)
+```
 
 #### División de Datos Estratificada (Stratify)
 

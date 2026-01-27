@@ -71,10 +71,17 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_breast_cancer
 from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import accuracy_score, classification_report
+import matplotlib.pyplot as plt
+import numpy as np
 
 # Cargar datos
 data = load_breast_cancer()
 X, y = data.data, data.target
+
+print(f"Clases: {data.target_names}")
+print(f"Número de características: {X.shape[1]}")
+print(f"Distribución de clases: Maligno={np.sum(y==0)}, Benigno={np.sum(y==1)}")
 
 # Dividir y Escalar (Importante para Gradiente Descendente)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -83,11 +90,39 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Entrenar modelo
-log_reg = LogisticRegression()
+log_reg = LogisticRegression(max_iter=1000, random_state=42)
 log_reg.fit(X_train, y_train)
 
 # Predecir
 y_pred = log_reg.predict(X_test)
+y_pred_proba = log_reg.predict_proba(X_test)  # Probabilidades
+
+# Evaluación
+print(f"\nAccuracy: {accuracy_score(y_test, y_pred):.4f}")
+print("\nReporte de Clasificación:")
+print(classification_report(y_test, y_pred, target_names=data.target_names))
+
+# Visualizar probabilidades predichas
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.hist(y_pred_proba[y_test==0][:, 1], bins=20, alpha=0.7, label='Maligno (Real)', color='red')
+plt.hist(y_pred_proba[y_test==1][:, 1], bins=20, alpha=0.7, label='Benigno (Real)', color='green')
+plt.xlabel('Probabilidad predicha de ser Benigno')
+plt.ylabel('Frecuencia')
+plt.title('Distribución de Probabilidades Predichas')
+plt.legend()
+plt.axvline(x=0.5, color='black', linestyle='--', label='Umbral=0.5')
+
+# Visualizar coeficientes más importantes
+plt.subplot(1, 2, 2)
+feature_importance = np.abs(log_reg.coef_[0])
+top_features_idx = np.argsort(feature_importance)[-10:]
+plt.barh(range(len(top_features_idx)), feature_importance[top_features_idx])
+plt.yticks(range(len(top_features_idx)), [data.feature_names[i] for i in top_features_idx])
+plt.xlabel('Importancia (|coeficiente|)')
+plt.title('Top 10 Características Más Importantes')
+plt.tight_layout()
+plt.show()
 ```
 
 ---
@@ -138,10 +173,52 @@ Es una tabla que resume el rendimiento del modelo comparando las clases reales c
 
 ```python
 from sklearn.metrics import confusion_matrix, classification_report, cohen_kappa_score
+from sklearn.metrics import ConfusionMatrixDisplay
+import matplotlib.pyplot as plt
+import numpy as np
 
-print("Matriz de Confusión:\n", confusion_matrix(y_test, y_pred))
-print("\nReporte de Clasificación:\n", classification_report(y_test, y_pred))
-print(f"Kappa Score: {cohen_kappa_score(y_test, y_pred):.4f}")
+# Matriz de confusión
+cm = confusion_matrix(y_test, y_pred)
+print("Matriz de Confusión:")
+print(cm)
+
+# Visualizar matriz de confusión
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# Matriz de confusión con números absolutos
+disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=data.target_names)
+disp.plot(ax=axes[0], cmap='Blues', values_format='d')
+axes[0].set_title('Matriz de Confusión (Valores Absolutos)')
+
+# Matriz de confusión normalizada
+cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+disp_norm = ConfusionMatrixDisplay(confusion_matrix=cm_normalized, display_labels=data.target_names)
+disp_norm.plot(ax=axes[1], cmap='Blues', values_format='.2%')
+axes[1].set_title('Matriz de Confusión (Normalizada)')
+
+plt.tight_layout()
+plt.show()
+
+# Reporte detallado
+print("\nReporte de Clasificación:")
+print(classification_report(y_test, y_pred, target_names=data.target_names))
+
+# Kappa Score
+kappa = cohen_kappa_score(y_test, y_pred)
+print(f"\nKappa Score: {kappa:.4f}")
+
+# Calcular métricas manualmente para entender mejor
+TN, FP, FN, TP = cm.ravel()
+print("\nMétricas Calculadas Manualmente:")
+print(f"TP (True Positives): {TP}")
+print(f"TN (True Negatives): {TN}")
+print(f"FP (False Positives): {FP}")
+print(f"FN (False Negatives): {FN}")
+print(f"\nAccuracy: {(TP + TN) / (TP + TN + FP + FN):.4f}")
+print(f"Precision: {TP / (TP + FP):.4f}")
+print(f"Recall (Sensitivity): {TP / (TP + FN):.4f}")
+print(f"Specificity: {TN / (TN + FP):.4f}")
+print(f"F1-Score: {2 * (TP / (TP + FP)) * (TP / (TP + FN)) / ((TP / (TP + FP)) + (TP / (TP + FN))):.4f}")
 ```
 
 ---
@@ -157,6 +234,64 @@ Un modelo ideal se acerca a la esquina superior izquierda (TPR=1, FPR=0). La lí
 **AUC (Area Under Curve):** Es el área bajo la curva ROC. Resume el rendimiento en un solo número.
 *   AUC = 0.5: Aleatorio.
 *   AUC = 1.0: Perfecto.
+
+#### Ejemplo en Python: Curva ROC
+
+```python
+from sklearn.metrics import roc_curve, auc, RocCurveDisplay
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Obtener probabilidades predichas (necesarias para ROC)
+y_pred_proba = log_reg.predict_proba(X_test)[:, 1]  # Probabilidad de clase positiva
+
+# Calcular curva ROC
+fpr, tpr, thresholds = roc_curve(y_test, y_pred_proba)
+roc_auc = auc(fpr, tpr)
+
+print(f"AUC Score: {roc_auc:.4f}")
+
+# Visualizar curva ROC
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# Curva ROC
+axes[0].plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (AUC = {roc_auc:.4f})')
+axes[0].plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--', label='Aleatorio (AUC = 0.50)')
+axes[0].set_xlim([0.0, 1.0])
+axes[0].set_ylim([0.0, 1.05])
+axes[0].set_xlabel('False Positive Rate (FPR)')
+axes[0].set_ylabel('True Positive Rate (TPR / Recall)')
+axes[0].set_title('Curva ROC (Receiver Operating Characteristic)')
+axes[0].legend(loc="lower right")
+axes[0].grid(True, alpha=0.3)
+
+# Gráfico de umbrales vs métricas
+axes[1].plot(thresholds, tpr, label='TPR (Sensitivity)', linewidth=2)
+axes[1].plot(thresholds, 1 - fpr, label='TNR (Specificity)', linewidth=2)
+axes[1].axvline(x=0.5, color='red', linestyle='--', alpha=0.7, label='Umbral por defecto (0.5)')
+axes[1].set_xlabel('Umbral de Clasificación')
+axes[1].set_ylabel('Tasa')
+axes[1].set_title('TPR y TNR vs Umbral')
+axes[1].legend()
+axes[1].grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Encontrar el umbral óptimo (Youden's J statistic)
+J = tpr - fpr
+optimal_idx = np.argmax(J)
+optimal_threshold = thresholds[optimal_idx]
+print(f"\nUmbral Óptimo: {optimal_threshold:.4f}")
+print(f"TPR en umbral óptimo: {tpr[optimal_idx]:.4f}")
+print(f"FPR en umbral óptimo: {fpr[optimal_idx]:.4f}")
+
+# Usar umbral óptimo para nuevas predicciones
+y_pred_optimal = (y_pred_proba >= optimal_threshold).astype(int)
+from sklearn.metrics import accuracy_score
+print(f"Accuracy con umbral óptimo: {accuracy_score(y_test, y_pred_optimal):.4f}")
+print(f"Accuracy con umbral 0.5: {accuracy_score(y_test, y_pred):.4f}")
+```
 
 ---
 

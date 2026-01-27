@@ -79,6 +79,71 @@ knn.fit(X_train, y_train)
 # 6. Predecir y Evaluar
 y_pred = knn.predict(X_test)
 print("Accuracy:", metrics.accuracy_score(y_test, y_pred))
+print("\nReporte de Clasificación:")
+print(metrics.classification_report(y_test, y_pred, target_names=iris.target_names))
+
+# 7. Encontrar el mejor valor de k
+from sklearn.model_selection import cross_val_score
+
+k_values = range(1, 31)
+cv_scores = []
+
+for k in k_values:
+    knn_temp = KNeighborsClassifier(n_neighbors=k)
+    scores = cross_val_score(knn_temp, X_train, y_train, cv=5, scoring='accuracy')
+    cv_scores.append(scores.mean())
+
+# Visualizar la elección de k
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+plt.plot(k_values, cv_scores, marker='o', linewidth=2)
+plt.xlabel('Valor de k')
+plt.ylabel('Accuracy (Cross-Validation)')
+plt.title('Método del Codo para Elegir k')
+plt.grid(True, alpha=0.3)
+optimal_k = k_values[np.argmax(cv_scores)]
+plt.axvline(x=optimal_k, color='red', linestyle='--', label=f'k óptimo = {optimal_k}')
+plt.legend()
+
+# 8. Visualizar fronteras de decisión (usando 2 características)
+from matplotlib.colors import ListedColormap
+
+# Usar solo 2 características para visualización
+X_2d = X[:, [2, 3]]  # petal length y petal width
+X_train_2d, X_test_2d, y_train_2d, y_test_2d = train_test_split(X_2d, y, test_size=0.3, random_state=42)
+
+# Escalar
+scaler_2d = StandardScaler()
+X_train_2d_scaled = scaler_2d.fit_transform(X_train_2d)
+X_test_2d_scaled = scaler_2d.transform(X_test_2d)
+
+# Entrenar KNN con k óptimo
+knn_optimal = KNeighborsClassifier(n_neighbors=optimal_k)
+knn_optimal.fit(X_train_2d_scaled, y_train_2d)
+
+# Crear malla para visualizar fronteras
+h = 0.02
+x_min, x_max = X_train_2d_scaled[:, 0].min() - 1, X_train_2d_scaled[:, 0].max() + 1
+y_min, y_max = X_train_2d_scaled[:, 1].min() - 1, X_train_2d_scaled[:, 1].max() + 1
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+Z = knn_optimal.predict(np.c_[xx.ravel(), yy.ravel()])
+Z = Z.reshape(xx.shape)
+
+plt.subplot(1, 2, 2)
+cmap_light = ListedColormap(['#FFAAAA', '#AAFFAA', '#AAAAFF'])
+cmap_bold = ListedColormap(['#FF0000', '#00FF00', '#0000FF'])
+plt.contourf(xx, yy, Z, alpha=0.4, cmap=cmap_light)
+plt.scatter(X_train_2d_scaled[:, 0], X_train_2d_scaled[:, 1], c=y_train_2d, 
+            cmap=cmap_bold, edgecolor='k', s=50, alpha=0.7)
+plt.xlabel('Petal Length (scaled)')
+plt.ylabel('Petal Width (scaled)')
+plt.title(f'Fronteras de Decisión KNN (k={optimal_k})')
+plt.tight_layout()
+plt.show()
+
+print(f"\nAccuracy con k={optimal_k}: {knn_optimal.score(X_test_2d_scaled, y_test_2d):.4f}")
 ```
 
 ---

@@ -179,6 +179,112 @@ xgb_clf = xgb.XGBClassifier(
 
 xgb_clf.fit(X_train, y_train)
 print(f"XGBoost Accuracy: {accuracy_score(y_test, xgb_clf.predict(X_test)):.4f}")
+
+# Comparación exhaustiva de todos los métodos de ensamblado
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import (RandomForestClassifier, AdaBoostClassifier, 
+                              GradientBoostingClassifier, VotingClassifier)
+import matplotlib.pyplot as plt
+import numpy as np
+
+print("\n" + "="*70)
+print("COMPARACIÓN COMPLETA DE MÉTODOS DE ENSAMBLADO")
+print("="*70)
+
+# Modelos a comparar
+modelos = {
+    'Decision Tree': DecisionTreeClassifier(max_depth=5, random_state=42),
+    'Random Forest': RandomForestClassifier(n_estimators=100, max_depth=5, random_state=42),
+    'AdaBoost': AdaBoostClassifier(n_estimators=100, random_state=42),
+    'Gradient Boosting': GradientBoostingClassifier(n_estimators=100, max_depth=3, random_state=42),
+    'XGBoost': xgb.XGBClassifier(n_estimators=100, max_depth=3, random_state=42)
+}
+
+# Entrenar y evaluar cada modelo
+resultados = {}
+for nombre, modelo in modelos.items():
+    # Cross-validation
+    from sklearn.model_selection import cross_val_score
+    cv_scores = cross_val_score(modelo, X_train, y_train, cv=5)
+    
+    # Entrenar y predecir
+    modelo.fit(X_train, y_train)
+    y_pred_modelo = modelo.predict(X_test)
+    
+    # Guardar resultados
+    resultados[nombre] = {
+        'cv_mean': cv_scores.mean(),
+        'cv_std': cv_scores.std(),
+        'test_accuracy': accuracy_score(y_test, y_pred_modelo)
+    }
+    
+    print(f"\n{nombre}:")
+    print(f"  CV Score: {cv_scores.mean():.4f} (±{cv_scores.std():.4f})")
+    print(f"  Test Accuracy: {accuracy_score(y_test, y_pred_modelo):.4f}")
+
+# Visualización comparativa
+fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+
+# Gráfico 1: Comparación de accuracies
+modelo_names = list(resultados.keys())
+cv_means = [resultados[m]['cv_mean'] for m in modelo_names]
+test_accs = [resultados[m]['test_accuracy'] for m in modelo_names]
+
+x_pos = np.arange(len(modelo_names))
+width = 0.35
+
+axes[0].bar(x_pos - width/2, cv_means, width, label='CV Score', alpha=0.8)
+axes[0].bar(x_pos + width/2, test_accs, width, label='Test Accuracy', alpha=0.8)
+axes[0].set_xlabel('Modelo')
+axes[0].set_ylabel('Accuracy')
+axes[0].set_title('Comparación de Métodos de Ensamblado')
+axes[0].set_xticks(x_pos)
+axes[0].set_xticklabels(modelo_names, rotation=45, ha='right')
+axes[0].legend()
+axes[0].grid(True, alpha=0.3, axis='y')
+axes[0].set_ylim([0.5, 1.0])
+
+# Gráfico 2: Importancia de características (Random Forest vs XGBoost)
+feature_names = [f'Feature {i}' for i in range(X_train.shape[1])]
+
+rf_importance = modelos['Random Forest'].feature_importances_
+xgb_importance = modelos['XGBoost'].feature_importances_
+
+x_pos_feat = np.arange(len(feature_names))
+axes[1].barh(x_pos_feat - width/2, rf_importance, width, label='Random Forest', alpha=0.8)
+axes[1].barh(x_pos_feat + width/2, xgb_importance, width, label='XGBoost', alpha=0.8)
+axes[1].set_yticks(x_pos_feat)
+axes[1].set_yticklabels(feature_names)
+axes[1].set_xlabel('Importancia')
+axes[1].set_title('Importancia de Características')
+axes[1].legend()
+axes[1].grid(True, alpha=0.3, axis='x')
+
+plt.tight_layout()
+plt.show()
+
+# Voting Classifier combinando los mejores modelos
+print("\n" + "="*70)
+print("VOTING CLASSIFIER (Combinación de Modelos)")
+print("="*70)
+
+voting_clf = VotingClassifier(
+    estimators=[
+        ('rf', modelos['Random Forest']),
+        ('gb', modelos['Gradient Boosting']),
+        ('xgb', modelos['XGBoost'])
+    ],
+    voting='soft'
+)
+
+voting_clf.fit(X_train, y_train)
+y_pred_voting = voting_clf.predict(X_test)
+
+print(f"\nVoting Classifier Accuracy: {accuracy_score(y_test, y_pred_voting):.4f}")
+print("\nComparación Final:")
+print(f"  Mejor modelo individual: {max(resultados.items(), key=lambda x: x[1]['test_accuracy'])[0]}")
+print(f"  Accuracy máxima individual: {max(r['test_accuracy'] for r in resultados.values()):.4f}")
+print(f"  Voting Classifier: {accuracy_score(y_test, y_pred_voting):.4f}")
 ```
 
 #### 8.4.4. LightGBM (Light Gradient Boosting Machine)

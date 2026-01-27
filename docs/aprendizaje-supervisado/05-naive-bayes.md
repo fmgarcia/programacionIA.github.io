@@ -59,6 +59,104 @@ Existen diferentes tipos de clasificadores Naive Bayes, dependiendo del tipo de 
 - **Naive Bayes Multinomial**: Es adecuado para datos discretos, como el conteo de palabras en un documento. Es ampliamente utilizado en clasificación de texto.
 - **Naive Bayes Bernoulli**: Se utiliza para características binarias. Es útil cuando cada característica es booleana (por ejemplo, si una palabra aparece o no en un documento).
 
+#### Ejemplo en Python: Comparación de Tipos de Naive Bayes
+
+```python
+from sklearn.datasets import load_iris, make_classification
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.naive_bayes import GaussianNB, MultinomialNB, BernoulliNB
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 1. GAUSSIAN NAIVE BAYES (para datos continuos)
+print("=" * 50)
+print("GAUSSIAN NAIVE BAYES (Datos Continuos)")
+print("=" * 50)
+
+# Cargar dataset Iris
+iris = load_iris()
+X_iris, y_iris = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X_iris, y_iris, test_size=0.3, random_state=42)
+
+# Entrenar Gaussian NB
+gnb = GaussianNB()
+gnb.fit(X_train, y_train)
+y_pred_gnb = gnb.predict(X_test)
+
+print(f"Accuracy: {accuracy_score(y_test, y_pred_gnb):.4f}")
+print(f"Cross-validation score: {cross_val_score(gnb, X_iris, y_iris, cv=5).mean():.4f}")
+
+# 2. MULTINOMIAL NAIVE BAYES (para datos discretos/conteos)
+print("\n" + "=" * 50)
+print("MULTINOMIAL NAIVE BAYES (Datos Discretos)")
+print("=" * 50)
+
+# Generar datos discretos (ejemplo: conteo de palabras)
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import CountVectorizer
+
+# Cargar subset de noticias
+categories = ['alt.atheism', 'soc.religion.christian', 'comp.graphics', 'sci.med']
+news_train = fetch_20newsgroups(subset='train', categories=categories, random_state=42)
+news_test = fetch_20newsgroups(subset='test', categories=categories, random_state=42)
+
+# Vectorizar textos
+vectorizer = CountVectorizer(max_features=1000)
+X_train_counts = vectorizer.fit_transform(news_train.data)
+X_test_counts = vectorizer.transform(news_test.data)
+
+# Entrenar Multinomial NB
+mnb = MultinomialNB(alpha=1.0)
+mnb.fit(X_train_counts, news_train.target)
+y_pred_mnb = mnb.predict(X_test_counts)
+
+print(f"Accuracy: {accuracy_score(news_test.target, y_pred_mnb):.4f}")
+print("\nEjemplos de predicciones:")
+for i in range(3):
+    print(f"\nTexto: {news_test.data[i][:100]}...")
+    print(f"Real: {news_train.target_names[news_test.target[i]]}")
+    print(f"Predicho: {news_train.target_names[y_pred_mnb[i]]}")
+
+# 3. BERNOULLI NAIVE BAYES (para datos binarios)
+print("\n" + "=" * 50)
+print("BERNOULLI NAIVE BAYES (Datos Binarios)")
+print("=" * 50)
+
+# Convertir a binario (presencia/ausencia de palabras)
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import Binarizer
+
+vectorizer_bin = CountVectorizer(max_features=1000, binary=True)
+X_train_binary = vectorizer_bin.fit_transform(news_train.data)
+X_test_binary = vectorizer_bin.transform(news_test.data)
+
+# Entrenar Bernoulli NB
+bnb = BernoulliNB(alpha=1.0)
+bnb.fit(X_train_binary, news_train.target)
+y_pred_bnb = bnb.predict(X_test_binary)
+
+print(f"Accuracy: {accuracy_score(news_test.target, y_pred_bnb):.4f}")
+
+# Comparación visual
+modelos = ['Gaussian NB\n(Iris)', 'Multinomial NB\n(Text)', 'Bernoulli NB\n(Text Binary)']
+accuracies = [
+    accuracy_score(y_test, y_pred_gnb),
+    accuracy_score(news_test.target, y_pred_mnb),
+    accuracy_score(news_test.target, y_pred_bnb)
+]
+
+plt.figure(figsize=(10, 6))
+plt.bar(modelos, accuracies, color=['skyblue', 'lightgreen', 'salmon'])
+plt.ylabel('Accuracy')
+plt.title('Comparación de Tipos de Naive Bayes')
+plt.ylim([0, 1])
+for i, acc in enumerate(accuracies):
+    plt.text(i, acc + 0.02, f'{acc:.4f}', ha='center', fontweight='bold')
+plt.grid(True, alpha=0.3, axis='y')
+plt.show()
+```
+
 #### 4. **Ejemplo Completo de Naive Bayes**
 
 Vamos a clasificar correos electrónicos como **"spam"** o **"no spam"** usando el algoritmo de Naive Bayes. Para este ejemplo, supongamos que tenemos los siguientes datos de entrenamiento, con algunas palabras clave y la clase correspondiente ("spam" o "no spam"):
@@ -142,6 +240,83 @@ Hacemos el mismo cálculo para **No Spam** y comparamos ambas probabilidades.
 ### Paso 4: Decisión
 
 Finalmente, elegimos la clase que tiene la probabilidad mayor. Si $ P(Spam \mid X) $ es mayor que $ P(No\,Spam \mid X) $, clasificamos el correo como **spam**; de lo contrario, como **no spam**.
+
+#### Implementación Completa en Python
+
+```python
+import numpy as np
+import pandas as pd
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# Dataset de ejemplo para clasificación de spam
+emails = [
+    "Oferta barata, gana dinero",
+    "Proyecto pendiente de trabajo",
+    "Oferta especial gratis",
+    "Reunión de equipo mañana",
+    "Gana premios y dinero ahora",
+    "Informe mensual adjunto",
+    "Oferta gratis y premios",
+    "Reporte trimestral listo",
+    "Gana dinero fácil ahora",
+    "Agenda de la reunión",
+    "Premio gratis para ti",
+    "Proyecto finalizado exitosamente",
+    "Oferta exclusiva barata",
+    "Calendario de entregas",
+    "Dinero rápido y fácil"
+]
+
+labels = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]  # 1=Spam, 0=No Spam
+
+# Convertir texto a vectores numéricos (Bag of Words)
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(emails)
+
+print("Vocabulario:")
+print(vectorizer.get_feature_names_out())
+print(f"\nForma de la matriz: {X.shape}")
+print(f"Ejemplo de vectorización del primer email:")
+print(X[0].toarray())
+
+# Dividir datos
+X_train, X_test, y_train, y_test = train_test_split(X, labels, test_size=0.3, random_state=42)
+
+# Entrenar Naive Bayes Multinomial
+nb_model = MultinomialNB(alpha=1.0)  # alpha es el parámetro de suavizado de Laplace
+nb_model.fit(X_train, y_train)
+
+# Predicciones
+y_pred = nb_model.predict(X_test)
+y_pred_proba = nb_model.predict_proba(X_test)
+
+# Evaluación
+print(f"\nAccuracy: {accuracy_score(y_test, y_pred):.4f}")
+print("\nReporte de Clasificación:")
+print(classification_report(y_test, y_pred, target_names=['No Spam', 'Spam']))
+
+# Probar con un nuevo correo
+nuevo_email = ["Oferta gratis y premios"]
+nuevo_email_vec = vectorizer.transform(nuevo_email)
+prediccion = nb_model.predict(nuevo_email_vec)[0]
+proba = nb_model.predict_proba(nuevo_email_vec)[0]
+
+print(f"\nNuevo email: '{nuevo_email[0]}'")
+print(f"Predicción: {'Spam' if prediccion == 1 else 'No Spam'}")
+print(f"Probabilidades: No Spam={proba[0]:.4f}, Spam={proba[1]:.4f}")
+
+# Mostrar las probabilidades aprendidas por el modelo
+print("\nPalabras más indicativas de Spam:")
+feature_names = vectorizer.get_feature_names_out()
+log_probs = nb_model.feature_log_prob_
+spam_probs = np.exp(log_probs[1])  # Clase 1 (Spam)
+top_spam_indices = np.argsort(spam_probs)[-5:][::-1]
+for idx in top_spam_indices:
+    print(f"  {feature_names[idx]}: {spam_probs[idx]:.4f}")
+```
 
 #### 5. **Aplicaciones Reales de Naive Bayes**
 
