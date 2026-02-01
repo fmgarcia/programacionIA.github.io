@@ -19,6 +19,8 @@ Los métodos clásicos tienen problemas fundamentales:
 
 Los embeddings aprenden representaciones **densas** (típicamente 50-300 dimensiones) donde:
 
+![Word Embeddings Analogía](../assets/images/word_embeddings.svg)
+
 *   Palabras similares tienen vectores similares.
 *   Las relaciones semánticas se capturan como operaciones vectoriales.
 *   El famoso ejemplo: `vector("rey") - vector("hombre") + vector("mujer") ≈ vector("reina")`

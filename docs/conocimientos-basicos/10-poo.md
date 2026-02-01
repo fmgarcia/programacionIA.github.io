@@ -13,6 +13,8 @@ Un **objeto** es una entidad que tiene:
 *   **Atributos**: Características o datos (variables).
 *   **Métodos**: Comportamientos o acciones (funciones).
 
+![Clase vs Objeto](../assets/images/class_vs_object.svg)
+
 **Ejemplo del mundo real:**
 
 Un coche tiene:
@@ -354,6 +356,8 @@ print(cuenta.historial)  # ['Depósito: +500€', 'Retiro: -200€']
 
 La **herencia** permite crear nuevas clases basadas en clases existentes.
 
+![Herencia visualizada](../assets/images/inheritance_hierarchy.svg)
+
 ### Sintaxis Básica
 
 ```python
@@ -464,6 +468,8 @@ print(D.__mro__)
 ## 10.7. Polimorfismo
 
 El **polimorfismo** permite que objetos de diferentes clases respondan al mismo método de forma diferente.
+
+![Polimorfismo Visual](../assets/images/polymorphism_shapes.svg)
 
 ```python
 class Forma:

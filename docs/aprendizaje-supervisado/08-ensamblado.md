@@ -2,6 +2,7 @@
 
 Los **Algoritmos de Ensamblado** (Ensemble Methods) son una técnica de Machine Learning que combina las predicciones de múltiples modelos base (conocidos como *weak learners* o aprendices débiles) para construir un modelo final más robusto y preciso (*strong learner*).
 
+![Ilustración de ensemble](../assets/images/ensemble.svg)
 La intuición detrás de esto es la **"Sabiduría de las Masas"**: así como la opinión colectiva de un grupo de expertos suele ser mejor que la de un solo experto, un grupo de modelos predictivos suele superar el rendimiento de un modelo individual.
 
 ---

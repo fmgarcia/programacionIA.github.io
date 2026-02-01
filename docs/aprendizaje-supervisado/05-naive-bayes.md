@@ -2,6 +2,7 @@
 
 El algoritmo de **Bayes**, también conocido como **Teorema de Bayes**, es un enfoque probabilístico utilizado para la clasificación y el análisis en inteligencia artificial y aprendizaje automático. Este algoritmo se basa en la probabilidad condicional, lo cual permite actualizar la probabilidad de un evento en función de nueva evidencia.
 
+![Ilustración de naive bayes](../assets/images/naive_bayes.svg)
 El algoritmo **Naive Bayes** simplifica el Teorema de Bayes haciendo una suposición fundamental: que todas las características (o atributos) son independientes entre sí. Esta simplificación permite construir modelos de clasificación rápidos y eficientes, especialmente útiles en aplicaciones de clasificación de texto, como la clasificación de correos electrónicos o el análisis de sentimientos.
 
 A continuación, veremos en detalle cómo se deriva el modelo Naive Bayes a partir del Teorema de Bayes y cómo funciona, junto con ejemplos y las fórmulas matemáticas correspondientes.

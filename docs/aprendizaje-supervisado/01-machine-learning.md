@@ -3,6 +3,8 @@
 
 Esta unidad introduce los conceptos fundamentales del Machine Learning (ML), su flujo de trabajo, las herramientas clave de la biblioteca `scikit-learn` del lenguaje Python, y las metodologías esenciales para la preparación, división y preprocesamiento de datos.
 
+
+![Ilustración de ml overview](../assets/images/ml_overview.svg)
 ---
 
 ### 1.1. ¿Qué es el Machine Learning?

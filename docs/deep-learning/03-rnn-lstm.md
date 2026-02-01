@@ -2,6 +2,8 @@
 
 Las **Redes Neuronales Recurrentes** (RNN) son arquitecturas diseñadas para procesar datos secuenciales, donde el orden de los elementos importa. Son fundamentales para tareas como procesamiento de texto, series temporales y audio.
 
+
+![Ilustración de rnn](../assets/images/rnn.svg)
 ---
 
 ## 3.1. ¿Por qué Redes Recurrentes?

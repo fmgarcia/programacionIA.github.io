@@ -12,6 +12,8 @@ Un **árbol de decisión** está compuesto por varios elementos fundamentales:
 - **Ramas**: Las conexiones entre nodos representan el resultado de una decisión. Cada rama lleva a un nuevo nodo o a un nodo hoja.
 - **Nodos Hoja**: Son los puntos finales del árbol. Representan la categoría final o el valor predicho para una determinada observación.
 
+![Estructura de Árbol de Decisión](../assets/images/decision_tree.svg)
+
 Cada división en un árbol de decisión intenta dividir los datos de manera que maximice la pureza de los subconjuntos resultantes, es decir, que agrupe datos similares juntos. Este proceso continúa hasta que se cumplen ciertas condiciones, como alcanzar un número mínimo de muestras en un nodo o una profundidad máxima del árbol.
 
 #### 2. **Criterios de División y Fórmulas Matemáticas**

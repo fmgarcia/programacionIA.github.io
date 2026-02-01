@@ -2,6 +2,8 @@
 
 El algoritmo **K-Means** es el método de clustering más popular y ampliamente utilizado en Machine Learning. Su simplicidad, eficiencia y escalabilidad lo convierten en la primera opción para muchas tareas de agrupamiento. K-Means particiona los datos en **k grupos** (clusters) donde cada observación pertenece al cluster con el centroide (media) más cercano.
 
+![Clustering con K-Means](../assets/images/kmeans.svg)
+
 ---
 
 ## 2.1. ¿Cómo Funciona K-Means?
@@ -64,6 +66,7 @@ K-Means busca minimizar la **inercia** (Within-Cluster Sum of Squares - WCSS):
 $$J = \sum_{i=1}^{k} \sum_{x \in C_i} ||x - \mu_i||^2$$
 
 Donde:
+
 - $k$ = número de clusters
 - $C_i$ = conjunto de puntos en el cluster $i$
 - $\mu_i$ = centroide del cluster $i$
@@ -207,6 +210,7 @@ plt.show()
 ```
 
 **Salida esperada:**
+
 ```
 Forma de los datos: (300, 2)
 Etiquetas asignadas (primeras 10): [1 0 2 2 0 3 1 0 3 2]
@@ -566,7 +570,8 @@ X_unequal = np.vstack([X1, X2])
 # - Nuevos (alta recencia, baja frecuencia)
 ```
 
-* **Tutorial completo:** [Customer Segmentation with K-Means](https://www.kaggle.com/code/kushal1996/customer-segmentation-k-means-analysis)
+* **Tutorial completo:** [Customer Segmentation with K-Means]
+  (https://www.kaggle.com/code/kushal1996/customer-segmentation-k-means-analysis)
 
 ### 2. Compresión de Imágenes
 
@@ -651,12 +656,14 @@ labels = mbkmeans.fit_predict(X_large)
 ### ¿Cuándo elegir K-Means?
 
 ✅ **Usar K-Means cuando:**
+
 - Los clusters son aproximadamente esféricos
 - Se conoce (o puede estimarse) el número de clusters
 - El dataset es grande (escalabilidad)
 - Se necesita interpretabilidad (centroides)
 
 ❌ **Considerar alternativas cuando:**
+
 - Clusters de formas arbitrarias → DBSCAN
 - Clusters jerárquicos → Agglomerative Clustering
 - Outliers significativos → K-Medoids

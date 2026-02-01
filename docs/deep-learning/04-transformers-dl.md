@@ -2,6 +2,8 @@
 
 Los **Transformers** (Vaswani et al., 2017) revolucionaron el campo del Deep Learning al introducir el mecanismo de **atención** como único componente para modelar secuencias, eliminando la necesidad de recurrencia.
 
+
+![Ilustración de transformer](../assets/images/transformer.svg)
 ---
 
 ## 4.1. Motivación: Limitaciones de las RNN

@@ -8,6 +8,8 @@ Las **Generative Adversarial Networks** (GANs) son un paradigma de aprendizaje d
 
 Introducidas por Ian Goodfellow en 2014, las GANs consisten en dos redes que se entrenan simultáneamente:
 
+![Ciclo GAN](../assets/images/gan_loop.svg)
+
 ### Componentes
 
 *   **Generador (G):** Genera datos falsos a partir de ruido aleatorio.

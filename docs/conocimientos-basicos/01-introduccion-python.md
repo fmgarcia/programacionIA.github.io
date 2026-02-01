@@ -2,6 +2,8 @@
 
 ## 1.1. ¿Qué es Python?
 
+
+![Ilustración de python intro](../assets/images/python_intro.svg)
 **Python** es un lenguaje de programación de alto nivel, interpretado y de propósito general. Fue creado por **Guido van Rossum** y lanzado por primera vez en 1991.
 
 ### Características Principales

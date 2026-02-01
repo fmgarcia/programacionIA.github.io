@@ -22,6 +22,8 @@ El Deep Learning se diferencia del ML tradicional en su capacidad para aprender 
 
 El término "profundo" se refiere a la **cantidad de capas** en la red neuronal. Mientras que las redes neuronales tradicionales tenían 1-2 capas ocultas, las redes profundas pueden tener cientos o miles de capas.
 
+![Arquitectura de Neural Network](../assets/images/neural_network.svg)
+
 ```
 Red Neuronal Tradicional:    Red Neuronal Profunda:
     Input                        Input
@@ -47,11 +49,11 @@ La unidad básica de una red neuronal es la **neurona artificial**, inspirada (d
 
 ### Funcionamiento
 
-1.  **Entradas:** Recibe valores $x_1, x_2, ..., x_n$
-2.  **Pesos:** Cada entrada tiene un peso asociado $w_1, w_2, ..., w_n$
-3.  **Suma ponderada:** $z = \sum_{i=1}^{n} w_i \cdot x_i + b$ (donde $b$ es el bias)
-4.  **Activación:** $a = f(z)$ (función de activación)
-5.  **Salida:** El valor $a$ se pasa a la siguiente capa
+1. **Entradas:** Recibe valores $x_1, x_2, ..., x_n$
+2. **Pesos:** Cada entrada tiene un peso asociado $w_1, w_2, ..., w_n$
+3. **Suma ponderada:** $z = \sum_{i=1}^{n} w_i \cdot x_i + b$ (donde $b$ es el bias)
+4. **Activación:** $a = f(z)$ (función de activación)
+5. **Salida:** El valor $a$ se pasa a la siguiente capa
 
 ### Representación Matemática
 

@@ -18,6 +18,8 @@ $$
 
 La regresión lineal se utiliza principalmente para problemas de predicción numérica, como el precio de una vivienda, el rendimiento de una acción o cualquier otra situación en la que exista una relación lineal entre las variables.
 
+![Regresión Lineal Simple](../assets/images/linear_regression.svg)
+
 #### Ejemplo en Python: Regresión Lineal Simple
 
 ```python

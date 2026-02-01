@@ -2,6 +2,8 @@
 
 Las **Redes Neuronales Convolucionales** (Convolutional Neural Networks - CNN) son arquitecturas especializadas en procesar datos con estructura de cuadrícula, como imágenes. Son el estándar para tareas de visión por computadora.
 
+![Arquitectura Completa CNN](../assets/images/cnn_architecture.svg)
+
 ---
 
 ## 2.1. ¿Por qué CNN para Imágenes?
@@ -32,6 +34,8 @@ $$150,528 \times 1000 = 150,528,000 \text{ parámetros}$$
 ## 2.2. La Operación de Convolución
 
 La convolución es una operación matemática que aplica un **filtro** (kernel) sobre la imagen.
+
+![Operación de Convolución](../assets/images/conv_operation.svg)
 
 ### Proceso
 
@@ -134,6 +138,8 @@ conv_layer = Conv2D(
 ### Capa de Pooling (MaxPool, AvgPool)
 
 Reduce las dimensiones espaciales, manteniendo las características más importantes.
+
+![Detalle de Max Pooling](../assets/images/pooling_detail.svg)
 
 ```python
 from tensorflow.keras.layers import MaxPooling2D, AveragePooling2D

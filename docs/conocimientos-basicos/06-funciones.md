@@ -2,6 +2,8 @@
 
 Las **funciones** son bloques de código reutilizables que realizan una tarea específica. Permiten organizar el código, evitar repeticiones y facilitar el mantenimiento.
 
+![Concepto de Función input-output](../assets/images/function_concept.svg)
+
 ---
 
 ## 6.1. Definición de Funciones

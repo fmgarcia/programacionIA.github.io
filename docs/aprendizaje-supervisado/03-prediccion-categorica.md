@@ -2,6 +2,8 @@
 
 La **clasificación** es una subcategoría del aprendizaje supervisado donde el objetivo es predecir una etiqueta de clase categórica (discreta) para una instancia de datos dada. A diferencia de la regresión, que predice valores continuos, la clasificación asigna entradas a una de varias categorías predefinidas.
 
+
+![Ilustración de logistic regression](../assets/images/logistic_regression.svg)
 ---
 
 ### 3.1. Entrenamiento y Testing en Clasificación

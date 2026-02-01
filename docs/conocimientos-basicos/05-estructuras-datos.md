@@ -6,7 +6,9 @@ Python ofrece varias estructuras de datos incorporadas para almacenar coleccione
 
 ## 5.1. Listas
 
-Las **listas** son colecciones ordenadas y modificables de elementos. Pueden contener elementos de diferentes tipos.
+Las **listas** son colecciones ordenadas y modificables de elementos.
+
+![Memoria en Listas](../assets/images/list_memory.svg)
 
 ### Creación de Listas
 
@@ -312,7 +314,9 @@ print(f"Cociente: {c}, Resto: {r}")
 
 ## 5.3. Diccionarios
 
-Los **diccionarios** almacenan pares clave-valor. Son muy útiles para representar datos estructurados.
+Los **diccionarios** almacenan pares clave-valor. Utilizan tablas hash internamente para búsquedas muy rápidas.
+
+![Funcionamiento HashTable](../assets/images/dict_hashing.svg)
 
 ### Creación de Diccionarios
 
@@ -539,6 +543,8 @@ print("manzana" in frutas)  # True o False
 ```
 
 ### Operaciones de Conjuntos
+
+![Operaciones de Conjuntos (Venn)](../assets/images/set_venn.svg)
 
 ```python
 A = {1, 2, 3, 4, 5}

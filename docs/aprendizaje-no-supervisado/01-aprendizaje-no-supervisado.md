@@ -2,6 +2,8 @@
 
 Esta unidad introduce los conceptos fundamentales del **Aprendizaje No Supervisado**, sus diferencias con el aprendizaje supervisado, las bibliotecas Python necesarias, el flujo de trabajo típico, y las metodologías esenciales para preparar datos y evaluar resultados en ausencia de etiquetas.
 
+
+![Ilustración de unsup overview](../assets/images/unsup_overview.svg)
 ---
 
 ## 1.1. ¿Qué es el Aprendizaje No Supervisado?

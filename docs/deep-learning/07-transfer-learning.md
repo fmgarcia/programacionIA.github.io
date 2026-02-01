@@ -10,6 +10,8 @@
 
 En lugar de entrenar una red desde cero, usamos una red **preentrenada** en un dataset grande (ImageNet, Wikipedia, etc.) y la adaptamos a nuestro problema específico.
 
+![Transfer Learning Strategy](../assets/images/transfer_learning.svg)
+
 ```
 Modelo Preentrenado          Tu Problema
 (ImageNet: 14M imágenes)     (Tu dataset: 1000 imágenes)

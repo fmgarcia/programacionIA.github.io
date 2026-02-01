@@ -20,6 +20,8 @@ La pregunta clave es: **¿Cómo convertimos texto en vectores numéricos que cap
 
 El modelo **Bag of Words** (Bolsa de Palabras) es la representación más simple. Convierte un documento en un vector donde cada dimensión representa una palabra del vocabulario, y el valor es la **frecuencia** de esa palabra en el documento.
 
+![Representación Bag of Words](../assets/images/bow_matrix.svg)
+
 ### Características
 
 *   **Ignora el orden:** "El perro muerde al hombre" y "El hombre muerde al perro" tendrían la misma representación.

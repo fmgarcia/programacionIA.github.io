@@ -2,6 +2,8 @@
 
 **Isolation Forest** es un algoritmo de **detección de anomalías no supervisado** basado en árboles de decisión. A diferencia de otros métodos que intentan modelar los datos normales, Isolation Forest se enfoca en **aislar las anomalías**. La idea clave es que las anomalías son más fáciles de aislar porque son raras y tienen valores atípicos, lo que significa que requieren menos divisiones para separarlas del resto.
 
+
+![Ilustración de isolation forest](../assets/images/isolation_forest.svg)
 ---
 
 ## 7.1. ¿Cómo Funciona Isolation Forest?

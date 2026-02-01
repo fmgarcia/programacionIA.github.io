@@ -2,7 +2,9 @@
 
 ## 2.1. ¿Qué es una Variable?
 
-Una **variable** es un espacio en la memoria del ordenador donde guardamos información. Piensa en ella como una "caja" con una etiqueta (nombre) donde almacenamos un valor.
+Una **variable** es un espacio en la memoria del ordenador donde guardamos información. En Python, técnicamente son **etiquetas** que hacen referencia a objetos en memoria.
+
+![Modelo de Memoria de Variables](../assets/images/python_variables.svg)
 
 ```python
 # Creamos una variable llamada "edad" y le asignamos el valor 25
@@ -75,6 +77,8 @@ print(b)  # 5
 ## 2.2. Tipos de Datos Básicos
 
 Python tiene varios tipos de datos fundamentales:
+
+![Jerarquía de Tipos Python](../assets/images/python_types.svg)
 
 | Tipo | Nombre en Python | Ejemplo |
 | :--- | :--- | :--- |

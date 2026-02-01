@@ -2,6 +2,7 @@
 
 El algoritmo **K-Nearest Neighbors** (K-Vecinos Más Cercanos) es uno de los métodos más simples y efectivos en Machine Learning supervisado. Se utiliza tanto para problemas de **clasificación** como de **regresión**. Es un algoritmo **no paramétrico** (no hace suposiciones sobre la distribución de los datos subyacentes) y de **aprendizaje perezoso** (lazy learning), lo que significa que no "aprende" un modelo discriminativo durante la fase de entrenamiento, sino que memoriza los datos de entrenamiento para realizar predicciones en el momento necesario.
 
+![Ilustración de knn](../assets/images/knn.svg)
 ---
 
 ### 6.1. ¿Cómo funciona el algoritmo?

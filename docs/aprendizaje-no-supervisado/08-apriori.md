@@ -2,6 +2,8 @@
 
 **Apriori** es un algoritmo clásico de **minería de reglas de asociación** utilizado para descubrir patrones frecuentes y relaciones entre ítems en grandes datasets transaccionales. Es famoso por su aplicación en el **análisis de la cesta de la compra** (Market Basket Analysis), donde se identifican qué productos suelen comprarse juntos. A diferencia de otros algoritmos de aprendizaje no supervisado, Apriori trabaja con datos transaccionales discretos.
 
+
+![Ilustración de apriori](../assets/images/apriori.svg)
 ---
 
 ## 8.1. ¿Qué son las Reglas de Asociación?
