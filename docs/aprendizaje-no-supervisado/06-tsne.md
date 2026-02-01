@@ -2,7 +2,6 @@
 
 **t-SNE** (t-distributed Stochastic Neighbor Embedding) es una técnica de **reducción de dimensionalidad no lineal** diseñada específicamente para **visualización** de datos de alta dimensión. A diferencia de PCA que preserva la varianza global, t-SNE se enfoca en preservar la **estructura local**: los puntos que son similares en el espacio original permanecen cercanos en el espacio reducido. Esto lo hace excepcional para revelar clusters y patrones ocultos.
 
-
 ![Ilustración de tsne](../assets/images/tsne.svg)
 ---
 

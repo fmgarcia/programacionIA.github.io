@@ -2,7 +2,6 @@
 
 El **Análisis de Componentes Principales** (PCA, del inglés *Principal Component Analysis*) es la técnica de **reducción de dimensionalidad** más utilizada en Machine Learning y estadística. PCA transforma los datos a un nuevo sistema de coordenadas donde las primeras dimensiones (componentes principales) capturan la mayor parte de la **varianza** de los datos. Es una técnica fundamental para visualización, compresión de datos y preprocesamiento.
 
-
 ![Ilustración de pca](../assets/images/pca.svg)
 ---
 

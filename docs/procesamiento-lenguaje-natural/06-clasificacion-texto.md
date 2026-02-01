@@ -2,7 +2,6 @@
 
 La **Clasificación de Texto** es una de las tareas más comunes y útiles del NLP. Consiste en asignar automáticamente una o más categorías predefinidas a un documento de texto.
 
-
 ![Ilustración de text class](../assets/images/text_class.svg)
 ---
 

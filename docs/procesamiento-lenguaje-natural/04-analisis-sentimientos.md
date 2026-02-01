@@ -2,8 +2,6 @@
 
 El **Análisis de Sentimientos** (Sentiment Analysis), también conocido como **minería de opiniones**, es una de las aplicaciones más populares del NLP. Consiste en determinar la actitud, emoción u opinión expresada en un texto.
 
-
-![Ilustración de sentiment](../assets/images/sentiment.svg)
 ---
 
 ## 4.1. ¿Qué es el Análisis de Sentimientos?

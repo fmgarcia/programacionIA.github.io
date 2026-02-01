@@ -2,7 +2,6 @@
 
 Las **Máquinas de Vectores de Soporte** (Support Vector Machines o SVM) son un conjunto de algoritmos de aprendizaje supervisado potentes y versátiles, utilizados tanto para **clasificación** (SVC) como para **regresión** (SVR). Su objetivo principal es encontrar el hiperplano óptimo que mejor separe las clases en el espacio de características.
 
-![Ilustración de svm](../assets/images/svm.svg)
 ---
 
 ### 7.1. ¿Cómo funciona el algoritmo?

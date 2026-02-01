@@ -2,8 +2,6 @@
 
 Las **estructuras de control** permiten modificar el flujo de ejecución de un programa. Incluyen condicionales (decisiones) y bucles (repeticiones).
 
-![Flujo de Control: Condicional y Bucle](../assets/images/control_flow.svg)
-
 ---
 
 ## 4.1. Condicionales: if, elif, else

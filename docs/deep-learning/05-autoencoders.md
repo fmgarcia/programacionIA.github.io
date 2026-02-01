@@ -8,8 +8,6 @@ Los **Autoencoders** son redes neuronales que aprenden representaciones comprimi
 
 Un autoencoder es una red que aprende a **codificar** datos en una representación comprimida (espacio latente) y luego **decodificarlos** para reconstruir la entrada original.
 
-![Arquitectura de Autoencoder](../assets/images/autoencoder_arch.svg)
-
 ### Arquitectura
 
 ```

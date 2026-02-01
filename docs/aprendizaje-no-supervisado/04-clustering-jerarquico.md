@@ -2,7 +2,6 @@
 
 El **Clustering Jerárquico** es una familia de algoritmos que construyen una **jerarquía de clusters** en lugar de una partición plana. Su característica distintiva es que produce un **dendrograma**: una estructura de árbol que muestra cómo se forman o dividen los clusters a diferentes niveles de similitud. Este enfoque permite explorar la estructura de los datos a múltiples escalas sin necesidad de especificar el número de clusters a priori.
 
-
 ![Ilustración de hierarchical](../assets/images/hierarchical.svg)
 ---
 

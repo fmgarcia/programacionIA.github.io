@@ -35,8 +35,6 @@ $$150,528 \times 1000 = 150,528,000 \text{ parámetros}$$
 
 La convolución es una operación matemática que aplica un **filtro** (kernel) sobre la imagen.
 
-![Operación de Convolución](../assets/images/conv_operation.svg)
-
 ### Proceso
 
 1.  El filtro se desliza sobre la imagen.

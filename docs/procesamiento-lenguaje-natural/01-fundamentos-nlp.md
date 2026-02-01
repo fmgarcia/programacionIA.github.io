@@ -2,8 +2,6 @@
 
 El **Procesamiento de Lenguaje Natural (NLP)** es una disciplina en la intersección de la lingüística, la informática y la inteligencia artificial. Su objetivo es permitir que las máquinas comprendan, interpreten y generen lenguaje humano de forma útil.
 
-
-![Ilustración de nlp basics](../assets/images/nlp_basics.svg)
 ---
 
 ## 1.1. ¿Qué es el NLP?
