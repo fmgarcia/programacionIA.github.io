@@ -188,7 +188,91 @@ if not lloviendo:
 
 ---
 
-## 4.2. Bucle while
+## 4.2. Condicionales: match, case
+
+La sentencia `match` (disponible desde Python 3.10) permite comparar una expresión con varios patrones de forma clara y concisa. Es similar al `switch` de otros lenguajes, pero mucho más poderosa.
+
+### Sintaxis Básica
+
+```python
+match variable:
+    case valor1:
+        # código si coincide con valor1
+    case valor2:
+        # código si coincide con valor2
+    case _:
+        # caso por defecto (si ninguno coincide)
+```
+
+**Importante:** El caso `_` actúa como el `else`, se ejecuta si ningún patrón anterior coincide.
+
+### Ejemplo: Días de la Semana
+
+```python
+dia = input("¿En qué día de la semana estamos? ")
+
+match dia:
+    case "lunes":
+        print("Hoy es lunes, ¡comienza la semana!")
+    case "martes":
+        print("Hoy es martes, ¡a seguir adelante!")
+    case "miércoles":
+        print("Hoy es miércoles, ¡ya estamos a mitad de semana!")
+    case "jueves":
+        print("Hoy es jueves, ¡casi es fin de semana!")
+    case "viernes":
+        print("Hoy es viernes, ¡por fin es fin de semana!")
+    case "sábado":
+        print("Hoy es sábado, ¡disfruta tu día de descanso!")
+    case "domingo":
+        print("Hoy es domingo, ¡prepárate para la semana que viene!")
+    case _:
+        print("¡Día no reconocido! Por favor, introduce un día válido.")
+```
+
+### Múltiples Valores con `|`
+
+Puedes agrupar varios valores en un mismo caso usando el operador `|`:
+
+```python
+dia = input("¿En qué día de la semana estamos? ")
+
+match dia:
+    case "lunes" | "martes" | "miércoles" | "jueves" | "viernes":
+        print("Hoy es un día laboral, ¡a trabajar!")
+    case "sábado" | "domingo":
+        print("¡Es fin de semana, disfruta tu día de descanso!")
+    case _:
+        print("¡Día no reconocido! Por favor, introduce un día válido.")
+```
+
+### Patrones con Tuplas y Guardas
+
+`match` también puede comparar estructuras como tuplas. Además, se pueden añadir condiciones extra con `if` (llamadas **guardas**):
+
+```python
+coordenadas = (3, 4)
+
+match coordenadas:
+    case (0, 0):
+        print("El punto está en el origen")
+    case (x, 0):
+        print(f"El punto está sobre el eje X en x={x}")
+    case (0, y):
+        print(f"El punto está sobre el eje Y en y={y}")
+    case (x, y) if x > 0 and y > 0:
+        print(f"Primer cuadrante: ({x}, {y})")
+    case (x, y) if x < 0 and y > 0:
+        print(f"Segundo cuadrante: ({x}, {y})")
+    case (x, y) if x < 0 and y < 0:
+        print(f"Tercer cuadrante: ({x}, {y})")
+    case (x, y) if x > 0 and y < 0:
+        print(f"Cuarto cuadrante: ({x}, {y})")
+```
+
+---
+
+## 4.3. Bucle while
 
 El bucle `while` repite un bloque de código **mientras** una condición sea verdadera.
 
@@ -317,7 +401,7 @@ while opcion != 4:
 
 ---
 
-## 4.3. Bucle for
+## 4.4. Bucle for
 
 El bucle `for` itera sobre una secuencia (lista, string, range, etc.).
 
@@ -469,7 +553,7 @@ for clave, valor in persona.items():
 
 ---
 
-## 4.4. Control de Bucles: break, continue, else
+## 4.5. Control de Bucles: break, continue, else
 
 ### break - Salir del Bucle
 
@@ -557,7 +641,7 @@ else:
 
 ---
 
-## 4.5. Bucles Anidados
+## 4.6. Bucles Anidados
 
 Un bucle dentro de otro:
 
@@ -644,7 +728,7 @@ if not encontrado:
 
 ---
 
-## 4.6. Comprensión de Listas (List Comprehension)
+## 4.7. Comprensión de Listas (List Comprehension)
 
 Una forma concisa de crear listas con bucles:
 
@@ -697,7 +781,7 @@ print(plana)  # [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 ---
 
-## 4.7. Ejercicios Prácticos
+## 4.8. Ejercicios Prácticos
 
 ### Ejercicio 1: Calculadora con Menú
 
@@ -860,13 +944,15 @@ print(f"\nResultado final: Tú {puntos_jugador} - {puntos_computadora} Computado
 
 ---
 
-## 4.8. Resumen
+## 4.9. Resumen
 
 | Estructura | Uso |
 | :--- | :--- |
 | `if` | Ejecutar código si se cumple una condición |
 | `elif` | Condición alternativa |
 | `else` | Si ninguna condición anterior se cumple |
+| `match` / `case` | Comparar una expresión con múltiples patrones |
+| `_` | Caso por defecto en `match` |
 | `while` | Repetir mientras una condición sea verdadera |
 | `for` | Iterar sobre una secuencia |
 | `break` | Salir del bucle |
